@@ -9,3 +9,5 @@ Connecting Netbeans to MySQL Workbench
 3. Configure JDBC URL to match local user and password
 
 4. Test connection
+
+EXPECTED DL: 12-21-2024
