@@ -1,32 +1,23 @@
 package finalsoop;
 import java.sql.*;
+import javax.swing.*;
+import com.formdev.flatlaf.FlatLightLaf;
 
 public class FinalsOOP {
 
  Connection conn = new finalsConnect().Connect();
  public static void main(String[] args) {
+        try {
+            // Set FlatLaf as the Look and Feel
+            UIManager.setLookAndFeel(new FlatLightLaf());
+        } catch (Exception ex) {
+            System.err.println("Failed to initialize FlatLaf");
+            ex.printStackTrace();
+        }
         FinalsOOP op = new FinalsOOP();
-        // MainScreen ms = new MainScreen();
-        // ms.setVisible(true);
-        op.addCollegeRecord("CN", "Trash", "1999-01-01", "9999-12-12", "A");
+        schoolManagementMainUI ms = new schoolManagementMainUI();
+        ms.setVisible(true);
     }
- 
- public void addCollegeRecord(String strCollegeCode, String strDesc, String strDateOpened, String strDateClosed, String strStatus){
-     Statement ps = null;
-     ResultSet rs = null;
-     try{
-         ps = conn.createStatement();
-         ps.execute("INSERT INTO finalsoop.college(college_code, description, date_opened, date_closed, status) VALUES ('" 
-                 + strCollegeCode + "', '"
-                 + strDesc + "', '"
-                 + strDateOpened + "', '"
-                 + strDateClosed + "', '"
-                 + strStatus + "')");
-     }catch(SQLException e){
-         System.out.println(e);
-     }
-     
- }
  public void deleteRecord(){}
  public void updateRecord(){}
  public void viewRecords(){}
