@@ -258,9 +258,17 @@ INSERT INTO finalsoop.student (student_no, lastname, firstname, email, gender, c
     ('2023-34033', 'Camacho', 'Daniel Hardy', 'dccamacho@gmail.com', 'M', 'BSCS-CS', '09567434580', 'Sta. Mesa', '2004-09-16', 'A', '2023-08-01', '2027-08-01'),
     ('2023-34026', 'Magbag', 'Dave', 'dmagbag@gmail.com', 'M', 'BSCS-CS', '09994110531', 'Abad Santos', '2005-05-07', 'A', '2023-08-01', '2027-08-01'),
 	('2024-535', 'Flowers', 'Ramona', 'ramona.flowers@scanner.com', 'F', 'BSCS-CS', '09171234567', 'Brooklyn', '1990-10-04', 'A', '2023-08-01', '2027-08-01');
-
 -- ('12345', 'Atienza', 'Francis', 'fcatienza@yahoo.com', 'M', 'BSCS-CS', '0998123456', 'Cavite', '2000-01-12', 'I', '2020-09-01', '2024-07-31'),
 -- ('12346', 'Aquino', 'Kris', 'aquinok@yahoo.com', 'F', 'BSCS-CS', '0998654321', 'Tarlac', '2000-02-14', 'A', '2022-09-01', '9999-12-31');
+
+-- EMPLOYEE TABLE
+INSERT INTO finalsoop.employee (employee_id, lastname, firstname, email, gender, cp_num, address, bday, status, date_started, date_resigned) VALUES 
+	('E003', 'Pascual', 'Elsa', 'epasaual@yahoo.com', 'F', '091234567', 'Manila', NULL, 'A', '2001-09-16', '9999-12-31'),
+    ('E004', 'Demegillo', 'Shiela', 'sdemegillo@yahoo.com', 'F', '09987654', 'Rizal', NULL, 'A', '2016-09-12', '9999-12-31'),
+	('E005', 'Foe', 'Jonathan', 'jfoe@yahoo.com', 'M', '09675931', 'Chicago', NULL, 'A', '2000-12-23', '9999-12-31');
+    
+-- ('E001', 'Regala', 'Richard', 'rregala@yahoo.com', 'M', '09987654321', 'Manila', NULL, 'A', '1994-06-01', '9999-12-31'),
+-- ('E002', 'Santos', 'Rene', 'rsantos@yahoo.com', 'M', '09997654321', 'Manila', NULL, 'A', '2000-06-01', '9999-12-31');
 
 SELECT college_code FROM finalsoop.college;
 DESCRIBE finalsoop.course;
