@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.ResultSet;
+import javax.swing.table.DefaultTableModel;
 
 /**
  * Database manager class that handles all database operations for the student
@@ -24,9 +25,28 @@ public class dbManager {
 	public dbManager(Connection conn) {
 		this.conn = conn;
 	}
+        public void populateTable(ResultSet rs, javax.swing.JTable table) {
+            try {
+                DefaultTableModel model = new DefaultTableModel();
+                int columnCount = rs.getMetaData().getColumnCount();
+
+                for (int i = 1; i <= columnCount; i++) {
+                    model.addColumn(rs.getMetaData().getColumnLabel(i));
+                }
+                while (rs.next()) {
+                    Object[] row = new Object[columnCount];
+                    for (int i = 1; i <= columnCount; i++) {
+                        row[i - 1] = rs.getObject(i);
+                    }
+                    model.addRow(row);
+                }
+                table.setModel(model);
+            } catch (SQLException e) {
+                System.out.println(e);
+            }
+        }
 
 	private Connection conn;
-
 	/**
 	 * Adds a record to the `college` table.
 	 *
