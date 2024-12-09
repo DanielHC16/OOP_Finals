@@ -12,9 +12,9 @@ Connecting Netbeans to MySQL Workbench
 
 4. Test connection
 
-## CRUD Operation
+### CRUD Operation
 
-# dbManager
+#### dbManager
 - The dbManager class consists of CRUD methods for each table. The class takes in a "Connection" as a parameter. Please refer to the javadoc on how each method should be used.
 
 EXPECTED DL: 12-21-2024
