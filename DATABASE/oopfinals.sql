@@ -187,8 +187,72 @@ JOIN
 JOIN
     finalsoop.subject sub ON g.subject_code = sub.subject_code;
 
+-- Populating Tables
+
+-- COLLEGE TABLE 
+INSERT INTO finalsoop.college (college_code, description, date_opened, date_closed, status) VALUES 
+	('CASBE', 'College of Architecture and Sustainable Built Environments', '1970-01-01', '9999-12-31', 'A'), -- NOTE: DATE FORMAT = YYYY/MM/DD
+    ('CA', 'College of Accountancy', '1970-01-01', '9999-12-31', 'A'),
+    ('CBA', 'College of Business Administration', '1970-01-01', '9999-12-21', 'A'),
+    -- ('CEng', 'College of Engineering', '1970-08-01', '9999-12-31', 'A'),
+    ('CHASS', 'College of Humanities, Arts and Social Sciences', '1970-01-01', '9999-12-31', 'A'),
+    ('CN', 'College of Nursing', '1970-01-01', '9999-12-31', 'A'),
+    ('CPT', 'College of Physial Therapy', '1970-01-01', '9999-12-31', 'A'),
+    ('CS', 'College of Science', '1970-01-01', '9999-12-31', 'A'),
+    ('CED', 'College of Education', '1970-01-01', '9999-12-31', 'A'),
+    ('CEng', 'College of Engineering', '1970-01-01', '9999-12-31', 'A'),
+    ('CPA', 'College of Public Administration', '1970-01-01', '9999-12-31', 'A');
+	-- ('CET', 'College of Engineering and Technology', '1970-06-01', '9999-12-31', 'A'),
+	-- ('CISTM', 'College of Information, Systems and Technology Management', '2024-09-01', '9999-12-31', 'A');
+    
 
 
+-- COURSE TABLE
+INSERT INTO finalsoop.course (course_code, description, college_code, date_opened, date_closed, status) VALUES 
+   -- ('BS Arch', 'Bachelor of Science in Architecture', 'CASBE', '2000-01-01', '9999-12-31', 'A'),
+    ('BSA', 'Bachelor of Science in Accountancy', 'CA', '2000-01-01', '9999-12-31', 'A'),
+    ('BS BA-FM', 'Bachelor of Science in Business Administration major in Financial Management', 'CBA', '2000-01-01', '9999-12-31', 'A'),
+    ('BS BA-MM', 'Bachelor of Science in Business Administration major in Marketing Management', 'CBA', '2000-01-01', '9999-12-31', 'A'),
+    ('BS BA-BE', 'Bachelor of Science in Business Administration major in Business Economics', 'CBA', '2000-01-01', '9999-12-31', 'A'),
+    ('BS Entrep', 'Bachelor of Science in Entrepreneurship', 'CBA', '2000-01-01', '9999-12-31', 'A'),
+    ('BS HM', 'Bachelor of Science in Hospitality Management', 'CBA', '2000-01-01', '9999-12-31', 'A'),
+    ('BS REM', 'Bachelor of Science in Real Estate Management', 'CBA', '2000-01-01', '9999-12-31', 'A'),
+    ('BS TM', 'Bachelor of Science in Tourism Management', 'CBA', '2000-01-01', '9999-12-31', 'A'),
+    ('BS CHE', 'Bachelor of Science in Chemical Engineering', 'CEng', '2000-01-01', '9999-12-31', 'A'),
+    ('BS CE', 'Bachelor of Science in Civil Engineering', 'CEng', '2000-01-01', '9999-12-31', 'A'),
+    ('BS CpE', 'Bachelor of Science in Computer Engineering', 'CEng', '2000-01-01', '9999-12-31', 'A'),
+    ('BS EE', 'Bachelor of Science in Electrical Engineering', 'CEng', '2000-01-01', '9999-12-31', 'A'),
+    ('BS ECE', 'Bachelor of Science in Electronics Engineering', 'CEng', '2000-01-01', '9999-12-31', 'A'),
+    ('BS ME', 'Bachelor of Science in Mechanical Engineering', 'CEng', '2000-01-01', '9999-12-31', 'A'),
+    ('BS MfgE', 'Bachelor of Science in Manufacturing Engineering', 'CEng', '2000-01-01', '9999-12-31', 'A'),
+   -- ('BS CS', 'Bachelor of Science in Computer Science', 'CISTM', '2000-01-01', '9999-12-31', 'A'),
+   -- ('BS IT', 'Bachelor of Science in Information Technology', 'CISTM', '2000-01-01', '9999-12-31', 'A'),
+    ('BAC', 'Bachelor of Science in Communication', 'CHASS', '2000-01-01', '9999-12-31', 'A'),
+    ('BAC-PR', 'Bachelor of Science Communication major in Public Relations', 'CHASS', '2000-01-01', '9999-12-31', 'A'),
+    ('BMMP', 'Bachelor of Music in Music Performance', 'CHASS', '2000-01-01', '9999-12-31', 'A'),
+    ('BS SW', 'Bachelor of Science in Social Work', 'CHASS', '2000-01-01', '9999-12-31', 'A'),
+    ('BSN', 'Bachelor of Science in Nursing', 'CN', '2000-01-01', '9999-12-31', 'A'),
+    ('BS PT', 'Bachelor of Science in Physical Therapy', 'CPT', '2000-01-01', '9999-12-31', 'A'),
+    ('BS Bio', 'Bachelor of Science in Biology', 'CS', '2000-01-01', '9999-12-31', 'A'),
+    ('BS Math', 'Bachelor of Science in Mathematics', 'CS', '2000-01-01', '9999-12-31', 'A'),
+    ('BS Chem', 'Bachelor of Science in Chemistry', 'CS', '2000-01-01', '9999-12-31', 'A'),
+    ('BS Psy', 'Bachelor of Science in Psychology', 'CS', '2000-01-01', '9999-12-31', 'A'),
+    ('BEEd', 'Bachelor of Elementary Education', 'CED', '2000-01-01', '9999-12-31', 'A'),
+    ('BECED', 'Bachelor of Early Childhood Education', 'CED', '2000-01-01', '9999-12-31', 'A'),
+    ('BSNED Generalist', 'Bachelor of Special Needs Education', 'CED', '2000-01-01', '9999-12-31', 'A'),
+    ('BPEd', 'Bachelor of Physical Education', 'CED', '2000-01-01', '9999-12-31', 'A'),
+    ('BSEd-Eng', 'Bachelor of Secondary Education with Specialization in English', 'CED', '2000-01-01', '9999-12-31', 'A'),
+    ('BSEd-Fil', 'Bachelor of Secondary Education with Specialization in Filipino', 'CED', '2000-01-01', '9999-12-31', 'A'),
+    ('BSEd-Math', 'Bachelor of Secondary Education with Specialization in Mathematics', 'CED', '2000-01-01', '9999-12-31', 'A'),
+    ('BSEd-Sci', 'Bachelor of Secondary Education with Specialization in Science', 'CED', '2000-01-01', '9999-12-31', 'A'),
+    ('BSEd-SS', 'Bachelor of Secondary Education with Specialization in Social Studies', 'CED', '2000-01-01', '9999-12-31', 'A'),
+    ('BPA', 'Bachelor of Public Administration', 'CPA', '2000-01-01', '9999-12-31', 'A');
+-- ('BSCS-CS', 'BSComputer Studies-Computer Science', 'CET', '2000-06-01', '9999-12-31', 'A'),
+-- ('BSCS-IT', 'BSComputer Studies-Information Technology', 'CISTM', '2000-06-01', '9999-12-31', 'A');
+
+SELECT college_code FROM finalsoop.college;
+DESCRIBE finalsoop.course;
+DESCRIBE finalsoop.college;
 
 
 
