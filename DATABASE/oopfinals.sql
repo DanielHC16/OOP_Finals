@@ -187,7 +187,7 @@ JOIN
 JOIN
     finalsoop.subject sub ON g.subject_code = sub.subject_code;
 
--- Populating Tables
+-- Populating Tables **
 
 -- COLLEGE TABLE 
 INSERT INTO finalsoop.college (college_code, description, date_opened, date_closed, status) VALUES 
@@ -205,6 +205,8 @@ INSERT INTO finalsoop.college (college_code, description, date_opened, date_clos
 	-- ('CET', 'College of Engineering and Technology', '1970-06-01', '9999-12-31', 'A'),
 	-- ('CISTM', 'College of Information, Systems and Technology Management', '2024-09-01', '9999-12-31', 'A');
     
+ALTER TABLE finalsoop.course
+MODIFY COLUMN course_code VARCHAR(30);
 
 
 -- COURSE TABLE
@@ -249,6 +251,16 @@ INSERT INTO finalsoop.course (course_code, description, college_code, date_opene
     ('BPA', 'Bachelor of Public Administration', 'CPA', '2000-01-01', '9999-12-31', 'A');
 -- ('BSCS-CS', 'BSComputer Studies-Computer Science', 'CET', '2000-06-01', '9999-12-31', 'A'),
 -- ('BSCS-IT', 'BSComputer Studies-Information Technology', 'CISTM', '2000-06-01', '9999-12-31', 'A');
+
+-- STUDENT TABLE
+INSERT INTO finalsoop.student (student_no, lastname, firstname, email, gender, course_code, cp_num, address, bday, status, date_started, date_graduated) VALUES 
+    ('2023-34017', 'Balboa', 'Marc Jerome', 'mcbalboa@gmail.com', 'M', 'BSCS-CS', '09321722905', 'Tondo', '2004-07-26', 'A', '2023-08-01', '2027-08-01'),
+    ('2023-34033', 'Camacho', 'Daniel Hardy', 'dccamacho@gmail.com', 'M', 'BSCS-CS', '09567434580', 'Sta. Mesa', '2004-09-16', 'A', '2023-08-01', '2027-08-01'),
+    ('2023-34026', 'Magbag', 'Dave', 'dmagbag@gmail.com', 'M', 'BSCS-CS', '09994110531', 'Abad Santos', '2005-05-07', 'A', '2023-08-01', '2027-08-01'),
+	('2024-535', 'Flowers', 'Ramona', 'ramona.flowers@scanner.com', 'F', 'BSCS-CS', '09171234567', 'Brooklyn', '1990-10-04', 'A', '2023-08-01', '2027-08-01');
+
+-- ('12345', 'Atienza', 'Francis', 'fcatienza@yahoo.com', 'M', 'BSCS-CS', '0998123456', 'Cavite', '2000-01-12', 'I', '2020-09-01', '2024-07-31'),
+-- ('12346', 'Aquino', 'Kris', 'aquinok@yahoo.com', 'F', 'BSCS-CS', '0998654321', 'Tarlac', '2000-02-14', 'A', '2022-09-01', '9999-12-31');
 
 SELECT college_code FROM finalsoop.college;
 DESCRIBE finalsoop.course;
