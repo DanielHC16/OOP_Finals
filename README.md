@@ -4,7 +4,7 @@ Connecting Netbeans to MySQL Workbench
 
 1. Download and Extract: 
 - https://dev.mysql.com/downloads/file/?id=534782 (used for sql connection to mysql)
-- https://jar-download.com/download-handling.php (used for look and feel of the GUI)
+- [https://jar-download.com/download-handling.php](https://jar-download.com/artifact-search/flatlaf) (used for look and feel of the GUI)
 
 2. Add mysql-connector-j-9.1.0.jar and flatlaf-3.5.2.jar to finalsOOP libraries
 
