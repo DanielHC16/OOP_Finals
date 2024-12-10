@@ -187,8 +187,92 @@ JOIN
 JOIN
     finalsoop.subject sub ON g.subject_code = sub.subject_code;
 
+-- Populating Tables **
+
+-- COLLEGE TABLE 
+INSERT INTO finalsoop.college (college_code, description, date_opened, date_closed, status) VALUES 
+	('CASBE', 'College of Architecture and Sustainable Built Environments', '1970-01-01', '9999-12-31', 'A'), -- NOTE: DATE FORMAT = YYYY/MM/DD
+    ('CA', 'College of Accountancy', '1970-01-01', '9999-12-31', 'A'),
+    ('CBA', 'College of Business Administration', '1970-01-01', '9999-12-21', 'A'),
+    -- ('CEng', 'College of Engineering', '1970-08-01', '9999-12-31', 'A'),
+    ('CHASS', 'College of Humanities, Arts and Social Sciences', '1970-01-01', '9999-12-31', 'A'),
+    ('CN', 'College of Nursing', '1970-01-01', '9999-12-31', 'A'),
+    ('CPT', 'College of Physial Therapy', '1970-01-01', '9999-12-31', 'A'),
+    ('CS', 'College of Science', '1970-01-01', '9999-12-31', 'A'),
+    ('CED', 'College of Education', '1970-01-01', '9999-12-31', 'A'),
+    ('CEng', 'College of Engineering', '1970-01-01', '9999-12-31', 'A'),
+    ('CPA', 'College of Public Administration', '1970-01-01', '9999-12-31', 'A');
+	-- ('CET', 'College of Engineering and Technology', '1970-06-01', '9999-12-31', 'A'),
+	-- ('CISTM', 'College of Information, Systems and Technology Management', '2024-09-01', '9999-12-31', 'A');
+    
+ALTER TABLE finalsoop.course
+MODIFY COLUMN course_code VARCHAR(30);
 
 
+-- COURSE TABLE
+INSERT INTO finalsoop.course (course_code, description, college_code, date_opened, date_closed, status) VALUES 
+   -- ('BS Arch', 'Bachelor of Science in Architecture', 'CASBE', '2000-01-01', '9999-12-31', 'A'),
+    ('BSA', 'Bachelor of Science in Accountancy', 'CA', '2000-01-01', '9999-12-31', 'A'),
+    ('BS BA-FM', 'Bachelor of Science in Business Administration major in Financial Management', 'CBA', '2000-01-01', '9999-12-31', 'A'),
+    ('BS BA-MM', 'Bachelor of Science in Business Administration major in Marketing Management', 'CBA', '2000-01-01', '9999-12-31', 'A'),
+    ('BS BA-BE', 'Bachelor of Science in Business Administration major in Business Economics', 'CBA', '2000-01-01', '9999-12-31', 'A'),
+    ('BS Entrep', 'Bachelor of Science in Entrepreneurship', 'CBA', '2000-01-01', '9999-12-31', 'A'),
+    ('BS HM', 'Bachelor of Science in Hospitality Management', 'CBA', '2000-01-01', '9999-12-31', 'A'),
+    ('BS REM', 'Bachelor of Science in Real Estate Management', 'CBA', '2000-01-01', '9999-12-31', 'A'),
+    ('BS TM', 'Bachelor of Science in Tourism Management', 'CBA', '2000-01-01', '9999-12-31', 'A'),
+    ('BS CHE', 'Bachelor of Science in Chemical Engineering', 'CEng', '2000-01-01', '9999-12-31', 'A'),
+    ('BS CE', 'Bachelor of Science in Civil Engineering', 'CEng', '2000-01-01', '9999-12-31', 'A'),
+    ('BS CpE', 'Bachelor of Science in Computer Engineering', 'CEng', '2000-01-01', '9999-12-31', 'A'),
+    ('BS EE', 'Bachelor of Science in Electrical Engineering', 'CEng', '2000-01-01', '9999-12-31', 'A'),
+    ('BS ECE', 'Bachelor of Science in Electronics Engineering', 'CEng', '2000-01-01', '9999-12-31', 'A'),
+    ('BS ME', 'Bachelor of Science in Mechanical Engineering', 'CEng', '2000-01-01', '9999-12-31', 'A'),
+    ('BS MfgE', 'Bachelor of Science in Manufacturing Engineering', 'CEng', '2000-01-01', '9999-12-31', 'A'),
+   -- ('BS CS', 'Bachelor of Science in Computer Science', 'CISTM', '2000-01-01', '9999-12-31', 'A'),
+   -- ('BS IT', 'Bachelor of Science in Information Technology', 'CISTM', '2000-01-01', '9999-12-31', 'A'),
+    ('BAC', 'Bachelor of Science in Communication', 'CHASS', '2000-01-01', '9999-12-31', 'A'),
+    ('BAC-PR', 'Bachelor of Science Communication major in Public Relations', 'CHASS', '2000-01-01', '9999-12-31', 'A'),
+    ('BMMP', 'Bachelor of Music in Music Performance', 'CHASS', '2000-01-01', '9999-12-31', 'A'),
+    ('BS SW', 'Bachelor of Science in Social Work', 'CHASS', '2000-01-01', '9999-12-31', 'A'),
+    ('BSN', 'Bachelor of Science in Nursing', 'CN', '2000-01-01', '9999-12-31', 'A'),
+    ('BS PT', 'Bachelor of Science in Physical Therapy', 'CPT', '2000-01-01', '9999-12-31', 'A'),
+    ('BS Bio', 'Bachelor of Science in Biology', 'CS', '2000-01-01', '9999-12-31', 'A'),
+    ('BS Math', 'Bachelor of Science in Mathematics', 'CS', '2000-01-01', '9999-12-31', 'A'),
+    ('BS Chem', 'Bachelor of Science in Chemistry', 'CS', '2000-01-01', '9999-12-31', 'A'),
+    ('BS Psy', 'Bachelor of Science in Psychology', 'CS', '2000-01-01', '9999-12-31', 'A'),
+    ('BEEd', 'Bachelor of Elementary Education', 'CED', '2000-01-01', '9999-12-31', 'A'),
+    ('BECED', 'Bachelor of Early Childhood Education', 'CED', '2000-01-01', '9999-12-31', 'A'),
+    ('BSNED Generalist', 'Bachelor of Special Needs Education', 'CED', '2000-01-01', '9999-12-31', 'A'),
+    ('BPEd', 'Bachelor of Physical Education', 'CED', '2000-01-01', '9999-12-31', 'A'),
+    ('BSEd-Eng', 'Bachelor of Secondary Education with Specialization in English', 'CED', '2000-01-01', '9999-12-31', 'A'),
+    ('BSEd-Fil', 'Bachelor of Secondary Education with Specialization in Filipino', 'CED', '2000-01-01', '9999-12-31', 'A'),
+    ('BSEd-Math', 'Bachelor of Secondary Education with Specialization in Mathematics', 'CED', '2000-01-01', '9999-12-31', 'A'),
+    ('BSEd-Sci', 'Bachelor of Secondary Education with Specialization in Science', 'CED', '2000-01-01', '9999-12-31', 'A'),
+    ('BSEd-SS', 'Bachelor of Secondary Education with Specialization in Social Studies', 'CED', '2000-01-01', '9999-12-31', 'A'),
+    ('BPA', 'Bachelor of Public Administration', 'CPA', '2000-01-01', '9999-12-31', 'A');
+-- ('BSCS-CS', 'BSComputer Studies-Computer Science', 'CET', '2000-06-01', '9999-12-31', 'A'),
+-- ('BSCS-IT', 'BSComputer Studies-Information Technology', 'CISTM', '2000-06-01', '9999-12-31', 'A');
+
+-- STUDENT TABLE
+INSERT INTO finalsoop.student (student_no, lastname, firstname, email, gender, course_code, cp_num, address, bday, status, date_started, date_graduated) VALUES 
+    ('2023-34017', 'Balboa', 'Marc Jerome', 'mcbalboa@gmail.com', 'M', 'BSCS-CS', '09321722905', 'Tondo', '2004-07-26', 'A', '2023-08-01', '2027-08-01'),
+    ('2023-34033', 'Camacho', 'Daniel Hardy', 'dccamacho@gmail.com', 'M', 'BSCS-CS', '09567434580', 'Sta. Mesa', '2004-09-16', 'A', '2023-08-01', '2027-08-01'),
+    ('2023-34026', 'Magbag', 'Dave', 'dmagbag@gmail.com', 'M', 'BSCS-CS', '09994110531', 'Abad Santos', '2005-05-07', 'A', '2023-08-01', '2027-08-01'),
+	('2024-535', 'Flowers', 'Ramona', 'ramona.flowers@scanner.com', 'F', 'BSCS-CS', '09171234567', 'Brooklyn', '1990-10-04', 'A', '2023-08-01', '2027-08-01');
+-- ('12345', 'Atienza', 'Francis', 'fcatienza@yahoo.com', 'M', 'BSCS-CS', '0998123456', 'Cavite', '2000-01-12', 'I', '2020-09-01', '2024-07-31'),
+-- ('12346', 'Aquino', 'Kris', 'aquinok@yahoo.com', 'F', 'BSCS-CS', '0998654321', 'Tarlac', '2000-02-14', 'A', '2022-09-01', '9999-12-31');
+
+-- EMPLOYEE TABLE
+INSERT INTO finalsoop.employee (employee_id, lastname, firstname, email, gender, cp_num, address, bday, status, date_started, date_resigned) VALUES 
+	('E003', 'Pascual', 'Elsa', 'epasaual@yahoo.com', 'F', '091234567', 'Manila', NULL, 'A', '2001-09-16', '9999-12-31'),
+    ('E004', 'Demegillo', 'Shiela', 'sdemegillo@yahoo.com', 'F', '09987654', 'Rizal', NULL, 'A', '2016-09-12', '9999-12-31'),
+	('E005', 'Foe', 'Jonathan', 'jfoe@yahoo.com', 'M', '09675931', 'Chicago', NULL, 'A', '2000-12-23', '9999-12-31');
+    
+-- ('E001', 'Regala', 'Richard', 'rregala@yahoo.com', 'M', '09987654321', 'Manila', NULL, 'A', '1994-06-01', '9999-12-31'),
+-- ('E002', 'Santos', 'Rene', 'rsantos@yahoo.com', 'M', '09997654321', 'Manila', NULL, 'A', '2000-06-01', '9999-12-31');
+
+SELECT college_code FROM finalsoop.college;
+DESCRIBE finalsoop.course;
+DESCRIBE finalsoop.college;
 
 
 
