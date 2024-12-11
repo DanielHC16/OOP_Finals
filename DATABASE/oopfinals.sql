@@ -100,7 +100,28 @@ CREATE TABLE finalsoop.subject (
 );
 INSERT INTO finalsoop.subject (subject_code, description, units, curriculum, college_code, status, date_opened, date_closed) VALUES 
 -- ('MTH001', 'Mathematics in the Modern World', 3, '2019', 'CED', 'A', '1995-01-01', '9999-12-31'),
-('OOP', 'Object Oriented Programming', 3, '2010', 'CISTM', 'A', '2024-09-01', '9999-12-31');
+-- ('OOP', 'Object Oriented Programming', 3, '2010', 'CISTM', 'A', '2024-09-01', '9999-12-31'),
+-- 1st Year 1st Sem
+('ICC 0101', 'Introduction to Computing (Lec)', '2', '2010', 'CISTM', 'A', '2024-08-01', '9999-12-31'),
+('ICC 0101.1', 'Introduction to Computing (Lab)', '1', '2010', 'CISTM', 'A', '2024-08-01', '9999-12-31'),
+('ICC 0102', 'Fundamentals of Programming (Lec)', '2', '2010', 'CISTM', 'A', '2024-08-01', '9999-12-31'),
+('ICC 0102.1', 'Fundamentals of Programming (Lab)', '1', '2010', 'CISTM', 'A', '2024-08-01', '9999-12-31'),
+('CSC 0102', 'Discrete Structures 1', '3', '2010', 'CISTM', 'A', '2024-08-01', '9999-12-31'),
+('MMW 0001', 'Mathematics in the Modern World', '3', '2010', 'CS', 'A', '2024-08-01', '9999-12-31'),
+('PCM 0006', 'Purposive Communication', '3', '2010', 'CHASS', 'A', '2024-08-01', '9999-12-31'),
+('FIL 0010', 'Interdisiplinaryong Pagbasa at Pagsulat sa mga Diskurso ng Pagpapahayag', '2', '2010', 'CHASS', 'A', '2024-08-01', '9999-12-31'),
+('PATHFIT 1', 'Foundation of Physical Activities', '2', '2010', 'CPT', 'A', '2024-08-01', '9999-12-31'),
+('NSTP 1', 'National Service Training Program - ROTC 1 / CWTS 1', '(3)', '2010', 'CHASS', 'A', '2024-08-01', '9999-12-31');
+
+INSERT INTO finalsoop.subject (subject_code, description, units, curriculum, college_code, status, date_opened, date_closed) VALUES 
+-- 1st Year 2nd Sem
+('ICC 0103', 'Intermediate Programming (Lec)', '2', '2010', 'CISTM', 'A', '2024-08-01', '9999-12-31'),
+('ICC 0103.1', 'Intermediate Programming (Lab)', '1', '2010', 'CISTM', 'A', '2024-08-01', '9999-12-31'),
+('ICC 0104', 'Data Structures and Algorithms (Lec)', '2', '2010', 'CISTM', 'A', '2024-08-01', '9999-12-31'),
+('ICC 0104.1', 'Data Structures and Algorithms (Lab)', '1', '2010', 'CISTM', 'A', '2024-08-01', '9999-12-31'),
+('CSC 0211', 'Discrete Structures 2', '3', '2010', 'CISTM', 'A', '2024-08-01', '9999-12-31'),
+('CSC 0223', 'Human Computer Interaction', '3', '2010', 'CISTM', 'A', '2024-08-01', '9999-12-31'),
+
 
 
 -- FACT TABLES **
@@ -251,14 +272,42 @@ INSERT INTO finalsoop.course (course_code, description, college_code, date_opene
 -- ('BSCS-CS', 'BSComputer Studies-Computer Science', 'CET', '2000-06-01', '9999-12-31', 'A'),
 -- ('BSCS-IT', 'BSComputer Studies-Information Technology', 'CISTM', '2000-06-01', '9999-12-31', 'A');
 
+-- Delete the existing records (Update to match PLM naming convention)
+DELETE FROM finalsoop.course
+WHERE course_code IN ('BSCS-CS', 'BSCS-IT');
+
+-- Insert the updated records
+INSERT INTO finalsoop.course (course_code, description, college_code, date_opened, date_closed, status) VALUES
+('BSCS', 'BSComputer Studies-Computer Science', 'CISTM', '2000-06-01', '9999-12-31', 'A'),
+('BSIT', 'BSComputer Studies-Information Technology', 'CISTM', '2000-06-01', '9999-12-31', 'A');
+
+
 -- STUDENT TABLE
 INSERT INTO finalsoop.student (student_no, lastname, firstname, email, gender, course_code, cp_num, address, bday, status, date_started, date_graduated) VALUES 
-    ('2023-34017', 'Balboa', 'Marc Jerome', 'mcbalboa@gmail.com', 'M', 'BSCS-CS', '09321722905', 'Tondo', '2004-07-26', 'A', '2023-08-01', '2027-08-01'),
-    ('2023-34033', 'Camacho', 'Daniel Hardy', 'dccamacho@gmail.com', 'M', 'BSCS-CS', '09567434580', 'Sta. Mesa', '2004-09-16', 'A', '2023-08-01', '2027-08-01'),
-    ('2023-34026', 'Magbag', 'Dave', 'dmagbag@gmail.com', 'M', 'BSCS-CS', '09994110531', 'Abad Santos', '2005-05-07', 'A', '2023-08-01', '2027-08-01'),
-	('2024-535', 'Flowers', 'Ramona', 'ramona.flowers@scanner.com', 'F', 'BSCS-CS', '09171234567', 'Brooklyn', '1990-10-04', 'A', '2023-08-01', '2027-08-01');
--- ('12345', 'Atienza', 'Francis', 'fcatienza@yahoo.com', 'M', 'BSCS-CS', '0998123456', 'Cavite', '2000-01-12', 'I', '2020-09-01', '2024-07-31'),
--- ('12346', 'Aquino', 'Kris', 'aquinok@yahoo.com', 'F', 'BSCS-CS', '0998654321', 'Tarlac', '2000-02-14', 'A', '2022-09-01', '9999-12-31');
+    ('2023-34017', 'Balboa', 'Marc Jerome', 'mcbalboa@gmail.com', 'M', 'BS CS', '09321722905', 'Tondo', '2004-07-26', 'A', '2023-08-01', '2027-08-01'),
+    ('2023-34033', 'Camacho', 'Daniel Hardy', 'dccamacho@gmail.com', 'M', 'BS CS', '09567434580', 'Sta. Mesa', '2004-09-16', 'A', '2023-08-01', '2027-08-01'),
+    ('2023-34026', 'Magbag', 'Dave', 'dmagbag@gmail.com', 'M', 'BS CS', '09994110531', 'Abad Santos', '2005-05-07', 'A', '2023-08-01', '2027-08-01'),
+	('2024-535', 'Flowers', 'Ramona', 'ramona.flowers@scanner.com', 'F', 'BS CS', '09171234567', 'Brooklyn', '1990-10-04', 'A', '2023-08-01', '2027-08-01'),
+	('12345', 'Atienza', 'Francis', 'fcatienza@yahoo.com', 'M', 'BS CS', '0998123456', 'Cavite', '2000-01-12', 'I', '2020-09-01', '2024-07-31'),
+	('12346', 'Aquino', 'Kris', 'aquinok@yahoo.com', 'F', 'BS CS', '0998654321', 'Tarlac', '2000-02-14', 'A', '2022-09-01', '9999-12-31'),
+    ('77777', 'Miller', 'George', 'joji@gmail.com', 'M', 'BS IT', '099342123', 'Japan', '2000-02-14', 'A', '2020-09-01', '9999-12-31');
+ INSERT INTO finalsoop.student (student_no, lastname, firstname, email, gender, course_code, cp_num, address, bday, status, date_started, date_graduated) VALUES 
+	('007', 'Pilgrim', 'Scott', 'vstheworld@yahoo.com', 'M', 'BS CHE', '09767676', 'Toronto', '2002-01-01', 'I', '2019-09-01', '9999-12-31'),
+	('420', 'Lee', 'Stan', 'stanlee@marvel.com', 'M', 'BS BA-FM', '09123456789', 'Marvel Mansion, NY', '1922-12-28', 'A', '2020-09-01', '2024-12-31'),
+	('1989', 'Wayne', 'Bruce', 'batman@justiceleague.com', 'M', 'BS EE', '09123456789', 'Wayne Manor, Gotham', '1939-05-27', 'A', '2019-09-01', '2024-12-31'),
+	('616', 'Parker', 'Peter', 'peterparker@webmail.com', 'M', 'BS CS', '09123456789', 'Queens, NY', '1995-08-10', 'A', '2020-09-01', '2024-12-31'),
+	('13', 'Gomez', 'Wednesday', 'wednesdaygomez@addams.com', 'F', 'BS Psy', '09123456789', 'Addams Family Mansion', '2000-09-21', 'A', '2020-09-01', '2024-12-31'),
+	('25', 'Kardashian', 'Kim', 'kim@kimkardashian.com', 'F', 'BS BA-MM', '09123456789', 'Los Angeles, CA', '1980-10-21', 'A', '2020-09-01', '2024-12-31'),
+	('00', 'Gates', 'Bill', 'billgates@microsoft.com', 'M', 'BS IT', '09123456789', 'Medina, WA', '1955-10-28', 'A', '2020-09-01', '2024-12-31'),
+	('16', 'Doge', 'Shiba Inu', 'dogecoin@shibatoken.com', 'M', 'BS BA-BE', '09123456789', 'Shiba Land, Japan', '2013-12-06', 'A', '2020-09-01', '2024-12-31'),
+	('777', 'Reeves', 'Keanu', 'keanu@keanuisgod.com', 'M', 'BS CHE', '09123456789', 'Hollywood, CA', '1964-09-02', 'A', '2020-09-01', '2024-12-31'),
+	('100', 'Lizzo', 'Melissa', 'lizzo@music.com', 'F', 'BS BA-FM', '09123456789', 'Detroit, MI', '1988-04-27', 'A', '2020-09-01', '2024-12-31'),
+	('21', 'Jack', 'Jack', 'blackjack@meme.com', 'M', 'BS TM', '09123456789', 'Meme Town', '2005-03-14', 'A', '2020-09-01', '2024-12-31');
+
+
+    
+
+TRUNCATE TABLE finalsoop.student;
 
 -- EMPLOYEE TABLE
 INSERT INTO finalsoop.employee (employee_id, lastname, firstname, email, gender, cp_num, address, bday, status, date_started, date_resigned) VALUES 
@@ -268,6 +317,26 @@ INSERT INTO finalsoop.employee (employee_id, lastname, firstname, email, gender,
     
 -- ('E001', 'Regala', 'Richard', 'rregala@yahoo.com', 'M', '09987654321', 'Manila', NULL, 'A', '1994-06-01', '9999-12-31'),
 -- ('E002', 'Santos', 'Rene', 'rsantos@yahoo.com', 'M', '09997654321', 'Manila', NULL, 'A', '2000-06-01', '9999-12-31');
+
+
+-- USED FOR UPDATING CS/IT COURSE CODES **
+-- NOTE: Truncate Students Table then Re-insert with updated queries
+-- Step 1: Disable foreign key checks
+SET FOREIGN_KEY_CHECKS = 0;
+
+-- Step 2: Delete the old course records
+DELETE FROM finalsoop.course
+WHERE course_code IN ('BSCS-CS', 'BSCS-IT');
+
+-- Step 3: Insert the new course records
+INSERT INTO finalsoop.course (course_code, description, college_code, date_opened, date_closed, status) VALUES
+('BS CS', 'Bachelor of Science in Computer Science', 'CISTM', '2000-06-01', '9999-12-31', 'A'),
+('BS IT', 'Bachelor of Science in Information Technology', 'CISTM', '2000-06-01', '9999-12-31', 'A');
+
+-- Step 4: Re-enable foreign key checks
+SET FOREIGN_KEY_CHECKS = 1;
+
+
 
 SELECT college_code FROM finalsoop.college;
 DESCRIBE finalsoop.course;
