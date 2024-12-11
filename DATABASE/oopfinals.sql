@@ -100,7 +100,7 @@ CREATE TABLE finalsoop.subject (
 );
 INSERT INTO finalsoop.subject (subject_code, description, units, curriculum, college_code, status, date_opened, date_closed) VALUES 
 -- ('MTH001', 'Mathematics in the Modern World', 3, '2019', 'CED', 'A', '1995-01-01', '9999-12-31'),
--- ('OOP', 'Object Oriented Programming', 3, '2010', 'CISTM', 'A', '2024-09-01', '9999-12-31'),
+-- ('OOP', 'Object Oriented Programming', 3, '2010', 'CISTM', 'A', '2024-09-01', '9999-12-31'), -- Have to remove this
 -- 1st Year 1st Sem
 ('ICC 0101', 'Introduction to Computing (Lec)', '2', '2010', 'CISTM', 'A', '2024-08-01', '9999-12-31'),
 ('ICC 0101.1', 'Introduction to Computing (Lab)', '1', '2010', 'CISTM', 'A', '2024-08-01', '9999-12-31'),
@@ -111,7 +111,7 @@ INSERT INTO finalsoop.subject (subject_code, description, units, curriculum, col
 ('PCM 0006', 'Purposive Communication', '3', '2010', 'CHASS', 'A', '2024-08-01', '9999-12-31'),
 ('FIL 0010', 'Interdisiplinaryong Pagbasa at Pagsulat sa mga Diskurso ng Pagpapahayag', '2', '2010', 'CHASS', 'A', '2024-08-01', '9999-12-31'),
 ('PATHFIT 1', 'Foundation of Physical Activities', '2', '2010', 'CPT', 'A', '2024-08-01', '9999-12-31'),
-('NSTP 1', 'National Service Training Program - ROTC 1 / CWTS 1', '(3)', '2010', 'CHASS', 'A', '2024-08-01', '9999-12-31');
+('NSTP 1', 'National Service Training Program - ROTC 1 / CWTS 1', '3', '2010', 'CHASS', 'A', '2024-08-01', '9999-12-31'); -- NOTE: NSTP units should be (3) 
 
 INSERT INTO finalsoop.subject (subject_code, description, units, curriculum, college_code, status, date_opened, date_closed) VALUES 
 -- 1st Year 2nd Sem
@@ -121,8 +121,43 @@ INSERT INTO finalsoop.subject (subject_code, description, units, curriculum, col
 ('ICC 0104.1', 'Data Structures and Algorithms (Lab)', '1', '2010', 'CISTM', 'A', '2024-08-01', '9999-12-31'),
 ('CSC 0211', 'Discrete Structures 2', '3', '2010', 'CISTM', 'A', '2024-08-01', '9999-12-31'),
 ('CSC 0223', 'Human Computer Interaction', '3', '2010', 'CISTM', 'A', '2024-08-01', '9999-12-31'),
+('TCW 0005', 'The Contemporary World', '3', '2010', 'CHASS', 'A', '2024-08-01', '9999-12-31'),
+('RPH 0004', 'Readings in Philippine History', '3', '2010', 'CHASS', 'A', '2024-08-01', '9999-12-31'),
+('LWR 0009', 'Life and Works of Rizal', '3', '2010', 'CHASS', 'A', '2024-08-01', '9999-12-31'),
+('RPH 0004', 'PE Elective (12, 13, or 14)', '2', '2010', 'CPT', 'A', '2024-08-01', '9999-12-31'),
+('NSTP 2', 'National Service Training Program - ROTC 2 / CWTS 2', '3', '2010', 'CHASS', 'A', '2024-08-01', '9999-12-31');
+
+UPDATE finalsoop.subject -- oops, typo hehe
+SET subject_code = 'PATHFIT 2'
+WHERE subject_code = 'RPH 0004' AND description = 'PE Elective (12, 13, or 14)';
 
 
+INSERT INTO finalsoop.subject (subject_code, description, units, curriculum, college_code, status, date_opened, date_closed) VALUES 
+-- 2nd Year 1st Sem
+('CSC 0213', 'Logic Design and Digital Computer Circuits (Lec)', '2', '2010', 'CISTM', 'A', '2024-08-01', '9999-12-31'),
+('CSC 0213.1', 'Logic Design and Digital Computer Circuits (Lab)', '1', '2010', 'CISTM', 'A', '2024-08-01', '9999-12-31'),
+('CSC 0212', 'Object Oriented Programming (Lec)', '2', '2010', 'CISTM', 'A', '2024-08-01', '9999-12-31'),
+('CSC 0212.1', 'Object Oriented Programming (Lab)', '1', '2010', 'CISTM', 'A', '2024-08-01', '9999-12-31'),
+('CSC 0224', 'Operation Research', '3', '2010', 'CS', 'A', '2024-08-01', '9999-12-31'),
+('ICC 0105', 'Information Management (Lec)', '2', '2010', 'CISTM', 'A', '2024-08-01', '9999-12-31'),
+('ICC 0105.1', 'Information Management (Lab)', '1', '2010', 'CISTM', 'A', '2024-08-01', '9999-12-31'),
+('ITE 0001', 'Living in the IT Era', '3', '2010', 'CISTM', 'A', '2024-08-01', '9999-12-31'),
+('ETH 0008', 'Ethics', '3', '2010', 'CHASS', 'A', '2024-08-01', '9999-12-31'),
+('UTS 0003', 'Understanding the Self', '3', '2010', 'CHASS', 'A', '2024-08-01', '9999-12-31'),
+('PATHFIT 3', 'PE Elective (12, 13, 14)', '2', '2010', 'CPT', 'A', '2024-08-01', '9999-12-31');
+
+-- 2nd Year 2nd Sem
+INSERT INTO finalsoop.subject (subject_code, description, units, curriculum, college_code, status, date_opened, date_closed) VALUES 
+('CSC 0221', 'Algorithm and Complexity', '3', '2010', 'CISTM', 'A', '2024-08-01', '9999-12-31'),
+('CSC 0222', 'Architecture and Organization (Lec)', '2', '2010', 'CISTM', 'A', '2024-08-01', '9999-12-31'),
+('CSC 0222.1', 'Architecture and Organization (Lab)', '1', '2010', 'CISTM', 'A', '2024-08-01', '9999-12-31'),
+('ICC 0106', 'Applications Development and Emerging Technologies (Lec)', '2', '2010', 'CISTM', 'A', '2024-08-01', '9999-12-31'),
+('ICC 0106.1', 'Applications Development and Emerging Technologies (Lab)', '1', '2010', 'CISTM', 'A', '2024-08-01', '9999-12-31'),
+('CSC 0316', 'Information Assurance Security', '3', '2010', 'CISTM', 'A', '2024-08-01', '9999-12-31'),
+('CBM 0016', 'The Entrepreneural Mind', '3', '2010', 'CHASS', 'A', '2024-08-01', '9999-12-31'),
+('GES 0013', 'Environmental Science', '3', '2010', 'CS', 'A', '2024-08-01', '9999-12-31'),
+('AAP 0007', 'Art Appreciation', '3', '2010', 'CHASS', 'A', '2024-08-01', '9999-12-31'),
+('PATHFIT 4', 'PE Elective (12, 13, or 14)', '2', '2010', 'CPT', 'A', '2024-08-01', '9999-12-31');
 
 -- FACT TABLES **
 
