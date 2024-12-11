@@ -1,5 +1,4 @@
-CREATE TABLE oopfinals;
-USE oopfinals;
+USE finalsoop;
 
 -- DIMENSION TABLES **
 
