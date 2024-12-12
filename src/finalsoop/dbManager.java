@@ -27,6 +27,7 @@ public class dbManager {
 	}
         public void populateTable(ResultSet rs, javax.swing.JTable table) {
             try {
+                System.out.println("populateTable called with ResultSet: " + rs);
                 DefaultTableModel model = new DefaultTableModel();
                 int columnCount = rs.getMetaData().getColumnCount();
 

@@ -4,6 +4,10 @@
  */
 package finalsoop;
 import java.sql.Connection;
+import java.awt.CardLayout;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.SwingWorker;
 
 /**
  *
@@ -12,6 +16,8 @@ import java.sql.Connection;
 public class schoolManagementMainUI extends javax.swing.JFrame {
     private Connection conn = finalsConnect.Connect();
     private dbManager db = new dbManager(conn);
+    private javax.swing.JTable populatedTable = null;
+    private java.sql.ResultSet currentRs = null;
     /**
      * Creates new form schoolManagementMainUI
      */
@@ -41,9 +47,16 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
         btnEmployee = new javax.swing.JButton();
         btnSubject = new javax.swing.JButton();
         btnStudent = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        dashboardTable = new javax.swing.JTable();
+        mainPanel = new javax.swing.JPanel();
+        pnlDashboard = new javax.swing.JPanel();
+        scrlDashboard = new javax.swing.JScrollPane();
+        tblDashboard = new javax.swing.JTable();
+        pnlManagement = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblManagement = new javax.swing.JTable();
+        btnDelete = new javax.swing.JButton();
+        btnEdit = new javax.swing.JButton();
+        btnAdd = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -68,8 +81,18 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
         );
 
         btnDashboard.setText("Dashboard");
+        btnDashboard.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnDashboardMouseClicked(evt);
+            }
+        });
 
         btnManagement.setText("Management");
+        btnManagement.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnManagementMouseClicked(evt);
+            }
+        });
 
         btnSubjSched.setText("Subject Schedule");
         btnSubjSched.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -164,7 +187,7 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
                 .addComponent(btnStudentGrades, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnCollege, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(12, 12, 12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnCourse, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnSubject, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -191,7 +214,9 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
                 .addComponent(btnStudent))
         );
 
-        dashboardTable.setModel(new javax.swing.table.DefaultTableModel(
+        mainPanel.setLayout(new java.awt.CardLayout());
+
+        tblDashboard.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -202,24 +227,86 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(dashboardTable);
+        scrlDashboard.setViewportView(tblDashboard);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout pnlDashboardLayout = new javax.swing.GroupLayout(pnlDashboard);
+        pnlDashboard.setLayout(pnlDashboardLayout);
+        pnlDashboardLayout.setHorizontalGroup(
+            pnlDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlDashboardLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1)
+                .addComponent(scrlDashboard, javax.swing.GroupLayout.PREFERRED_SIZE, 874, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        pnlDashboardLayout.setVerticalGroup(
+            pnlDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlDashboardLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(scrlDashboard, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
+
+        mainPanel.add(pnlDashboard, "pnlDashboard");
+
+        pnlManagement.setName("pnlManagement"); // NOI18N
+
+        tblManagement.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(tblManagement);
+
+        btnDelete.setBackground(new java.awt.Color(217, 83, 79));
+        btnDelete.setForeground(new java.awt.Color(255, 255, 255));
+        btnDelete.setText("Delete");
+
+        btnEdit.setBackground(new java.awt.Color(217, 148, 79));
+        btnEdit.setForeground(new java.awt.Color(255, 255, 255));
+        btnEdit.setText("Edit");
+
+        btnAdd.setBackground(new java.awt.Color(90, 153, 207));
+        btnAdd.setForeground(new java.awt.Color(255, 255, 255));
+        btnAdd.setText("Add");
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnlManagementLayout = new javax.swing.GroupLayout(pnlManagement);
+        pnlManagement.setLayout(pnlManagementLayout);
+        pnlManagementLayout.setHorizontalGroup(
+            pnlManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 886, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlManagementLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        pnlManagementLayout.setVerticalGroup(
+            pnlManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlManagementLayout.createSequentialGroup()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnlManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(pnlManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(26, Short.MAX_VALUE))
+        );
+
+        mainPanel.add(pnlManagement, "pnlManagement");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -232,11 +319,9 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
                     .addComponent(btnDashboard, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(panelNav, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(10, 10, 10))
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                    .addComponent(panelNav, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(16, 16, 16))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -250,7 +335,7 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(panelNav, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(12, 12, 12))
         );
 
@@ -275,54 +360,74 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         // TODO add your handling code here:
-        db.populateTable(db.fetchColleges(), dashboardTable);
+        populatedTable = tblDashboard;
+        cacheResultSet(db.fetchStudents());
     }//GEN-LAST:event_formWindowActivated
 
     private void btnStudentGradesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnStudentGradesMouseClicked
         // TODO add your handling code here:
-        db.populateTable(db.fetchGrades(), dashboardTable);
+        cacheResultSet(db.fetchGrades());
     }//GEN-LAST:event_btnStudentGradesMouseClicked
 
     private void btnSubjSchedMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSubjSchedMouseClicked
         // TODO add your handling code here:
-        db.populateTable(db.fetchSubjectSchedules(), dashboardTable);
+        cacheResultSet(db.fetchSubjectSchedules());
     }//GEN-LAST:event_btnSubjSchedMouseClicked
 
     private void btnSchoolYearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSchoolYearMouseClicked
         // TODO add your handling code here:
-        db.populateTable(db.fetchSchoolYears(), dashboardTable);
+        cacheResultSet(db.fetchSchoolYears());
     }//GEN-LAST:event_btnSchoolYearMouseClicked
 
     private void btnCollegeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCollegeMouseClicked
         // TODO add your handling code here:
-        db.populateTable(db.fetchColleges(), dashboardTable);
+        cacheResultSet(db.fetchSchoolYears());
     }//GEN-LAST:event_btnCollegeMouseClicked
 
     private void btnSemesterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSemesterMouseClicked
         // TODO add your handling code here:
-        db.populateTable(db.fetchSemesters(), dashboardTable);
+        cacheResultSet(db.fetchSemesters());
     }//GEN-LAST:event_btnSemesterMouseClicked
 
     private void btnCourseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCourseMouseClicked
         // TODO add your handling code here:
-        db.populateTable(db.fetchCourses(), dashboardTable);
+        cacheResultSet(db.fetchCourses());
     }//GEN-LAST:event_btnCourseMouseClicked
 
     private void btnStudentMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnStudentMouseClicked
         // TODO add your handling code here:
-        db.populateTable(db.fetchStudents(), dashboardTable);
+        cacheResultSet(db.fetchStudents());
     }//GEN-LAST:event_btnStudentMouseClicked
 
     private void btnEmployeeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEmployeeMouseClicked
         // TODO add your handling code here:
-        db.populateTable(db.fetchEmployees(), dashboardTable);
+        cacheResultSet(db.fetchEmployees());
     }//GEN-LAST:event_btnEmployeeMouseClicked
 
     private void btnSubjectMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSubjectMouseClicked
         // TODO add your handling code here:
-        db.populateTable(db.fetchSubjects(), dashboardTable);
+        cacheResultSet(db.fetchSubjects());
+        System.out.println(populatedTable.getClass().getSimpleName());
     }//GEN-LAST:event_btnSubjectMouseClicked
 
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAddActionPerformed
+
+    private void btnDashboardMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDashboardMouseClicked
+        // TODO add your handling code here:
+        switchToCard("pnlDashboard");
+        populatedTable = tblDashboard;
+        cacheResultSet(db.fetchStudents());
+    }//GEN-LAST:event_btnDashboardMouseClicked
+
+    private void btnManagementMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnManagementMouseClicked
+        // TODO add your handling code here:
+        switchToCard("pnlManagement");
+        populatedTable = tblManagement;
+        cacheResultSet(db.fetchStudents());
+    }//GEN-LAST:event_btnManagementMouseClicked
+    
     /**
      * @param args the command line arguments
      */
@@ -357,11 +462,28 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
             }
         });
     }
+    private void switchToCard(String cardName) {
+        CardLayout cardLayout = (CardLayout) mainPanel.getLayout();
+        cardLayout.show(mainPanel, cardName);
+    }
+    private void cacheResultSet(java.sql.ResultSet rs){
+        if (rs == null) {
+            System.out.println("ResultSet is null");
+        }
+        if (populatedTable == null) {
+            System.out.println("populatedTable is null");
+        }
+        currentRs = rs;
+        db.populateTable(currentRs, populatedTable);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnCollege;
     private javax.swing.JButton btnCourse;
     private javax.swing.JButton btnDashboard;
+    private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnEdit;
     private javax.swing.JButton btnEmployee;
     private javax.swing.JButton btnManagement;
     private javax.swing.JButton btnSchoolYear;
@@ -370,10 +492,14 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
     private javax.swing.JButton btnStudentGrades;
     private javax.swing.JButton btnSubjSched;
     private javax.swing.JButton btnSubject;
-    private javax.swing.JTable dashboardTable;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JPanel mainPanel;
     private javax.swing.JPanel panelNav;
+    private javax.swing.JPanel pnlDashboard;
+    private javax.swing.JPanel pnlManagement;
+    private javax.swing.JScrollPane scrlDashboard;
+    private javax.swing.JTable tblDashboard;
+    private javax.swing.JTable tblManagement;
     // End of variables declaration//GEN-END:variables
 }
