@@ -159,6 +159,65 @@ INSERT INTO finalsoop.subject (subject_code, description, units, curriculum, col
 ('AAP 0007', 'Art Appreciation', '3', '2010', 'CHASS', 'A', '2024-08-01', '9999-12-31'),
 ('PATHFIT 4', 'PE Elective (12, 13, or 14)', '2', '2010', 'CPT', 'A', '2024-08-01', '9999-12-31');
 
+-- 1st Year 1st Sem BS IT
+
+-- INSERT INTO finalsoop.subject (subject_code, description, units, curriculum, college_code, status, date_opened, date_closed) VALUES
+-- ('STS 0002', 'Science, Technology and Society', '3', '2011', 'CS', 'A', '2024-08-01', '9999-12-31'), 
+-- ('AAP 0007', 'Art Appreciation', '3', '2011', 'CHASS', 'A', '2024-08-01', '9999-12-31'), 
+-- ('PCM 0006', 'Purposive Communications', '3', '2011', 'CHASS', 'A', '2024-08-01', '9999-12-31'),
+-- ('MMW 0001', 'Mathematics in the Modern World', '3', '2011', 'CEd', 'A', '2024-08-01', '9999-12-31'),
+-- ('IPP 0010', 'Interdisiplinaryong Pagbasa at Pagsulat sa mga Diskurso ng Pagpapahayag', '3', '2011', 'CHASS', 'A', '2024-08-01', '9999-12-31'),
+-- ('ICC 0101', 'Introduction to Computing (Lec)', '2', '2011', 'CISTM', 'A', '2024-08-01', '9999-12-31'),
+-- ('ICC 0101.1', 'Introduction to Computing (Lab) (Office and Multimedia)', '1', '2011', 'CISTM', 'A', '2024-08-01', '9999-12-31'),
+-- ('ICC 0102', 'Fundamentals of Programming (Lec)', '2', '2011', 'CISTM', 'A', '2024-08-01', '9999-12-31'), 
+-- ('ICC 0102.1', 'Fundamentals of Programming (Lab)', '1', '2011', 'CISTM', 'A', '2024-08-01', '9999-12-31'),
+-- ('PED 0001', 'Foundation of Physical Activities', '2', '2011', 'CPT', 'A', '2024-08-01', '9999-12-31'),
+-- ('NSTP 1', 'National Service Training Program - ROTC 1/CWTS 1', '2', '2011', 'CPA', 'A', '2024-08-01', '9999-12-31');
+
+-- 1st Year 2nd Sem BS IT
+INSERT INTO finalsoop.subject (subject_code, description, units, curriculum, college_code, status, date_opened, date_closed) VALUES 
+('CET 0111', 'Calculus 1', '3', '2011', 'CS', 'A', '2024-08-01', '9999-12-31'),
+('CET 0114', 'General Chemistry (Lec)', '3', '2011', 'CS', 'A', '2024-08-01', '9999-12-31'),
+('CET 0114.1', 'General Chemistry (Lab)', '1', '2011', 'CS', 'A', '2024-08-01', '9999-12-31'),
+('EIT 0121', 'Introduction to Computer Human Interaction (Lec)', '2', '2011', 'CISTM', 'A', '2024-08-01', '9999-12-31'), 
+('EIT 0121.1', 'Introduction to Computer Human Interaction (Lab)', '1', '2011', 'CISTM', 'A', '2024-08-01', '9999-12-31'),
+('EIT 0122', 'Discrete Mathematics', '3', '2011', 'CISTM', 'A', '2024-08-01', '9999-12-31'),
+('EIT 0123', 'Web Systems Technology (Lec)', '2', '2011', 'CISTM', 'A', '2024-08-01', '9999-12-31'), 
+('EIT 0123.1', 'Web Systems Technology (Lab)', '1', '2011', 'CISTM', 'A', '2024-08-01', '9999-12-31'),
+-- ('ICC 0103', 'Intermediate Programming (Lec)', '2', '2011', 'CISTM', 'A', '2024-08-01', '9999-12-31'),
+-- ('ICC 0103.1', 'Intermediate Programming (Lab)', '1', '2011', 'CISTM', 'A', '2024-08-01', '9999-12-31'),
+('GTB121', 'Great Books', '3', '2011', 'CPT', 'A', '2024-08-01', '9999-12-31');
+-- ('PED', 'PE Elective (12, 13, or 14)', '2', '2011', 'CPT', 'A', '2024-08-01', '9999-12-31'),
+-- ('NSTP 2', 'National Service Training Program - ROTC 2/CTWS 2', '3', '2011', 'CPA', 'A', '2024-08-01', '9999-12-31');
+
+-- 2nd Year 1st Sem BS IT 
+INSERT INTO finalsoop.subject (subject_code, description, units, curriculum, college_code, status, date_opened, date_closed) VALUES
+('CET 0121', 'Calculus 2', '3', '2011', 'CS', 'A', '2024-08-01', '9999-12-31'),
+('CET 0225', 'Physics for IT (Lec)', '3', '2011', 'CISTM', 'A', '2024-08-01', '9999-12-31'),
+('CET 0225.1', 'Physics for IT (Lab)', '1', '2011', 'CISTM', 'A', '2024-08-01', '9999-12-31'),
+-- ('TCW 0005', 'The Contemporary World', '3', '2011', 'CHASS', 'A', '2024-08-01', '9999-12-31'),
+-- ('ICC 0104', 'Data Structures (Lec)', '2', '2011', 'CISTM', 'A', '2024-08-01', '9999-12-31'), -- Duplicate for CS 
+-- ('ICC 0104.1', 'Data Structures (Lab)', '1', '2011', 'CISTM', 'A', '2024-08-01', '9999-12-31'), 
+('EIT 0211', 'Object Oriented Programming (Lec)', '2', '2011', 'CISTM', 'A', '2024-08-01', '9999-12-31'),
+('EIT 0211.1', 'Object Oriented Programming (Lab)', '1', '2011', 'CISTM', 'A', '2024-08-01', '9999-12-31'), 
+('PPC 121', 'Philippine Popular Culture', '3', '2011', 'CHASS', 'A', '2024-08-01', '9999-12-31');
+-- ('EIT Elective 1', 'Professional Elective 1', '3', '2011', 'CISTM', 'A', '2024-08-01', '9999-12-31'); -- Data too long for CLASS CODE
+-- ('PED', 'PE Elective (12, 13, or 14)', '2', '2011', 'CPT', 'A', '2024-08-01', '9999-12-31')
+
+-- 2nd Year 2nd Sem
+INSERT INTO finalsoop.subject (subject_code, description, units, curriculum, college_code, status, date_opened, date_closed) VALUES
+-- ('UTS 0003', 'Understanding the Self', '3', '2011', 'CS', 'A', '2024-08-01', '9999-12-31'),
+-- ('RPH 0004', 'Readings in Philippine History', '3', '2011', 'CHASS', 'A', '2024-08-01', '9999-12-31'),
+('EIT 0212', 'Platform Technology', '3', '2011', 'CISTM', 'A', '2024-08-01', '9999-12-31'),
+-- ('ICC 0105', 'Information Management (Lec)', '2', '2011', 'CISTM', 'A', '2024-08-01', '9999-12-31'), 
+-- ('ICC 0105.1', 'Information Management (Lab)', '1', '2011', 'CISTM', 'A', '2024-08-01', '9999-12-31'),
+('EIT 0221', 'Quantitative Methods', '3', '2011', 'CS', 'A', '2024-08-01', '9999-12-31'),
+('EIT 0222', 'Networking 1 (Lec)', '2', '2011', 'CISTM', 'A', '2024-08-01', '9999-12-31'),
+('EIT 0222.1', 'Networking 1 (Lab)', '1', '2011', 'CISTM', 'A', '2024-08-01', '9999-12-31');
+-- ('GES 0013', 'Environmental Science', '3', '2011', 'CS', 'A', '2024-08-01', '9999-12-31'),
+-- ('EIT Elective 2', 'Professional Elective 2', '3', '2011', 'CISTM', 'A', '2024-08-01', '9999-12-31') -- DATA TOO LONG
+-- ('PED', 'PE Elective (12, 13, or 14)', '2', '2011', 'CPT', 'A', '2024-08-01', '9999-12-31');
+
 -- FACT TABLES **
 
 -- 1. SUBJECT SCHEDULE TABLE
