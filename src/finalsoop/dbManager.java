@@ -25,29 +25,31 @@ public class dbManager {
 	public dbManager(Connection conn) {
 		this.conn = conn;
 	}
-        public void populateTable(ResultSet rs, javax.swing.JTable table) {
-            try {
-                System.out.println("populateTable called with ResultSet: " + rs);
-                DefaultTableModel model = new DefaultTableModel();
-                int columnCount = rs.getMetaData().getColumnCount();
 
-                for (int i = 1; i <= columnCount; i++) {
-                    model.addColumn(rs.getMetaData().getColumnLabel(i));
-                }
-                while (rs.next()) {
-                    Object[] row = new Object[columnCount];
-                    for (int i = 1; i <= columnCount; i++) {
-                        row[i - 1] = rs.getObject(i);
-                    }
-                    model.addRow(row);
-                }
-                table.setModel(model);
-            } catch (SQLException e) {
-                System.out.println(e);
-            }
-        }
+	public void populateTable(ResultSet rs, javax.swing.JTable table) {
+		try {
+			System.out.println("populateTable called with ResultSet: " + rs);
+			DefaultTableModel model = new DefaultTableModel();
+			int columnCount = rs.getMetaData().getColumnCount();
+
+			for (int i = 1; i <= columnCount; i++) {
+				model.addColumn(rs.getMetaData().getColumnLabel(i));
+			}
+			while (rs.next()) {
+				Object[] row = new Object[columnCount];
+				for (int i = 1; i <= columnCount; i++) {
+					row[i - 1] = rs.getObject(i);
+				}
+				model.addRow(row);
+			}
+			table.setModel(model);
+		} catch (SQLException e) {
+			System.out.println(e);
+		}
+	}
 
 	private Connection conn;
+
 	/**
 	 * Adds a record to the `college` table.
 	 *
@@ -250,16 +252,16 @@ public class dbManager {
 			ps.execute(
 					"INSERT INTO finalsoop.subject_schedule(syear, semester, college_code, block_no, subject_code, day, time, room, type, sequence_no, employee_id) VALUES ('"
 							+ strSyear + "', '"
-							+ strSemester + "', '"
-							+ strCollegeCode + "', '"
-							+ strBlockNo + "', '"
-							+ strSubjectCode + "', '"
+							+ strSemester + "', "
+							+ strCollegeCode + ", '"
+							+ strBlockNo + "', "
+							+ strSubjectCode + ", '"
 							+ strDay + "', '"
 							+ strTime + "', '"
 							+ strRoom + "', '"
 							+ strType + "', "
-							+ intSequenceNo + ", '"
-							+ strEmployeeId + "')");
+							+ intSequenceNo + ", "
+							+ strEmployeeId + ")");
 		} catch (SQLException e) {
 			System.out.println(e);
 		}
@@ -404,7 +406,7 @@ public class dbManager {
 	public ResultSet fetchSubjectSchedules() {
 		try {
 			Statement ps = conn.createStatement();
-			return ps.executeQuery("SELECT * FROM finalsoop.subject_schedule");
+			return ps.executeQuery("SELECT * FROM finalsoop.subject_schedule_view");
 		} catch (SQLException e) {
 			System.out.println(e);
 		}
@@ -419,7 +421,7 @@ public class dbManager {
 	public ResultSet fetchGrades() {
 		try {
 			Statement ps = conn.createStatement();
-			return ps.executeQuery("SELECT * FROM finalsoop.grades");
+			return ps.executeQuery("SELECT * FROM finalsoop.student_grades_view");
 		} catch (SQLException e) {
 			System.out.println(e);
 		}
@@ -520,12 +522,24 @@ public class dbManager {
 	/**
 	 * Deletes a subject schedule record from the database.
 	 * 
-	 * @param intSequenceNo Sequence number of schedule to delete
+	 * @param strSubjectCode Subject Code of schedule to delete
+         * @param strCollegeCode College Code of schedule to delete
+         * @param strSequenceNo  Sequence Number of schedule to delete
+         * @param strBlockNo     BlockNo of schedule to delete
+         * @param strSemester    Semester of schedule to delete
+         * @param strSYear       School year of schedule to delete
 	 */
-	public void deleteSubjectSchedule(int intSequenceNo) {
+	public void deleteSubjectSchedule(String strSubjectCode, String strCollegeCode, String strSequenceNo, String strBlockNo, String strSemester, String strSYear) {
 		try (Statement ps = conn.createStatement()) {
-			ps.execute("DELETE FROM finalsoop.subject_schedule WHERE sequence_no = " + intSequenceNo);
-		} catch (SQLException e) {
+			ps.execute("DELETE FROM finalsoop.subject_schedule WHERE "
+                                + "subject_code = '" + strSubjectCode + 
+                                "' AND college_code = '" + strCollegeCode + 
+                                "' AND syear = '" + strSYear +
+                                "' AND semester = '" + strSemester + 
+                                "' AND block_no = '" + strBlockNo +
+                                "' AND sequence_no = " + strSequenceNo
+                        );
+		} catch (SQLException e) { 
 			System.out.println(e);
 		}
 	}

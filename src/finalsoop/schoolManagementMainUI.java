@@ -4,16 +4,16 @@
  */
 package finalsoop;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.awt.CardLayout;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.SwingWorker;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author tulan
  */
 public class schoolManagementMainUI extends javax.swing.JFrame {
+    private String currentData = "";
     private Connection conn = finalsConnect.Connect();
     private dbManager db = new dbManager(conn);
     private javax.swing.JTable populatedTable = null;
@@ -51,6 +51,31 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
         pnlDashboard = new javax.swing.JPanel();
         scrlDashboard = new javax.swing.JScrollPane();
         tblDashboard = new javax.swing.JTable();
+        pnlAddSubjSched = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        txtBlockNo = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        txtSequence = new javax.swing.JTextField();
+        txtType = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        txtRoom = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        cmbDay = new javax.swing.JComboBox<>();
+        cmbEmployeeName = new javax.swing.JComboBox<>();
+        cmbSYear = new javax.swing.JComboBox<>();
+        cmbSemester = new javax.swing.JComboBox<>();
+        cmbCollegeCode = new javax.swing.JComboBox<>();
+        btnAddSched = new javax.swing.JButton();
+        btnAddCancel = new javax.swing.JButton();
+        txtTime = new javax.swing.JTextField();
+        cmbSubjectCode = new javax.swing.JComboBox<>();
         pnlManagement = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblManagement = new javax.swing.JTable();
@@ -235,18 +260,220 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
             pnlDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlDashboardLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(scrlDashboard, javax.swing.GroupLayout.PREFERRED_SIZE, 874, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(scrlDashboard, javax.swing.GroupLayout.DEFAULT_SIZE, 954, Short.MAX_VALUE)
                 .addContainerGap())
         );
         pnlDashboardLayout.setVerticalGroup(
             pnlDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlDashboardLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(scrlDashboard, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(scrlDashboard, javax.swing.GroupLayout.DEFAULT_SIZE, 412, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         mainPanel.add(pnlDashboard, "pnlDashboard");
+
+        pnlAddSubjSched.setName("pnlSubjSched"); // NOI18N
+
+        jLabel1.setText("School Year");
+
+        jLabel2.setText("Semester");
+
+        jLabel3.setText("College Code");
+
+        jLabel4.setText("Day");
+
+        jLabel5.setText("Subject");
+
+        jLabel6.setText("Block No.");
+
+        jLabel8.setText("Employee Name");
+
+        jLabel9.setText("Sequence No.");
+
+        jLabel10.setText("Type");
+
+        jLabel11.setText("Room");
+
+        jLabel12.setText("Time");
+
+        cmbDay.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" }));
+        cmbDay.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbDayActionPerformed(evt);
+            }
+        });
+
+        cmbEmployeeName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbEmployeeNameActionPerformed(evt);
+            }
+        });
+
+        cmbSYear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbSYearActionPerformed(evt);
+            }
+        });
+
+        cmbSemester.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbSemesterActionPerformed(evt);
+            }
+        });
+
+        cmbCollegeCode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbCollegeCodeActionPerformed(evt);
+            }
+        });
+
+        btnAddSched.setBackground(new java.awt.Color(90, 153, 207));
+        btnAddSched.setForeground(new java.awt.Color(255, 255, 255));
+        btnAddSched.setText("Add");
+        btnAddSched.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAddSchedMouseClicked(evt);
+            }
+        });
+
+        btnAddCancel.setBackground(new java.awt.Color(90, 153, 207));
+        btnAddCancel.setForeground(new java.awt.Color(255, 255, 255));
+        btnAddCancel.setText("Back");
+
+        cmbSubjectCode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbSubjectCodeActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnlAddSubjSchedLayout = new javax.swing.GroupLayout(pnlAddSubjSched);
+        pnlAddSubjSched.setLayout(pnlAddSubjSchedLayout);
+        pnlAddSubjSchedLayout.setHorizontalGroup(
+            pnlAddSubjSchedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAddSubjSchedLayout.createSequentialGroup()
+                .addGroup(pnlAddSubjSchedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(pnlAddSubjSchedLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnAddSched, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlAddSubjSchedLayout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addGroup(pnlAddSubjSchedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(pnlAddSubjSchedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(pnlAddSubjSchedLayout.createSequentialGroup()
+                                    .addComponent(jLabel3)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(cmbCollegeCode, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(pnlAddSubjSchedLayout.createSequentialGroup()
+                                    .addGap(0, 0, Short.MAX_VALUE)
+                                    .addComponent(btnAddCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(263, 263, 263))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAddSubjSchedLayout.createSequentialGroup()
+                                    .addGroup(pnlAddSubjSchedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel2)
+                                        .addComponent(jLabel1))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(pnlAddSubjSchedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(cmbSYear, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(cmbSemester, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(pnlAddSubjSchedLayout.createSequentialGroup()
+                                    .addGroup(pnlAddSubjSchedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel4)
+                                        .addComponent(jLabel5))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(pnlAddSubjSchedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(cmbSubjectCode, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(cmbDay, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(pnlAddSubjSchedLayout.createSequentialGroup()
+                                .addComponent(jLabel8)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cmbEmployeeName, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
+                        .addGroup(pnlAddSubjSchedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(pnlAddSubjSchedLayout.createSequentialGroup()
+                                .addGroup(pnlAddSubjSchedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(pnlAddSubjSchedLayout.createSequentialGroup()
+                                        .addGroup(pnlAddSubjSchedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel10)
+                                            .addComponent(jLabel12)
+                                            .addComponent(jLabel11))
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAddSubjSchedLayout.createSequentialGroup()
+                                        .addGap(0, 2, Short.MAX_VALUE)
+                                        .addComponent(jLabel9)))
+                                .addGap(18, 18, 18)
+                                .addGroup(pnlAddSubjSchedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtType, javax.swing.GroupLayout.DEFAULT_SIZE, 307, Short.MAX_VALUE)
+                                    .addComponent(txtSequence, javax.swing.GroupLayout.DEFAULT_SIZE, 307, Short.MAX_VALUE)
+                                    .addComponent(txtRoom, javax.swing.GroupLayout.DEFAULT_SIZE, 307, Short.MAX_VALUE)
+                                    .addComponent(txtTime)))
+                            .addGroup(pnlAddSubjSchedLayout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtBlockNo, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(85, 85, 85))
+        );
+
+        pnlAddSubjSchedLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {txtBlockNo, txtRoom, txtSequence, txtType});
+
+        pnlAddSubjSchedLayout.setVerticalGroup(
+            pnlAddSubjSchedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlAddSubjSchedLayout.createSequentialGroup()
+                .addGroup(pnlAddSubjSchedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlAddSubjSchedLayout.createSequentialGroup()
+                        .addGap(84, 84, 84)
+                        .addGroup(pnlAddSubjSchedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(cmbSemester, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(30, 30, 30)
+                        .addGroup(pnlAddSubjSchedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(cmbCollegeCode, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(91, 91, 91)
+                        .addGroup(pnlAddSubjSchedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(cmbSubjectCode, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(pnlAddSubjSchedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(txtBlockNo, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel6)))
+                        .addGap(34, 34, 34)
+                        .addGroup(pnlAddSubjSchedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(cmbDay, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(pnlAddSubjSchedLayout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addGroup(pnlAddSubjSchedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnlAddSubjSchedLayout.createSequentialGroup()
+                                .addGap(57, 57, 57)
+                                .addGroup(pnlAddSubjSchedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(txtRoom, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel11))
+                                .addGap(30, 30, 30)
+                                .addGroup(pnlAddSubjSchedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(txtType, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel10))
+                                .addGap(29, 29, 29)
+                                .addGroup(pnlAddSubjSchedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(txtSequence, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel9)
+                                    .addGroup(pnlAddSubjSchedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(cmbEmployeeName, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel8))))
+                            .addGroup(pnlAddSubjSchedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(cmbSYear, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel1)
+                                .addComponent(jLabel12)
+                                .addComponent(txtTime, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 18, Short.MAX_VALUE)
+                .addGroup(pnlAddSubjSchedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAddSched, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAddCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+
+        pnlAddSubjSchedLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {txtBlockNo, txtRoom, txtSequence, txtType});
+
+        mainPanel.add(pnlAddSubjSched, "pnlAddSubjSched");
 
         pnlManagement.setName("pnlManagement"); // NOI18N
 
@@ -266,14 +493,29 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
         btnDelete.setBackground(new java.awt.Color(217, 83, 79));
         btnDelete.setForeground(new java.awt.Color(255, 255, 255));
         btnDelete.setText("Delete");
+        btnDelete.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnDeleteMouseClicked(evt);
+            }
+        });
 
         btnEdit.setBackground(new java.awt.Color(217, 148, 79));
         btnEdit.setForeground(new java.awt.Color(255, 255, 255));
         btnEdit.setText("Edit");
+        btnEdit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnEditMouseClicked(evt);
+            }
+        });
 
         btnAdd.setBackground(new java.awt.Color(90, 153, 207));
         btnAdd.setForeground(new java.awt.Color(255, 255, 255));
         btnAdd.setText("Add");
+        btnAdd.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAddMouseClicked(evt);
+            }
+        });
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddActionPerformed(evt);
@@ -284,14 +526,14 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
         pnlManagement.setLayout(pnlManagementLayout);
         pnlManagementLayout.setHorizontalGroup(
             pnlManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 886, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlManagementLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 966, Short.MAX_VALUE)
         );
         pnlManagementLayout.setVerticalGroup(
             pnlManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -303,7 +545,7 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
                         .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
 
         mainPanel.add(pnlManagement, "pnlManagement");
@@ -321,7 +563,7 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(panelNav, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(16, 16, 16))
+                .addGap(14, 14, 14))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -336,7 +578,7 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
                         .addComponent(panelNav, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGap(12, 12, 12))
+                .addContainerGap())
         );
 
         pack();
@@ -367,52 +609,56 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
     private void btnStudentGradesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnStudentGradesMouseClicked
         // TODO add your handling code here:
         cacheResultSet(db.fetchGrades());
+        currentData = "StudentGrades";
     }//GEN-LAST:event_btnStudentGradesMouseClicked
 
     private void btnSubjSchedMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSubjSchedMouseClicked
         // TODO add your handling code here:
         cacheResultSet(db.fetchSubjectSchedules());
+        currentData = "SubjectSchedule";
     }//GEN-LAST:event_btnSubjSchedMouseClicked
 
     private void btnSchoolYearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSchoolYearMouseClicked
         // TODO add your handling code here:
         cacheResultSet(db.fetchSchoolYears());
+        currentData = "SchoolYear";
     }//GEN-LAST:event_btnSchoolYearMouseClicked
 
     private void btnCollegeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCollegeMouseClicked
         // TODO add your handling code here:
-        cacheResultSet(db.fetchSchoolYears());
+        cacheResultSet(db.fetchColleges());
+        currentData = "College";
     }//GEN-LAST:event_btnCollegeMouseClicked
 
     private void btnSemesterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSemesterMouseClicked
         // TODO add your handling code here:
         cacheResultSet(db.fetchSemesters());
+        currentData = "Semester";
     }//GEN-LAST:event_btnSemesterMouseClicked
 
     private void btnCourseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCourseMouseClicked
         // TODO add your handling code here:
         cacheResultSet(db.fetchCourses());
+        currentData = "Course";
     }//GEN-LAST:event_btnCourseMouseClicked
 
     private void btnStudentMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnStudentMouseClicked
         // TODO add your handling code here:
         cacheResultSet(db.fetchStudents());
+        currentData = "Students";
     }//GEN-LAST:event_btnStudentMouseClicked
 
     private void btnEmployeeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEmployeeMouseClicked
         // TODO add your handling code here:
         cacheResultSet(db.fetchEmployees());
+        currentData = "Students";
     }//GEN-LAST:event_btnEmployeeMouseClicked
 
     private void btnSubjectMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSubjectMouseClicked
         // TODO add your handling code here:
         cacheResultSet(db.fetchSubjects());
-        System.out.println(populatedTable.getClass().getSimpleName());
+        currentData = "Subject";
     }//GEN-LAST:event_btnSubjectMouseClicked
-
-    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnDashboardMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDashboardMouseClicked
         // TODO add your handling code here:
@@ -427,33 +673,132 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
         populatedTable = tblManagement;
         cacheResultSet(db.fetchStudents());
     }//GEN-LAST:event_btnManagementMouseClicked
+
+    private void cmbDayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbDayActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbDayActionPerformed
+
+    private void cmbEmployeeNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbEmployeeNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbEmployeeNameActionPerformed
+
+    private void cmbSYearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbSYearActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbSYearActionPerformed
+
+    private void cmbSemesterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbSemesterActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbSemesterActionPerformed
+
+    private void cmbCollegeCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbCollegeCodeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbCollegeCodeActionPerformed
+
+    private void btnAddSchedMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddSchedMouseClicked
+        // TODO add your handling code here:
+        String selectedDay = (String) cmbDay.getSelectedItem();
+        String dayCode;
+
+        dayCode = switch (selectedDay) {
+            case "Monday" -> "M";
+            case "Tuesday" -> "T";
+            case "Wednesday" -> "W";
+            case "Thursday" -> "Th";
+            case "Friday" -> "F";
+            case "Saturday" -> "S";
+            case "Sunday" -> "Su";
+            default -> "";
+        };
+        db.addSubjectSchedule(
+                cmbSYear.getSelectedItem().toString().trim(), 
+                cmbSemester.getSelectedItem().toString().trim(), 
+                "(SELECT college_code FROM finalsoop.college WHERE description = '" + cmbCollegeCode.getSelectedItem().toString().trim() + "')", 
+                txtBlockNo.getText().trim(), 
+                "(SELECT subject_code FROM finalsoop.subject WHERE description = '" + cmbSubjectCode.getSelectedItem().toString().trim() + "')", 
+                dayCode, 
+                txtTime.getText(), 
+                txtRoom.getText(), 
+                txtType.getText(), 
+                Integer.parseInt(txtSequence.getText()), 
+                "(SELECT employee_id FROM finalsoop.employee WHERE CONCAT(lastname, ', ', firstname) = '" +cmbEmployeeName.getSelectedItem().toString().trim() + "')"
+        );
+        switchToCard("pnlManagement");
+        db.populateTable(db.fetchSubjectSchedules(), populatedTable);
+    }//GEN-LAST:event_btnAddSchedMouseClicked
+
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAddActionPerformed
+
+    private void btnAddMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddMouseClicked
+        if (currentData.equals("SubjectSchedule")){
+            switchToCard("pnlAddSubjSched");
+            populateSchedOptions();
+        }
+    }//GEN-LAST:event_btnAddMouseClicked
+
+    private void cmbSubjectCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbSubjectCodeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbSubjectCodeActionPerformed
+
+    private void btnEditMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEditMouseClicked
+        // TODO add your handling code here:
+        if (currentData.equals("SubjectSchedule")){
+            int row = tblManagement.getSelectedRow();
+            populateSchedOptions();
+            if(row != -1){
+                String dayCode = switch (tblManagement.getModel().getValueAt(row, 6).toString()) {
+                    case "M" -> "Monday";
+                    case "T" -> "Tuesday";
+                    case "W" -> "Wednesday";
+                    case "Th" -> "Thursday";
+                    case "F" -> "Friday";
+                    case "S" -> "Saturday";
+                    case "Su" -> "Sunday";
+                    default -> "";
+                };
+                String collegeCode = findItemInResultSet(db.fetchColleges(), tblManagement.getModel().getValueAt(row, 2).toString(), "college_code", "description");
+                switchToCard("pnlAddSubjSched");
+                cmbSYear.setSelectedItem(tblManagement.getModel().getValueAt(row, 0).toString());
+                cmbSemester.setSelectedItem(tblManagement.getModel().getValueAt(row, 1).toString());
+                cmbCollegeCode.setSelectedItem(collegeCode);
+                cmbEmployeeName.setSelectedItem(tblManagement.getModel().getValueAt(row, 12).toString());
+                cmbSubjectCode.setSelectedItem(tblManagement.getModel().getValueAt(row,5).toString());
+                cmbDay.setSelectedItem(dayCode);
+                txtTime.setText(tblManagement.getModel().getValueAt(row,7).toString());
+                txtRoom.setText(tblManagement.getModel().getValueAt(row,8).toString());
+                txtType.setText(tblManagement.getModel().getValueAt(row,9).toString());
+                txtSequence.setText(tblManagement.getModel().getValueAt(row,10).toString());
+                txtBlockNo.setText(tblManagement.getModel().getValueAt(row,3).toString());
+            }else{
+                JOptionPane.showMessageDialog(null,"No record selected");
+            }
+        }
+    }//GEN-LAST:event_btnEditMouseClicked
+
+    private void btnDeleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDeleteMouseClicked
+        // TODO add your handling code here:
+        int row = tblManagement.getSelectedRow();
+        if(currentData.equals("SubjectSchedule")){
+            if(row != -1){
+                String strSubjectCode = tblManagement.getModel().getValueAt(row,4).toString();
+                String strCollegeCode = tblManagement.getModel().getValueAt(row, 2).toString();
+                String strSYear = tblManagement.getModel().getValueAt(row, 0).toString();
+                String strSemester = tblManagement.getModel().getValueAt(row, 1).toString();
+                String strBlockNo = tblManagement.getModel().getValueAt(row,3).toString();
+                String strSequenceNo = tblManagement.getModel().getValueAt(row,10).toString();
+                db.deleteSubjectSchedule(strSubjectCode, strCollegeCode, strSequenceNo, strBlockNo, strSemester, strSYear);
+                db.populateTable(db.fetchSubjectSchedules(), populatedTable);
+            } else {
+                JOptionPane.showMessageDialog(null,"No record selected");
+            }
+        }
+    }//GEN-LAST:event_btnDeleteMouseClicked
     
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(schoolManagementMainUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(schoolManagementMainUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(schoolManagementMainUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(schoolManagementMainUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -476,9 +821,52 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
         currentRs = rs;
         db.populateTable(currentRs, populatedTable);
     }
+    private void populateSchedOptions(){
+        try{
+            ResultSet rs = null;
+                rs = db.fetchSchoolYears();
+                while(rs.next()){
+                    cmbSYear.addItem(rs.getString("syear"));
+                }
+                rs = db.fetchSemesters();
+                while(rs.next()){
+                    cmbSemester.addItem(rs.getString("semester"));
+                }
+                rs = db.fetchColleges();
+                while(rs.next()){
+                    cmbCollegeCode.addItem(rs.getString("description"));
+                }
+                rs = db.fetchEmployees();
+                while(rs.next()){
+                    cmbEmployeeName.addItem(rs.getString("lastname") + ", " +rs.getString("firstname"));
+                }
+                rs = db.fetchSubjects();
+                while(rs.next()){
+                    cmbSubjectCode.addItem(rs.getString("description"));
+                }
+        }catch(Exception e){
+            System.out.println(e);
+        }
+    }
+    public String findItemInResultSet(ResultSet rs, String targetValue, String columnName, String targetColumn){
+        try{
+            while (rs.next()) {
+                String value = rs.getString(columnName);
+                if (value.equals(targetValue)) {
+                    value = rs.getString(targetColumn);
+                    return value; 
+                }
+            }
+        }catch(Exception e){
+            System.out.println(e);
+        }
+        return null;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnAddCancel;
+    private javax.swing.JButton btnAddSched;
     private javax.swing.JButton btnCollege;
     private javax.swing.JButton btnCourse;
     private javax.swing.JButton btnDashboard;
@@ -492,14 +880,37 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
     private javax.swing.JButton btnStudentGrades;
     private javax.swing.JButton btnSubjSched;
     private javax.swing.JButton btnSubject;
+    private javax.swing.JComboBox<String> cmbCollegeCode;
+    private javax.swing.JComboBox<String> cmbDay;
+    private javax.swing.JComboBox<String> cmbEmployeeName;
+    private javax.swing.JComboBox<String> cmbSYear;
+    private javax.swing.JComboBox<String> cmbSemester;
+    private javax.swing.JComboBox<String> cmbSubjectCode;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JPanel panelNav;
+    private javax.swing.JPanel pnlAddSubjSched;
     private javax.swing.JPanel pnlDashboard;
     private javax.swing.JPanel pnlManagement;
     private javax.swing.JScrollPane scrlDashboard;
     private javax.swing.JTable tblDashboard;
     private javax.swing.JTable tblManagement;
+    private javax.swing.JTextField txtBlockNo;
+    private javax.swing.JTextField txtRoom;
+    private javax.swing.JTextField txtSequence;
+    private javax.swing.JTextField txtTime;
+    private javax.swing.JTextField txtType;
     // End of variables declaration//GEN-END:variables
 }
