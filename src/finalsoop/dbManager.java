@@ -28,7 +28,6 @@ public class dbManager {
 
 	public void populateTable(ResultSet rs, javax.swing.JTable table) {
 		try {
-			System.out.println("populateTable called with ResultSet: " + rs);
 			DefaultTableModel model = new DefaultTableModel();
 			int columnCount = rs.getMetaData().getColumnCount();
 
@@ -718,7 +717,7 @@ public class dbManager {
 	 * Updates a subject schedule record in the database.
 	 * 
 	 * @param intSequenceNo  Sequence number to update
-	 * @param strSyear       New school year
+	 * @param strSYear       New school year
 	 * @param strSemester    New semester
 	 * @param strCollegeCode New college code
 	 * @param strBlockNo     New block number
@@ -729,18 +728,40 @@ public class dbManager {
 	 * @param strType        New type
 	 * @param strEmployeeId  New employee ID
 	 */
-	public void updateSubjectSchedule(int intSequenceNo, String strSyear, String strSemester, String strCollegeCode,
-			String strBlockNo, String strSubjectCode, String strDay, String strTime, String strRoom, String strType,
+	public void updateSubjectSchedule(String strSYear, String strSemester, String strCollegeCode, String strBlockNo,
+			String strSubjectCode, String strDay, String strTime, String strRoom, String strType, int intSequenceNo,
 			String strEmployeeId) {
 		try (Statement ps = conn.createStatement()) {
-			ps.execute("UPDATE finalsoop.subject_schedule SET syear = '" + strSyear + "', semester = '" + strSemester
-					+ "', college_code = '" + strCollegeCode
-					+ "', block_no = '" + strBlockNo + "', subject_code = '" + strSubjectCode + "', day = '" + strDay
+			ps.execute("UPDATE finalsoop.subject_schedule SET syear = '" + strSYear + "', semester = '" + strSemester
+					+ "', college_code = " + strCollegeCode
+					+ ", block_no = '" + strBlockNo + "', subject_code = " + strSubjectCode + ", day = '" + strDay
 					+ "', time = '" + strTime
-					+ "', room = '" + strRoom + "', type = '" + strType + "', employee_id = '" + strEmployeeId
-					+ "' WHERE sequence_no = " + intSequenceNo);
+					+ "', room = '" + strRoom 
+                                        + "', type = '" + strType 
+                                        + "', employee_id = " + strEmployeeId
+                                        + ", sequence_no = " + intSequenceNo
+					+ " WHERE subject_code = " + strSubjectCode + 
+                                            " AND college_code = " + strCollegeCode + 
+                                            " AND syear = '" + strSYear +
+                                            "' AND semester = '" + strSemester + 
+                                            "' AND block_no = '" + strBlockNo +
+                                            "' AND sequence_no = " + intSequenceNo);
 		} catch (SQLException e) {
 			System.out.println(e);
+                        System.out.println("UPDATE finalsoop.subject_schedule SET syear = '" + strSYear + "', semester = '" + strSemester
+					+ "', college_code = '" + strCollegeCode
+					+ "', block_no = '" + strBlockNo + "', subject_code = " + strSubjectCode + ", day = '" + strDay
+					+ "', time = '" + strTime
+					+ "', room = '" + strRoom 
+                                        + "', type = '" + strType 
+                                        + "', employee_id = " + strEmployeeId
+                                        + ", sequence_no = " + intSequenceNo
+					+ " WHERE subject_code = " + strSubjectCode + 
+                                            " AND college_code = " + strCollegeCode + 
+                                            " AND syear = '" + strSYear +
+                                            "' AND semester = '" + strSemester + 
+                                            "' AND block_no = '" + strBlockNo +
+                                            "' AND sequence_no = " + intSequenceNo);
 		}
 	}
 

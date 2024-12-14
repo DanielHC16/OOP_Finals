@@ -14,6 +14,7 @@ import javax.swing.JOptionPane;
  */
 public class schoolManagementMainUI extends javax.swing.JFrame {
     private String currentData = "";
+    private Boolean boolAdd = true;
     private Connection conn = finalsConnect.Connect();
     private dbManager db = new dbManager(conn);
     private javax.swing.JTable populatedTable = null;
@@ -72,7 +73,7 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
         cmbSYear = new javax.swing.JComboBox<>();
         cmbSemester = new javax.swing.JComboBox<>();
         cmbCollegeCode = new javax.swing.JComboBox<>();
-        btnAddSched = new javax.swing.JButton();
+        btnConfirmSched = new javax.swing.JButton();
         btnAddCancel = new javax.swing.JButton();
         txtTime = new javax.swing.JTextField();
         cmbSubjectCode = new javax.swing.JComboBox<>();
@@ -328,12 +329,12 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
             }
         });
 
-        btnAddSched.setBackground(new java.awt.Color(90, 153, 207));
-        btnAddSched.setForeground(new java.awt.Color(255, 255, 255));
-        btnAddSched.setText("Add");
-        btnAddSched.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnConfirmSched.setBackground(new java.awt.Color(90, 153, 207));
+        btnConfirmSched.setForeground(new java.awt.Color(255, 255, 255));
+        btnConfirmSched.setText("Confirm");
+        btnConfirmSched.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnAddSchedMouseClicked(evt);
+                btnConfirmSchedMouseClicked(evt);
             }
         });
 
@@ -355,7 +356,7 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
                 .addGroup(pnlAddSubjSchedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(pnlAddSubjSchedLayout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnAddSched, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnConfirmSched, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlAddSubjSchedLayout.createSequentialGroup()
                         .addGap(15, 15, 15)
                         .addGroup(pnlAddSubjSchedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -468,7 +469,7 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
                                 .addComponent(txtTime, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 18, Short.MAX_VALUE)
                 .addGroup(pnlAddSubjSchedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAddSched, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnConfirmSched, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAddCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
@@ -696,7 +697,7 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbCollegeCodeActionPerformed
 
-    private void btnAddSchedMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddSchedMouseClicked
+    private void btnConfirmSchedMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConfirmSchedMouseClicked
         // TODO add your handling code here:
         String selectedDay = (String) cmbDay.getSelectedItem();
         String dayCode;
@@ -711,7 +712,8 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
             case "Sunday" -> "Su";
             default -> "";
         };
-        db.addSubjectSchedule(
+        if(boolAdd){
+            db.addSubjectSchedule(
                 cmbSYear.getSelectedItem().toString().trim(), 
                 cmbSemester.getSelectedItem().toString().trim(), 
                 "(SELECT college_code FROM finalsoop.college WHERE description = '" + cmbCollegeCode.getSelectedItem().toString().trim() + "')", 
@@ -723,16 +725,32 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
                 txtType.getText(), 
                 Integer.parseInt(txtSequence.getText()), 
                 "(SELECT employee_id FROM finalsoop.employee WHERE CONCAT(lastname, ', ', firstname) = '" +cmbEmployeeName.getSelectedItem().toString().trim() + "')"
-        );
+            );
+        }else{
+            db.updateSubjectSchedule(
+                cmbSYear.getSelectedItem().toString().trim(), 
+                cmbSemester.getSelectedItem().toString().trim(), 
+                "(SELECT college_code FROM finalsoop.college WHERE description = '" + cmbCollegeCode.getSelectedItem().toString().trim() + "')", 
+                txtBlockNo.getText().trim(), 
+                "(SELECT subject_code FROM finalsoop.subject WHERE description = '" + cmbSubjectCode.getSelectedItem().toString().trim() + "')", 
+                dayCode, 
+                txtTime.getText(), 
+                txtRoom.getText(), 
+                txtType.getText(), 
+                Integer.parseInt(txtSequence.getText()), 
+                "(SELECT employee_id FROM finalsoop.employee WHERE CONCAT(lastname, ', ', firstname) = '" +cmbEmployeeName.getSelectedItem().toString().trim() + "')"
+            );
+        }
         switchToCard("pnlManagement");
         db.populateTable(db.fetchSubjectSchedules(), populatedTable);
-    }//GEN-LAST:event_btnAddSchedMouseClicked
+    }//GEN-LAST:event_btnConfirmSchedMouseClicked
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnAddMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddMouseClicked
+        boolAdd = true;
         if (currentData.equals("SubjectSchedule")){
             switchToCard("pnlAddSubjSched");
             populateSchedOptions();
@@ -745,6 +763,7 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
 
     private void btnEditMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEditMouseClicked
         // TODO add your handling code here:
+        boolAdd = false;
         if (currentData.equals("SubjectSchedule")){
             int row = tblManagement.getSelectedRow();
             populateSchedOptions();
@@ -868,8 +887,8 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnAddCancel;
-    private javax.swing.JButton btnAddSched;
     private javax.swing.JButton btnCollege;
+    private javax.swing.JButton btnConfirmSched;
     private javax.swing.JButton btnCourse;
     private javax.swing.JButton btnDashboard;
     private javax.swing.JButton btnDelete;
