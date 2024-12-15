@@ -7,8 +7,12 @@ CREATE TABLE finalsoop.schoolyear (
     syear VARCHAR(10) NOT NULL PRIMARY KEY
 );
 INSERT INTO finalsoop.schoolyear (syear) VALUES 
+('2020-2021'),
+('2021-2022'), 
+('2022-2023'),
 ('2023-2024'),
-('2024-2025');
+('2024-2025'),
+('2025-2026');
 
 -- 2. SEMESTER TABLE
 CREATE TABLE finalsoop.semester (
@@ -100,7 +104,7 @@ CREATE TABLE finalsoop.subject (
 );
 INSERT INTO finalsoop.subject (subject_code, description, units, curriculum, college_code, status, date_opened, date_closed) VALUES 
 -- ('MTH001', 'Mathematics in the Modern World', 3, '2019', 'CED', 'A', '1995-01-01', '9999-12-31'),
--- ('OOP', 'Object Oriented Programming', 3, '2010', 'CISTM', 'A', '2024-09-01', '9999-12-31'), -- Have to remove this
+-- ('OOP', 'Object Oriented Programming', 3, '2010', 'CISTM', 'A', '2024-09-01', '9999-12-31'); -- Inaccurate OOP
 -- 1st Year 1st Sem
 ('ICC 0101', 'Introduction to Computing (Lec)', '2', '2010', 'CISTM', 'A', '2024-08-01', '9999-12-31'),
 ('ICC 0101.1', 'Introduction to Computing (Lab)', '1', '2010', 'CISTM', 'A', '2024-08-01', '9999-12-31'),
@@ -258,8 +262,10 @@ CREATE TABLE finalsoop.grades (
     CONSTRAINT subject_code_fk1 FOREIGN KEY (subject_code) REFERENCES finalsoop.subject(subject_code)
 );
 INSERT INTO finalsoop.grades (syear, semester, student_no, subject_code, block_no, grade) VALUES 
-('2023-2024', '1', '12345', 'OOP', 'CS21', 3.00),
-('2023-2024', '1', '12346', 'OOP', 'CS21', 2.75);
+-- ('2023-2024', '1', '12345', 'OOP', 'CS21', 3.00),
+-- ('2023-2024', '1', '12346', 'OOP', 'CS21', 2.75);
+('2023-2024', '1', '12345', 'CSC 0212', 'CS21', 3.00),
+('2023-2024', '1', '12346', 'CSC 0212', 'CS21', 2.75);
 
 -- VIEWS
 -- 1. SUBJECT SCHEDULE VIEW
@@ -305,7 +311,7 @@ JOIN
 
 -- COLLEGE TABLE 
 INSERT INTO finalsoop.college (college_code, description, date_opened, date_closed, status) VALUES 
-	('CASBE', 'College of Architecture and Sustainable Built Environments', '1970-01-01', '9999-12-31', 'A'), -- NOTE: DATE FORMAT = YYYY/MM/DD
+	-- ('CASBE', 'College of Architecture and Sustainable Built Environments', '1970-01-01', '9999-12-31', 'A'), -- NOTE: DATE FORMAT = YYYY/MM/DD
     ('CA', 'College of Accountancy', '1970-01-01', '9999-12-31', 'A'),
     ('CBA', 'College of Business Administration', '1970-01-01', '9999-12-21', 'A'),
     -- ('CEng', 'College of Engineering', '1970-08-01', '9999-12-31', 'A'),
@@ -366,15 +372,6 @@ INSERT INTO finalsoop.course (course_code, description, college_code, date_opene
 -- ('BSCS-CS', 'BSComputer Studies-Computer Science', 'CET', '2000-06-01', '9999-12-31', 'A'),
 -- ('BSCS-IT', 'BSComputer Studies-Information Technology', 'CISTM', '2000-06-01', '9999-12-31', 'A');
 
--- Delete the existing records (Update to match PLM naming convention)
-DELETE FROM finalsoop.course
-WHERE course_code IN ('BSCS-CS', 'BSCS-IT');
-
--- Insert the updated records
-INSERT INTO finalsoop.course (course_code, description, college_code, date_opened, date_closed, status) VALUES
-('BSCS', 'BSComputer Studies-Computer Science', 'CISTM', '2000-06-01', '9999-12-31', 'A'),
-('BSIT', 'BSComputer Studies-Information Technology', 'CISTM', '2000-06-01', '9999-12-31', 'A');
-
 
 -- STUDENT TABLE
 INSERT INTO finalsoop.student (student_no, lastname, firstname, email, gender, course_code, cp_num, address, bday, status, date_started, date_graduated) VALUES 
@@ -382,8 +379,8 @@ INSERT INTO finalsoop.student (student_no, lastname, firstname, email, gender, c
     ('2023-34033', 'Camacho', 'Daniel Hardy', 'dccamacho@gmail.com', 'M', 'BS CS', '09567434580', 'Sta. Mesa', '2004-09-16', 'A', '2023-08-01', '2027-08-01'),
     ('2023-34026', 'Magbag', 'Dave', 'dmagbag@gmail.com', 'M', 'BS CS', '09994110531', 'Abad Santos', '2005-05-07', 'A', '2023-08-01', '2027-08-01'),
 	('2024-535', 'Flowers', 'Ramona', 'ramona.flowers@scanner.com', 'F', 'BS CS', '09171234567', 'Brooklyn', '1990-10-04', 'A', '2023-08-01', '2027-08-01'),
-	('12345', 'Atienza', 'Francis', 'fcatienza@yahoo.com', 'M', 'BS CS', '0998123456', 'Cavite', '2000-01-12', 'I', '2020-09-01', '2024-07-31'),
-	('12346', 'Aquino', 'Kris', 'aquinok@yahoo.com', 'F', 'BS CS', '0998654321', 'Tarlac', '2000-02-14', 'A', '2022-09-01', '9999-12-31'),
+	-- ('12345', 'Atienza', 'Francis', 'fcatienza@yahoo.com', 'M', 'BS CS', '0998123456', 'Cavite', '2000-01-12', 'I', '2020-09-01', '2024-07-31'),
+	-- ('12346', 'Aquino', 'Kris', 'aquinok@yahoo.com', 'F', 'BS CS', '0998654321', 'Tarlac', '2000-02-14', 'A', '2022-09-01', '9999-12-31'),
     ('77777', 'Miller', 'George', 'joji@gmail.com', 'M', 'BS IT', '099342123', 'Japan', '2000-02-14', 'A', '2020-09-01', '9999-12-31');
  INSERT INTO finalsoop.student (student_no, lastname, firstname, email, gender, course_code, cp_num, address, bday, status, date_started, date_graduated) VALUES 
 	('007', 'Pilgrim', 'Scott', 'vstheworld@yahoo.com', 'M', 'BS CHE', '09767676', 'Toronto', '2002-01-01', 'I', '2019-09-01', '9999-12-31'),
@@ -401,7 +398,7 @@ INSERT INTO finalsoop.student (student_no, lastname, firstname, email, gender, c
 
     
 
-TRUNCATE TABLE finalsoop.student;
+-- TRUNCATE TABLE finalsoop.student;
 
 -- EMPLOYEE TABLE
 INSERT INTO finalsoop.employee (employee_id, lastname, firstname, email, gender, cp_num, address, bday, status, date_started, date_resigned) VALUES 
