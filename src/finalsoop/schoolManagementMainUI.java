@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package finalsoop;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.awt.CardLayout;
@@ -12,13 +13,16 @@ import javax.swing.JOptionPane;
  *
  * @author tulan
  */
+
 public class schoolManagementMainUI extends javax.swing.JFrame {
+
     private String currentData = "";
     private Boolean boolAdd = true;
     private Connection conn = finalsConnect.Connect();
     private dbManager db = new dbManager(conn);
     private javax.swing.JTable populatedTable = null;
     private java.sql.ResultSet currentRs = null;
+
     /**
      * Creates new form schoolManagementMainUI
      */
@@ -52,6 +56,12 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
         pnlDashboard = new javax.swing.JPanel();
         scrlDashboard = new javax.swing.JScrollPane();
         tblDashboard = new javax.swing.JTable();
+        pnlManagement = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblManagement = new javax.swing.JTable();
+        btnDelete = new javax.swing.JButton();
+        btnEdit = new javax.swing.JButton();
+        btnAdd = new javax.swing.JButton();
         pnlAddSubjSched = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -66,8 +76,10 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
         txtType = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         txtRoom = new javax.swing.JTextField();
+        txtTime = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
+        cmbSubjectCode = new javax.swing.JComboBox<>();
         cmbDay = new javax.swing.JComboBox<>();
         cmbEmployeeName = new javax.swing.JComboBox<>();
         cmbSYear = new javax.swing.JComboBox<>();
@@ -75,14 +87,11 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
         cmbCollegeCode = new javax.swing.JComboBox<>();
         btnConfirmSched = new javax.swing.JButton();
         btnAddCancel = new javax.swing.JButton();
-        txtTime = new javax.swing.JTextField();
-        cmbSubjectCode = new javax.swing.JComboBox<>();
-        pnlManagement = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        tblManagement = new javax.swing.JTable();
-        btnDelete = new javax.swing.JButton();
-        btnEdit = new javax.swing.JButton();
-        btnAdd = new javax.swing.JButton();
+        pnlAddSchoolYear = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        txtSchoolYear = new javax.swing.JTextField();
+        btnAddSYCancel = new javax.swing.JButton();
+        btnConfirmSY = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -117,6 +126,11 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
         btnManagement.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnManagementMouseClicked(evt);
+            }
+        });
+        btnManagement.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManagementActionPerformed(evt);
             }
         });
 
@@ -274,6 +288,81 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
 
         mainPanel.add(pnlDashboard, "pnlDashboard");
 
+        pnlManagement.setName("pnlManagement"); // NOI18N
+
+        tblManagement.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(tblManagement);
+
+        btnDelete.setBackground(new java.awt.Color(217, 83, 79));
+        btnDelete.setForeground(new java.awt.Color(255, 255, 255));
+        btnDelete.setText("Delete");
+        btnDelete.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnDeleteMouseClicked(evt);
+            }
+        });
+
+        btnEdit.setBackground(new java.awt.Color(217, 148, 79));
+        btnEdit.setForeground(new java.awt.Color(255, 255, 255));
+        btnEdit.setText("Edit");
+        btnEdit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnEditMouseClicked(evt);
+            }
+        });
+
+        btnAdd.setBackground(new java.awt.Color(90, 153, 207));
+        btnAdd.setForeground(new java.awt.Color(255, 255, 255));
+        btnAdd.setText("Add");
+        btnAdd.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAddMouseClicked(evt);
+            }
+        });
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnlManagementLayout = new javax.swing.GroupLayout(pnlManagement);
+        pnlManagement.setLayout(pnlManagementLayout);
+        pnlManagementLayout.setHorizontalGroup(
+            pnlManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlManagementLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 966, Short.MAX_VALUE)
+        );
+        pnlManagementLayout.setVerticalGroup(
+            pnlManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlManagementLayout.createSequentialGroup()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnlManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(pnlManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(39, Short.MAX_VALUE))
+        );
+
+        mainPanel.add(pnlManagement, "pnlManagement");
+
         pnlAddSubjSched.setName("pnlSubjSched"); // NOI18N
 
         jLabel1.setText("School Year");
@@ -294,9 +383,27 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
 
         jLabel10.setText("Type");
 
+        txtRoom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtRoomActionPerformed(evt);
+            }
+        });
+
+        txtTime.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTimeActionPerformed(evt);
+            }
+        });
+
         jLabel11.setText("Room");
 
         jLabel12.setText("Time");
+
+        cmbSubjectCode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbSubjectCodeActionPerformed(evt);
+            }
+        });
 
         cmbDay.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" }));
         cmbDay.addActionListener(new java.awt.event.ActionListener() {
@@ -337,14 +444,18 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
                 btnConfirmSchedMouseClicked(evt);
             }
         });
+        btnConfirmSched.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConfirmSchedActionPerformed(evt);
+            }
+        });
 
         btnAddCancel.setBackground(new java.awt.Color(90, 153, 207));
         btnAddCancel.setForeground(new java.awt.Color(255, 255, 255));
         btnAddCancel.setText("Back");
-
-        cmbSubjectCode.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbSubjectCodeActionPerformed(evt);
+        btnAddCancel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAddCancelMouseClicked(evt);
             }
         });
 
@@ -478,80 +589,74 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
 
         mainPanel.add(pnlAddSubjSched, "pnlAddSubjSched");
 
-        pnlManagement.setName("pnlManagement"); // NOI18N
+        jLabel7.setText("Add School Year");
 
-        tblManagement.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane2.setViewportView(tblManagement);
-
-        btnDelete.setBackground(new java.awt.Color(217, 83, 79));
-        btnDelete.setForeground(new java.awt.Color(255, 255, 255));
-        btnDelete.setText("Delete");
-        btnDelete.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnDeleteMouseClicked(evt);
-            }
-        });
-
-        btnEdit.setBackground(new java.awt.Color(217, 148, 79));
-        btnEdit.setForeground(new java.awt.Color(255, 255, 255));
-        btnEdit.setText("Edit");
-        btnEdit.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnEditMouseClicked(evt);
-            }
-        });
-
-        btnAdd.setBackground(new java.awt.Color(90, 153, 207));
-        btnAdd.setForeground(new java.awt.Color(255, 255, 255));
-        btnAdd.setText("Add");
-        btnAdd.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnAddMouseClicked(evt);
-            }
-        });
-        btnAdd.addActionListener(new java.awt.event.ActionListener() {
+        txtSchoolYear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddActionPerformed(evt);
+                txtSchoolYearActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout pnlManagementLayout = new javax.swing.GroupLayout(pnlManagement);
-        pnlManagement.setLayout(pnlManagementLayout);
-        pnlManagementLayout.setHorizontalGroup(
-            pnlManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlManagementLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 966, Short.MAX_VALUE)
+        btnAddSYCancel.setBackground(new java.awt.Color(90, 153, 207));
+        btnAddSYCancel.setForeground(new java.awt.Color(255, 255, 255));
+        btnAddSYCancel.setText("Back");
+        btnAddSYCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddSYCancelActionPerformed(evt);
+            }
+        });
+
+        btnConfirmSY.setBackground(new java.awt.Color(90, 153, 207));
+        btnConfirmSY.setForeground(new java.awt.Color(255, 255, 255));
+        btnConfirmSY.setText("Confirm");
+        btnConfirmSY.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnConfirmSYMouseClicked(evt);
+            }
+        });
+        btnConfirmSY.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConfirmSYActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnlAddSchoolYearLayout = new javax.swing.GroupLayout(pnlAddSchoolYear);
+        pnlAddSchoolYear.setLayout(pnlAddSchoolYearLayout);
+        pnlAddSchoolYearLayout.setHorizontalGroup(
+            pnlAddSchoolYearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlAddSchoolYearLayout.createSequentialGroup()
+                .addGap(113, 113, 113)
+                .addGroup(pnlAddSchoolYearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlAddSchoolYearLayout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(jLabel7)
+                        .addGap(31, 31, 31)
+                        .addComponent(txtSchoolYear, javax.swing.GroupLayout.DEFAULT_SIZE, 307, Short.MAX_VALUE)
+                        .addGap(416, 416, 416))
+                    .addGroup(pnlAddSchoolYearLayout.createSequentialGroup()
+                        .addComponent(btnAddSYCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnConfirmSY, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(120, 120, 120))))
         );
-        pnlManagementLayout.setVerticalGroup(
-            pnlManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlManagementLayout.createSequentialGroup()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 341, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pnlManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(pnlManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(39, Short.MAX_VALUE))
+        pnlAddSchoolYearLayout.setVerticalGroup(
+            pnlAddSchoolYearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlAddSchoolYearLayout.createSequentialGroup()
+                .addGap(75, 75, 75)
+                .addGroup(pnlAddSchoolYearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(txtSchoolYear, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 202, Short.MAX_VALUE)
+                .addGroup(pnlAddSchoolYearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAddSchoolYearLayout.createSequentialGroup()
+                        .addComponent(btnAddSYCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(78, 78, 78))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAddSchoolYearLayout.createSequentialGroup()
+                        .addComponent(btnConfirmSY, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(70, 70, 70))))
         );
 
-        mainPanel.add(pnlManagement, "pnlManagement");
+        mainPanel.add(pnlAddSchoolYear, "pnlAddSchoolYears");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -703,42 +808,50 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
         String dayCode;
 
         dayCode = switch (selectedDay) {
-            case "Monday" -> "M";
-            case "Tuesday" -> "T";
-            case "Wednesday" -> "W";
-            case "Thursday" -> "Th";
-            case "Friday" -> "F";
-            case "Saturday" -> "S";
-            case "Sunday" -> "Su";
-            default -> "";
+            case "Monday" ->
+                "M";
+            case "Tuesday" ->
+                "T";
+            case "Wednesday" ->
+                "W";
+            case "Thursday" ->
+                "Th";
+            case "Friday" ->
+                "F";
+            case "Saturday" ->
+                "S";
+            case "Sunday" ->
+                "Su";
+            default ->
+                "";
         };
-        if(boolAdd){
+        if (boolAdd) {
             db.addSubjectSchedule(
-                cmbSYear.getSelectedItem().toString().trim(), 
-                cmbSemester.getSelectedItem().toString().trim(), 
-                "(SELECT college_code FROM finalsoop.college WHERE description = '" + cmbCollegeCode.getSelectedItem().toString().trim() + "')", 
-                txtBlockNo.getText().trim(), 
-                "(SELECT subject_code FROM finalsoop.subject WHERE description = '" + cmbSubjectCode.getSelectedItem().toString().trim() + "')", 
-                dayCode, 
-                txtTime.getText(), 
-                txtRoom.getText(), 
-                txtType.getText(), 
-                Integer.parseInt(txtSequence.getText()), 
-                "(SELECT employee_id FROM finalsoop.employee WHERE CONCAT(lastname, ', ', firstname) = '" +cmbEmployeeName.getSelectedItem().toString().trim() + "')"
+                    cmbSYear.getSelectedItem().toString().trim(),
+                    cmbSemester.getSelectedItem().toString().trim(),
+                    "(SELECT college_code FROM finalsoop.college WHERE description = '" + cmbCollegeCode.getSelectedItem().toString().trim() + "')",
+                    txtBlockNo.getText().trim(),
+                    "(SELECT subject_code FROM finalsoop.subject WHERE description = '" + cmbSubjectCode.getSelectedItem().toString().trim() + "')",
+                    dayCode,
+                    txtTime.getText(),
+                    txtRoom.getText(),
+                    txtType.getText(),
+                    Integer.parseInt(txtSequence.getText()),
+                    "(SELECT employee_id FROM finalsoop.employee WHERE CONCAT(lastname, ', ', firstname) = '" + cmbEmployeeName.getSelectedItem().toString().trim() + "')"
             );
-        }else{
+        } else {
             db.updateSubjectSchedule(
-                cmbSYear.getSelectedItem().toString().trim(), 
-                cmbSemester.getSelectedItem().toString().trim(), 
-                "(SELECT college_code FROM finalsoop.college WHERE description = '" + cmbCollegeCode.getSelectedItem().toString().trim() + "')", 
-                txtBlockNo.getText().trim(), 
-                "(SELECT subject_code FROM finalsoop.subject WHERE description = '" + cmbSubjectCode.getSelectedItem().toString().trim() + "')", 
-                dayCode, 
-                txtTime.getText(), 
-                txtRoom.getText(), 
-                txtType.getText(), 
-                Integer.parseInt(txtSequence.getText()), 
-                "(SELECT employee_id FROM finalsoop.employee WHERE CONCAT(lastname, ', ', firstname) = '" +cmbEmployeeName.getSelectedItem().toString().trim() + "')"
+                    cmbSYear.getSelectedItem().toString().trim(),
+                    cmbSemester.getSelectedItem().toString().trim(),
+                    "(SELECT college_code FROM finalsoop.college WHERE description = '" + cmbCollegeCode.getSelectedItem().toString().trim() + "')",
+                    txtBlockNo.getText().trim(),
+                    "(SELECT subject_code FROM finalsoop.subject WHERE description = '" + cmbSubjectCode.getSelectedItem().toString().trim() + "')",
+                    dayCode,
+                    txtTime.getText(),
+                    txtRoom.getText(),
+                    txtType.getText(),
+                    Integer.parseInt(txtSequence.getText()),
+                    "(SELECT employee_id FROM finalsoop.employee WHERE CONCAT(lastname, ', ', firstname) = '" + cmbEmployeeName.getSelectedItem().toString().trim() + "')"
             );
         }
         switchToCard("pnlManagement");
@@ -751,9 +864,12 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
 
     private void btnAddMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddMouseClicked
         boolAdd = true;
-        if (currentData.equals("SubjectSchedule")){
+        if (currentData.equals("SubjectSchedule")) {
             switchToCard("pnlAddSubjSched");
             populateSchedOptions();
+        }
+        if (currentData.equals("SchoolYear")) {
+            switchToCard("pnlAddSchoolYears");
         }
     }//GEN-LAST:event_btnAddMouseClicked
 
@@ -764,19 +880,27 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
     private void btnEditMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEditMouseClicked
         // TODO add your handling code here:
         boolAdd = false;
-        if (currentData.equals("SubjectSchedule")){
+        if (currentData.equals("SubjectSchedule")) {
             int row = tblManagement.getSelectedRow();
             populateSchedOptions();
-            if(row != -1){
+            if (row != -1) {
                 String dayCode = switch (tblManagement.getModel().getValueAt(row, 6).toString()) {
-                    case "M" -> "Monday";
-                    case "T" -> "Tuesday";
-                    case "W" -> "Wednesday";
-                    case "Th" -> "Thursday";
-                    case "F" -> "Friday";
-                    case "S" -> "Saturday";
-                    case "Su" -> "Sunday";
-                    default -> "";
+                    case "M" ->
+                        "Monday";
+                    case "T" ->
+                        "Tuesday";
+                    case "W" ->
+                        "Wednesday";
+                    case "Th" ->
+                        "Thursday";
+                    case "F" ->
+                        "Friday";
+                    case "S" ->
+                        "Saturday";
+                    case "Su" ->
+                        "Sunday";
+                    default ->
+                        "";
                 };
                 String collegeCode = findItemInResultSet(db.fetchColleges(), tblManagement.getModel().getValueAt(row, 2).toString(), "college_code", "description");
                 switchToCard("pnlAddSubjSched");
@@ -784,110 +908,186 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
                 cmbSemester.setSelectedItem(tblManagement.getModel().getValueAt(row, 1).toString());
                 cmbCollegeCode.setSelectedItem(collegeCode);
                 cmbEmployeeName.setSelectedItem(tblManagement.getModel().getValueAt(row, 12).toString());
-                cmbSubjectCode.setSelectedItem(tblManagement.getModel().getValueAt(row,5).toString());
+                cmbSubjectCode.setSelectedItem(tblManagement.getModel().getValueAt(row, 5).toString());
                 cmbDay.setSelectedItem(dayCode);
-                txtTime.setText(tblManagement.getModel().getValueAt(row,7).toString());
-                txtRoom.setText(tblManagement.getModel().getValueAt(row,8).toString());
-                txtType.setText(tblManagement.getModel().getValueAt(row,9).toString());
-                txtSequence.setText(tblManagement.getModel().getValueAt(row,10).toString());
-                txtBlockNo.setText(tblManagement.getModel().getValueAt(row,3).toString());
-            }else{
-                JOptionPane.showMessageDialog(null,"No record selected");
+                txtTime.setText(tblManagement.getModel().getValueAt(row, 7).toString());
+                txtRoom.setText(tblManagement.getModel().getValueAt(row, 8).toString());
+                txtType.setText(tblManagement.getModel().getValueAt(row, 9).toString());
+                txtSequence.setText(tblManagement.getModel().getValueAt(row, 10).toString());
+                txtBlockNo.setText(tblManagement.getModel().getValueAt(row, 3).toString());
+            } else {
+                JOptionPane.showMessageDialog(null, "No record selected");
             }
         }
     }//GEN-LAST:event_btnEditMouseClicked
 
     private void btnDeleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDeleteMouseClicked
-        // TODO add your handling code here:
         int row = tblManagement.getSelectedRow();
-        if(currentData.equals("SubjectSchedule")){
-            if(row != -1){
-                String strSubjectCode = tblManagement.getModel().getValueAt(row,4).toString();
+
+        if (currentData.equals("SubjectSchedule")) {
+            if (row != -1) {
+                String strSubjectCode = tblManagement.getModel().getValueAt(row, 4).toString();
                 String strCollegeCode = tblManagement.getModel().getValueAt(row, 2).toString();
                 String strSYear = tblManagement.getModel().getValueAt(row, 0).toString();
                 String strSemester = tblManagement.getModel().getValueAt(row, 1).toString();
-                String strBlockNo = tblManagement.getModel().getValueAt(row,3).toString();
-                String strSequenceNo = tblManagement.getModel().getValueAt(row,10).toString();
+                String strBlockNo = tblManagement.getModel().getValueAt(row, 3).toString();
+                String strSequenceNo = tblManagement.getModel().getValueAt(row, 10).toString();
                 db.deleteSubjectSchedule(strSubjectCode, strCollegeCode, strSequenceNo, strBlockNo, strSemester, strSYear);
                 db.populateTable(db.fetchSubjectSchedules(), populatedTable);
             } else {
-                JOptionPane.showMessageDialog(null,"No record selected");
+                JOptionPane.showMessageDialog(null, "No record selected");
+            }
+        } else if (currentData.equals("SchoolYear")) {
+            if (row != -1) {
+                String strSchoolYear = tblManagement.getModel().getValueAt(row, 0).toString();
+                db.deleteSchoolYear(strSchoolYear);
+                db.populateTable(db.fetchSchoolYears(), populatedTable);
+            } else {
+                JOptionPane.showMessageDialog(null, "No record selected");
             }
         }
+  
     }//GEN-LAST:event_btnDeleteMouseClicked
-    
+
+    private void btnConfirmSYMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConfirmSYMouseClicked
+        // TODO add your handling code here:
+        if (boolAdd) {
+            db.addSchoolYear(
+            txtSchoolYear.getText());
+        }
+        switchToCard("pnlManagement");
+            db.populateTable(db.fetchSchoolYears(), populatedTable);
+            txtSchoolYear.setText("");
+
+    }//GEN-LAST:event_btnConfirmSYMouseClicked
+
+    private void btnManagementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManagementActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnManagementActionPerformed
+
+    private void txtTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTimeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTimeActionPerformed
+
+    private void btnConfirmSYActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmSYActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnConfirmSYActionPerformed
+
+    private void txtRoomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRoomActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtRoomActionPerformed
+
+    private void btnConfirmSchedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmSchedActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnConfirmSchedActionPerformed
+
+    private void btnAddSYCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddSYCancelActionPerformed
+        // TODO add your handling code here:
+
+        int dialogButton = JOptionPane.YES_NO_OPTION;
+        JOptionPane.showConfirmDialog (null, "Cancel Adding of School Year?","WARNING", dialogButton);
+            if(dialogButton == JOptionPane.YES_OPTION) {
+                switchToCard("pnlManagement");
+            if(dialogButton == JOptionPane.NO_OPTION) {
+                  remove(dialogButton);
+                }
+              }
+    }//GEN-LAST:event_btnAddSYCancelActionPerformed
+
+    private void btnAddCancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddCancelMouseClicked
+        // TODO add your handling code here:
+             int dialogButton = JOptionPane.YES_NO_OPTION;
+        JOptionPane.showConfirmDialog (null, "Cancel Adding of Subject Schedule?","WARNING", dialogButton);
+            if(dialogButton == JOptionPane.YES_OPTION) {
+                switchToCard("pnlManagement");
+            if(dialogButton == JOptionPane.NO_OPTION) {
+                  remove(dialogButton);
+                }
+              }
+    }//GEN-LAST:event_btnAddCancelMouseClicked
+
+    private void txtSchoolYearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSchoolYearActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSchoolYearActionPerformed
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new schoolManagementMainUI().setVisible(true);
-            }
-        });
-    }
+    /* Create and display the form */
+    java.awt.EventQueue.invokeLater(new Runnable() {
+        public void run() {
+            new schoolManagementMainUI().setVisible(true);
+        }
+    });
+}
+
     private void switchToCard(String cardName) {
-        CardLayout cardLayout = (CardLayout) mainPanel.getLayout();
-        cardLayout.show(mainPanel, cardName);
+    CardLayout cardLayout = (CardLayout) mainPanel.getLayout();
+    cardLayout.show(mainPanel, cardName);
+}
+
+    private void cacheResultSet(java.sql.ResultSet rs) {
+    if (rs == null) {
+        System.out.println("ResultSet is null");
     }
-    private void cacheResultSet(java.sql.ResultSet rs){
-        if (rs == null) {
-            System.out.println("ResultSet is null");
-        }
-        if (populatedTable == null) {
-            System.out.println("populatedTable is null");
-        }
-        currentRs = rs;
-        db.populateTable(currentRs, populatedTable);
+    if (populatedTable == null) {
+        System.out.println("populatedTable is null");
     }
-    private void populateSchedOptions(){
-        try{
-            ResultSet rs = null;
-                rs = db.fetchSchoolYears();
-                while(rs.next()){
-                    cmbSYear.addItem(rs.getString("syear"));
-                }
-                rs = db.fetchSemesters();
-                while(rs.next()){
-                    cmbSemester.addItem(rs.getString("semester"));
-                }
-                rs = db.fetchColleges();
-                while(rs.next()){
-                    cmbCollegeCode.addItem(rs.getString("description"));
-                }
-                rs = db.fetchEmployees();
-                while(rs.next()){
-                    cmbEmployeeName.addItem(rs.getString("lastname") + ", " +rs.getString("firstname"));
-                }
-                rs = db.fetchSubjects();
-                while(rs.next()){
-                    cmbSubjectCode.addItem(rs.getString("description"));
-                }
-        }catch(Exception e){
-            System.out.println(e);
+    currentRs = rs;
+    db.populateTable(currentRs, populatedTable);
+}
+
+    private void populateSchedOptions() {
+    try {
+        ResultSet rs = null;
+        rs = db.fetchSchoolYears();
+        while (rs.next()) {
+            cmbSYear.addItem(rs.getString("syear"));
         }
+        rs = db.fetchSemesters();
+        while (rs.next()) {
+            cmbSemester.addItem(rs.getString("semester"));
+        }
+        rs = db.fetchColleges();
+        while (rs.next()) {
+            cmbCollegeCode.addItem(rs.getString("description"));
+        }
+        rs = db.fetchEmployees();
+        while (rs.next()) {
+            cmbEmployeeName.addItem(rs.getString("lastname") + ", " + rs.getString("firstname"));
+        }
+        rs = db.fetchSubjects();
+        while (rs.next()) {
+            cmbSubjectCode.addItem(rs.getString("description"));
+        }
+    } catch (Exception e) {
+        System.out.println(e);
     }
-    public String findItemInResultSet(ResultSet rs, String targetValue, String columnName, String targetColumn){
-        try{
-            while (rs.next()) {
-                String value = rs.getString(columnName);
-                if (value.equals(targetValue)) {
-                    value = rs.getString(targetColumn);
-                    return value; 
-                }
+}
+
+    public String findItemInResultSet(ResultSet rs, String targetValue, String columnName, String targetColumn) {
+    try {
+        while (rs.next()) {
+            String value = rs.getString(columnName);
+            if (value.equals(targetValue)) {
+                value = rs.getString(targetColumn);
+                return value;
             }
-        }catch(Exception e){
-            System.out.println(e);
         }
-        return null;
+    } catch (Exception e) {
+        System.out.println(e);
     }
+    return null;
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnAddCancel;
+    private javax.swing.JButton btnAddSYCancel;
     private javax.swing.JButton btnCollege;
+    private javax.swing.JButton btnConfirmSY;
     private javax.swing.JButton btnConfirmSched;
     private javax.swing.JButton btnCourse;
     private javax.swing.JButton btnDashboard;
@@ -916,12 +1116,14 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JPanel panelNav;
+    private javax.swing.JPanel pnlAddSchoolYear;
     private javax.swing.JPanel pnlAddSubjSched;
     private javax.swing.JPanel pnlDashboard;
     private javax.swing.JPanel pnlManagement;
@@ -930,6 +1132,7 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
     private javax.swing.JTable tblManagement;
     private javax.swing.JTextField txtBlockNo;
     private javax.swing.JTextField txtRoom;
+    private javax.swing.JTextField txtSchoolYear;
     private javax.swing.JTextField txtSequence;
     private javax.swing.JTextField txtTime;
     private javax.swing.JTextField txtType;
