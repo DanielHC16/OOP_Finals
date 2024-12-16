@@ -77,6 +77,19 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
         btnAddCancel = new javax.swing.JButton();
         txtTime = new javax.swing.JTextField();
         cmbSubjectCode = new javax.swing.JComboBox<>();
+        pnlAddCollege = new javax.swing.JPanel();
+        btnConfirmCollege = new javax.swing.JButton();
+        btnBackCollege = new javax.swing.JButton();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        txtDesc = new javax.swing.JTextField();
+        txtDateOp = new javax.swing.JTextField();
+        txtDateCl = new javax.swing.JTextField();
+        txtStatus = new javax.swing.JTextField();
+        txtCollegeCode1 = new javax.swing.JTextField();
         pnlManagement = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblManagement = new javax.swing.JTable();
@@ -112,11 +125,21 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
                 btnDashboardMouseClicked(evt);
             }
         });
+        btnDashboard.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDashboardActionPerformed(evt);
+            }
+        });
 
         btnManagement.setText("Management");
         btnManagement.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnManagementMouseClicked(evt);
+            }
+        });
+        btnManagement.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManagementActionPerformed(evt);
             }
         });
 
@@ -261,7 +284,7 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
             pnlDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlDashboardLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(scrlDashboard, javax.swing.GroupLayout.DEFAULT_SIZE, 954, Short.MAX_VALUE)
+                .addComponent(scrlDashboard, javax.swing.GroupLayout.DEFAULT_SIZE, 955, Short.MAX_VALUE)
                 .addContainerGap())
         );
         pnlDashboardLayout.setVerticalGroup(
@@ -311,6 +334,7 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
             }
         });
 
+        cmbSYear.setToolTipText("");
         cmbSYear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbSYearActionPerformed(evt);
@@ -478,6 +502,108 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
 
         mainPanel.add(pnlAddSubjSched, "pnlAddSubjSched");
 
+        btnConfirmCollege.setBackground(new java.awt.Color(90, 153, 207));
+        btnConfirmCollege.setForeground(new java.awt.Color(255, 255, 255));
+        btnConfirmCollege.setText("Confirm");
+        btnConfirmCollege.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnConfirmCollegeMouseClicked(evt);
+            }
+        });
+
+        btnBackCollege.setBackground(new java.awt.Color(90, 153, 207));
+        btnBackCollege.setForeground(new java.awt.Color(255, 255, 255));
+        btnBackCollege.setText("Back");
+
+        jLabel17.setText("College Code");
+
+        jLabel18.setText("Description");
+
+        jLabel19.setText("Date Opened");
+
+        jLabel20.setText("Date Closed");
+
+        jLabel21.setText("Status");
+
+        javax.swing.GroupLayout pnlAddCollegeLayout = new javax.swing.GroupLayout(pnlAddCollege);
+        pnlAddCollege.setLayout(pnlAddCollegeLayout);
+        pnlAddCollegeLayout.setHorizontalGroup(
+            pnlAddCollegeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlAddCollegeLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addGroup(pnlAddCollegeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAddCollegeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAddCollegeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAddCollegeLayout.createSequentialGroup()
+                                .addGroup(pnlAddCollegeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(pnlAddCollegeLayout.createSequentialGroup()
+                                        .addComponent(jLabel18)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE))
+                                .addGap(18, 18, 18))
+                            .addGroup(pnlAddCollegeLayout.createSequentialGroup()
+                                .addComponent(jLabel19)
+                                .addGap(24, 24, 24)))
+                        .addGroup(pnlAddCollegeLayout.createSequentialGroup()
+                            .addComponent(jLabel20)
+                            .addGap(30, 30, 30)))
+                    .addGroup(pnlAddCollegeLayout.createSequentialGroup()
+                        .addComponent(jLabel21)
+                        .addGap(63, 63, 63)))
+                .addGroup(pnlAddCollegeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlAddCollegeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(txtDesc, javax.swing.GroupLayout.DEFAULT_SIZE, 307, Short.MAX_VALUE)
+                        .addComponent(txtDateOp)
+                        .addComponent(txtDateCl)
+                        .addComponent(txtStatus))
+                    .addComponent(txtCollegeCode1, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAddCollegeLayout.createSequentialGroup()
+                .addContainerGap(73, Short.MAX_VALUE)
+                .addGroup(pnlAddCollegeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(pnlAddCollegeLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 729, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnConfirmCollege, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlAddCollegeLayout.createSequentialGroup()
+                        .addComponent(btnBackCollege, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(729, 729, 729)))
+                .addGap(64, 64, 64))
+        );
+        pnlAddCollegeLayout.setVerticalGroup(
+            pnlAddCollegeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlAddCollegeLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(pnlAddCollegeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlAddCollegeLayout.createSequentialGroup()
+                        .addGap(58, 58, 58)
+                        .addGroup(pnlAddCollegeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel18)
+                            .addComponent(txtDesc, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(36, 36, 36)
+                        .addGroup(pnlAddCollegeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel19)
+                            .addComponent(txtDateOp, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(91, 91, 91)
+                        .addGroup(pnlAddCollegeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel21)
+                            .addComponent(txtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(pnlAddCollegeLayout.createSequentialGroup()
+                        .addGap(179, 179, 179)
+                        .addGroup(pnlAddCollegeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel20)
+                            .addComponent(txtDateCl, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(pnlAddCollegeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel17)
+                        .addComponent(txtCollegeCode1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                .addGroup(pnlAddCollegeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnConfirmCollege, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBackCollege, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(36, 36, 36))
+        );
+
+        mainPanel.add(pnlAddCollege, "pnlAddCollege");
+
         pnlManagement.setName("pnlManagement"); // NOI18N
 
         tblManagement.setModel(new javax.swing.table.DefaultTableModel(
@@ -536,7 +662,7 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
                 .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 966, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 967, Short.MAX_VALUE)
         );
         pnlManagementLayout.setVerticalGroup(
             pnlManagementLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -576,7 +702,9 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
                 .addComponent(btnDashboard, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnManagement, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnManagement, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(panelNav, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -712,6 +840,7 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
             case "Sunday" -> "Su";
             default -> "";
         };
+        
         if(boolAdd){
             db.addSubjectSchedule(
                 cmbSYear.getSelectedItem().toString().trim(), 
@@ -754,7 +883,13 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
         if (currentData.equals("SubjectSchedule")){
             switchToCard("pnlAddSubjSched");
             populateSchedOptions();
+        } 
+        
+        if (currentData.equals("College")){
+            switchToCard("pnlAddCollege");
         }
+        
+        
     }//GEN-LAST:event_btnAddMouseClicked
 
     private void cmbSubjectCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbSubjectCodeActionPerformed
@@ -814,7 +949,45 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null,"No record selected");
             }
         }
+        if(currentData.equals("College")){
+            if(row != -1){
+                String strCollegeCode = tblManagement.getModel().getValueAt(row,0).toString();
+                String strDescription = tblManagement.getModel().getValueAt(row, 1).toString();
+                String strDateOpened = tblManagement.getModel().getValueAt(row, 2).toString();
+                String strDateClosed = tblManagement.getModel().getValueAt(row, 3).toString();
+                String strStatus = tblManagement.getModel().getValueAt(row,4).toString();
+                db.deleteCollege(strCollegeCode, strDescription, strDateOpened, strDateClosed, strStatus);  
+                db.populateTable(db.fetchColleges(), populatedTable);
+            } else {
+                JOptionPane.showMessageDialog(null,"No record selected");
+            }
+        }
     }//GEN-LAST:event_btnDeleteMouseClicked
+
+    private void btnConfirmCollegeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConfirmCollegeMouseClicked
+        // TODO add your handling code here:
+        
+        if(boolAdd){
+            db.addCollegeRecord(
+                txtCollegeCode1.getText().trim(), 
+                txtDesc.getText().trim(), 
+                txtDateOp.getText(), 
+                txtDateCl.getText(), 
+                txtStatus.getText() 
+            );
+            
+        switchToCard("pnlManagement");
+        db.populateTable(db.fetchColleges(), populatedTable);}
+        
+    }//GEN-LAST:event_btnConfirmCollegeMouseClicked
+
+    private void btnDashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDashboardActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDashboardActionPerformed
+
+    private void btnManagementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManagementActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnManagementActionPerformed
     
     /**
      * @param args the command line arguments
@@ -869,6 +1042,7 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
             System.out.println(e);
         }
     }
+
     public String findItemInResultSet(ResultSet rs, String targetValue, String columnName, String targetColumn){
         try{
             while (rs.next()) {
@@ -887,7 +1061,9 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnAddCancel;
+    private javax.swing.JButton btnBackCollege;
     private javax.swing.JButton btnCollege;
+    private javax.swing.JButton btnConfirmCollege;
     private javax.swing.JButton btnConfirmSched;
     private javax.swing.JButton btnCourse;
     private javax.swing.JButton btnDashboard;
@@ -911,7 +1087,12 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -922,6 +1103,7 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JPanel panelNav;
+    private javax.swing.JPanel pnlAddCollege;
     private javax.swing.JPanel pnlAddSubjSched;
     private javax.swing.JPanel pnlDashboard;
     private javax.swing.JPanel pnlManagement;
@@ -929,8 +1111,13 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
     private javax.swing.JTable tblDashboard;
     private javax.swing.JTable tblManagement;
     private javax.swing.JTextField txtBlockNo;
+    private javax.swing.JTextField txtCollegeCode1;
+    private javax.swing.JTextField txtDateCl;
+    private javax.swing.JTextField txtDateOp;
+    private javax.swing.JTextField txtDesc;
     private javax.swing.JTextField txtRoom;
     private javax.swing.JTextField txtSequence;
+    private javax.swing.JTextField txtStatus;
     private javax.swing.JTextField txtTime;
     private javax.swing.JTextField txtType;
     // End of variables declaration//GEN-END:variables

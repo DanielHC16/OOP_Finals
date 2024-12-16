@@ -430,15 +430,28 @@ public class dbManager {
 	/**
 	 * Deletes a college record from the database.
 	 * 
-	 * @param strCollegeCode College code to delete
+	 * @param strCollegeCode 
+	 * @param strDescription 
+         * @param strDateOpened 
+         * @param strDateClosed  
+         * @param strStatus   
 	 */
-	public void deleteCollege(String strCollegeCode) {
-		try (Statement ps = conn.createStatement()) {
-			ps.execute("DELETE FROM finalsoop.college WHERE college_code = '" + strCollegeCode + "'");
-		} catch (SQLException e) {
-			System.out.println(e);
-		}
-	}
+	public void deleteCollege(String strCollegeCode, String strDescription, String strDateOpened, String strDateClosed, String strStatus) {
+            try (Statement ps = conn.createStatement()) {
+                ps.execute ("DELETE FROM finalsoop.college WHERE "
+                             + "college_code = '" + strCollegeCode + "' AND "
+                             + "description = '" + strDescription + "' AND "
+                             + "date_opened = '" + strDateOpened + "' AND "
+                             + "date_closed = '" + strDateClosed + "' AND "
+                             + "status = '" + strStatus
+                    );
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+                System.out.println("Error deleting record: " + e.getMessage());
+            }
+        }
+
 
 	/**
 	 * Deletes a school year record from the database.
@@ -786,5 +799,9 @@ public class dbManager {
 			System.out.println(e);
 		}
 	}
+
+    void deleteCollege(String strCollegeCode, String strDescription, String strDateOpened, String strDateClosed) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 
 }

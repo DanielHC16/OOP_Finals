@@ -1,3 +1,4 @@
+CREATE DATABASE finalsoop;
 USE finalsoop;
 
 -- DIMENSION TABLES **
@@ -241,7 +242,7 @@ CREATE TABLE finalsoop.subject_schedule (
     CONSTRAINT employee_id_fk FOREIGN KEY (employee_id) REFERENCES finalsoop.employee(employee_id)
 );
 INSERT INTO finalsoop.subject_schedule (syear, semester, college_code, block_no, subject_code, day, time, room, type, sequence_no, employee_id) VALUES 
-('2023-2024', '1', 'CISTM', 'CS21', 'OOP', 'S', '8:00-10:00', 'GCA301', 'F2F', 1, 'E001');
+('2023-2024', '1', 'CISTM', 'CS21', 'CSC 0212', 'S', '8:00-10:00', 'GCA301', 'F2F', 1, 'E001');
 
 -- 2. GRADES TABLE
 CREATE TABLE finalsoop.grades (
@@ -258,8 +259,8 @@ CREATE TABLE finalsoop.grades (
     CONSTRAINT subject_code_fk1 FOREIGN KEY (subject_code) REFERENCES finalsoop.subject(subject_code)
 );
 INSERT INTO finalsoop.grades (syear, semester, student_no, subject_code, block_no, grade) VALUES 
-('2023-2024', '1', '12345', 'OOP', 'CS21', 3.00),
-('2023-2024', '1', '12346', 'OOP', 'CS21', 2.75);
+('2023-2024', '1', '12345', 'CSC 0212', 'CS21', 3.00),
+('2023-2024', '1', '12346', 'CSC 0212', 'CS21', 2.75);
 
 -- VIEWS
 -- 1. SUBJECT SCHEDULE VIEW
@@ -378,28 +379,27 @@ INSERT INTO finalsoop.course (course_code, description, college_code, date_opene
 
 -- STUDENT TABLE
 INSERT INTO finalsoop.student (student_no, lastname, firstname, email, gender, course_code, cp_num, address, bday, status, date_started, date_graduated) VALUES 
-    ('2023-34017', 'Balboa', 'Marc Jerome', 'mcbalboa@gmail.com', 'M', 'BS CS', '09321722905', 'Tondo', '2004-07-26', 'A', '2023-08-01', '2027-08-01'),
-    ('2023-34033', 'Camacho', 'Daniel Hardy', 'dccamacho@gmail.com', 'M', 'BS CS', '09567434580', 'Sta. Mesa', '2004-09-16', 'A', '2023-08-01', '2027-08-01'),
-    ('2023-34026', 'Magbag', 'Dave', 'dmagbag@gmail.com', 'M', 'BS CS', '09994110531', 'Abad Santos', '2005-05-07', 'A', '2023-08-01', '2027-08-01'),
-	('2024-535', 'Flowers', 'Ramona', 'ramona.flowers@scanner.com', 'F', 'BS CS', '09171234567', 'Brooklyn', '1990-10-04', 'A', '2023-08-01', '2027-08-01'),
-	('12345', 'Atienza', 'Francis', 'fcatienza@yahoo.com', 'M', 'BS CS', '0998123456', 'Cavite', '2000-01-12', 'I', '2020-09-01', '2024-07-31'),
-	('12346', 'Aquino', 'Kris', 'aquinok@yahoo.com', 'F', 'BS CS', '0998654321', 'Tarlac', '2000-02-14', 'A', '2022-09-01', '9999-12-31'),
-    ('77777', 'Miller', 'George', 'joji@gmail.com', 'M', 'BS IT', '099342123', 'Japan', '2000-02-14', 'A', '2020-09-01', '9999-12-31');
+    ('2023-34017', 'Balboa', 'Marc Jerome', 'mcbalboa@gmail.com', 'M', 'BSCS', '09321722905', 'Tondo', '2004-07-26', 'A', '2023-08-01', '2027-08-01'),
+    ('2023-34033', 'Camacho', 'Daniel Hardy', 'dccamacho@gmail.com', 'M', 'BSCS', '09567434580', 'Sta. Mesa', '2004-09-16', 'A', '2023-08-01', '2027-08-01'),
+    ('2023-34026', 'Magbag', 'Dave', 'dmagbag@gmail.com', 'M', 'BSCS', '09994110531', 'Abad Santos', '2005-05-07', 'A', '2023-08-01', '2027-08-01'),
+	('2024-535', 'Flowers', 'Ramona', 'ramona.flowers@scanner.com', 'F', 'BSCS', '09171234567', 'Brooklyn', '1990-10-04', 'A', '2023-08-01', '2027-08-01'),
+	-- ('12345', 'Atienza', 'Francis', 'fcatienza@yahoo.com', 'M', 'BSCS', '0998123456', 'Cavite', '2000-01-12', 'I', '2020-09-01', '2024-07-31'),
+	-- ('12346', 'Aquino', 'Kris', 'aquinok@yahoo.com', 'F', 'BSCS', '0998654321', 'Tarlac', '2000-02-14', 'A', '2022-09-01', '9999-12-31'),
+    ('77777', 'Miller', 'George', 'joji@gmail.com', 'M', 'BSIT', '099342123', 'Japan', '2000-02-14', 'A', '2020-09-01', '9999-12-31');
  INSERT INTO finalsoop.student (student_no, lastname, firstname, email, gender, course_code, cp_num, address, bday, status, date_started, date_graduated) VALUES 
 	('007', 'Pilgrim', 'Scott', 'vstheworld@yahoo.com', 'M', 'BS CHE', '09767676', 'Toronto', '2002-01-01', 'I', '2019-09-01', '9999-12-31'),
 	('420', 'Lee', 'Stan', 'stanlee@marvel.com', 'M', 'BS BA-FM', '09123456789', 'Marvel Mansion, NY', '1922-12-28', 'A', '2020-09-01', '2024-12-31'),
 	('1989', 'Wayne', 'Bruce', 'batman@justiceleague.com', 'M', 'BS EE', '09123456789', 'Wayne Manor, Gotham', '1939-05-27', 'A', '2019-09-01', '2024-12-31'),
-	('616', 'Parker', 'Peter', 'peterparker@webmail.com', 'M', 'BS CS', '09123456789', 'Queens, NY', '1995-08-10', 'A', '2020-09-01', '2024-12-31'),
+	('616', 'Parker', 'Peter', 'peterparker@webmail.com', 'M', 'BSCS', '09123456789', 'Queens, NY', '1995-08-10', 'A', '2020-09-01', '2024-12-31'),
 	('13', 'Gomez', 'Wednesday', 'wednesdaygomez@addams.com', 'F', 'BS Psy', '09123456789', 'Addams Family Mansion', '2000-09-21', 'A', '2020-09-01', '2024-12-31'),
 	('25', 'Kardashian', 'Kim', 'kim@kimkardashian.com', 'F', 'BS BA-MM', '09123456789', 'Los Angeles, CA', '1980-10-21', 'A', '2020-09-01', '2024-12-31'),
-	('00', 'Gates', 'Bill', 'billgates@microsoft.com', 'M', 'BS IT', '09123456789', 'Medina, WA', '1955-10-28', 'A', '2020-09-01', '2024-12-31'),
+	('00', 'Gates', 'Bill', 'billgates@microsoft.com', 'M', 'BSIT', '09123456789', 'Medina, WA', '1955-10-28', 'A', '2020-09-01', '2024-12-31'),
 	('16', 'Doge', 'Shiba Inu', 'dogecoin@shibatoken.com', 'M', 'BS BA-BE', '09123456789', 'Shiba Land, Japan', '2013-12-06', 'A', '2020-09-01', '2024-12-31'),
 	('777', 'Reeves', 'Keanu', 'keanu@keanuisgod.com', 'M', 'BS CHE', '09123456789', 'Hollywood, CA', '1964-09-02', 'A', '2020-09-01', '2024-12-31'),
 	('100', 'Lizzo', 'Melissa', 'lizzo@music.com', 'F', 'BS BA-FM', '09123456789', 'Detroit, MI', '1988-04-27', 'A', '2020-09-01', '2024-12-31'),
 	('21', 'Jack', 'Jack', 'blackjack@meme.com', 'M', 'BS TM', '09123456789', 'Meme Town', '2005-03-14', 'A', '2020-09-01', '2024-12-31');
 
 
-    
 
 TRUNCATE TABLE finalsoop.student;
 
