@@ -439,12 +439,13 @@ public class dbManager {
 	public void deleteCollege(String strCollegeCode, String strDescription, String strDateOpened, String strDateClosed, String strStatus) {
             try (Statement ps = conn.createStatement()) {
                 ps.execute ("DELETE FROM finalsoop.college WHERE "
-                             + "college_code = '" + strCollegeCode + "' AND "
-                             + "description = '" + strDescription + "' AND "
-                             + "date_opened = '" + strDateOpened + "' AND "
-                             + "date_closed = '" + strDateClosed + "' AND "
-                             + "status = '" + strStatus
-                    );
+                                + "college_code = '" + strCollegeCode + 
+                                "' AND description = '" + strDescription + 
+                                "' AND date_opened = '" + strDateOpened + 
+                                "' AND date_closed = '" + strDateClosed + 
+                                "' AND status = '" + strStatus + "'"
+                );
+                
 
             } catch (SQLException e) {
                 e.printStackTrace();
