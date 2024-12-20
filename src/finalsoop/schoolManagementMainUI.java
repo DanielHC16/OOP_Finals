@@ -21,11 +21,13 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
     private dbManager db = new dbManager(conn);
     private javax.swing.JTable populatedTable = null;
     private java.sql.ResultSet currentRs = null;
+    private SchoolYearController controller = new SchoolYearController();
 
     /**
      * Creates new form schoolManagementMainUI
      */
     public schoolManagementMainUI() {
+
         initComponents();
     }
 
@@ -801,6 +803,7 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbCollegeCodeActionPerformed
 
+
     private void btnConfirmSchedMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConfirmSchedMouseClicked
         // TODO add your handling code here:
         String selectedDay = (String) cmbDay.getSelectedItem();
@@ -855,7 +858,7 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
         }
         switchToCard("pnlManagement");
         db.populateTable(db.fetchSubjectSchedules(), populatedTable);
-        
+
     }//GEN-LAST:event_btnConfirmSchedMouseClicked
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
@@ -864,12 +867,16 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
 
     private void btnAddMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddMouseClicked
         boolAdd = true;
+
         if (currentData.equals("SubjectSchedule")) {
             switchToCard("pnlAddSubjSched");
             populateSchedOptions();
         }
+
+        // To select SchoolYear Nav
         if (currentData.equals("SchoolYear")) {
             switchToCard("pnlAddSchoolYears");
+            txtSchoolYear.setText("");
         }
 
     }//GEN-LAST:event_btnAddMouseClicked
@@ -881,9 +888,11 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
     private void btnEditMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEditMouseClicked
         // TODO add your handling code here:
         boolAdd = false;
+
         if (currentData.equals("SubjectSchedule")) {
             int row = tblManagement.getSelectedRow();
             populateSchedOptions();
+
             if (row != -1) {
                 String dayCode = switch (tblManagement.getModel().getValueAt(row, 6).toString()) {
                     case "M" ->
@@ -920,12 +929,8 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "No record selected");
             }
         } else if ("SchoolYear".equals(currentData)) {
-            // Edit School Year
             int row = tblManagement.getSelectedRow();
-            if (row == -1) {
-                JOptionPane.showMessageDialog(null, "No record selected");
-                return;
-            }
+            controller.editSchoolYear(tblManagement);
             switchToCard("pnlAddSchoolYears");
             txtSchoolYear.setText(tblManagement.getModel().getValueAt(row, 0).toString());
         } else {
@@ -934,6 +939,7 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEditMouseClicked
 
     private void btnDeleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDeleteMouseClicked
+
         int row = tblManagement.getSelectedRow();
 
         if (currentData.equals("SubjectSchedule")) {
@@ -958,29 +964,13 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "No record selected");
             }
         }
-
     }//GEN-LAST:event_btnDeleteMouseClicked
 
     private void btnConfirmSYMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConfirmSYMouseClicked
         // TODO add your handling code here:
-        if (boolAdd) {
-            db.addSchoolYear(txtSchoolYear.getText());
-        } else {
-            int row = tblManagement.getSelectedRow();
-            if (row != -1) {
-                String oldSchoolYear = tblManagement.getModel().getValueAt(row, 0).toString();
-                String newSchoolYear = txtSchoolYear.getText();
-
-                db.updateSchoolYear(oldSchoolYear, newSchoolYear);
-            } else {
-                JOptionPane.showMessageDialog(null, "No record selected to update");
-                return;
-            }
-        }
-
+        controller.schoolYearValidator(txtSchoolYear, boolAdd, tblManagement, populatedTable, "pnlManagement");
         db.populateTable(db.fetchSchoolYears(), populatedTable);
         switchToCard("pnlManagement");
-
         txtSchoolYear.setText("");
     }//GEN-LAST:event_btnConfirmSYMouseClicked
 
@@ -1031,6 +1021,7 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
         });
     }
 
+    //Functions created in here
     private void switchToCard(String cardName) {
         CardLayout cardLayout = (CardLayout) mainPanel.getLayout();
         cardLayout.show(mainPanel, cardName);
@@ -1048,6 +1039,14 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
     }
 
     private void populateSchedOptions() {
+
+        //Function for combo box to be blank after being refreshed
+        cmbSYear.removeAllItems();
+        cmbSemester.removeAllItems();
+        cmbCollegeCode.removeAllItems();
+        cmbEmployeeName.removeAllItems();
+        cmbSubjectCode.removeAllItems();
+
         try {
             ResultSet rs = null;
             rs = db.fetchSchoolYears();
