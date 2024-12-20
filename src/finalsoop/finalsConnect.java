@@ -14,7 +14,7 @@ public class finalsConnect {
             Class.forName("com.mysql.cj.jdbc.Driver");
             
             // JDBC URL
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/finalsoop?zeroDateTimeBehavior=CONVERT_TO_NULL", "root", "1234");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/finalsoop?zeroDateTimeBehavior=CONVERT_TO_NULL", "root", "0935ma");
             
             System.out.println("Connection Successful");
         } catch (Exception e) {

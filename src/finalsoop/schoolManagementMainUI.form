@@ -257,8 +257,8 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="scrlDashboard" pref="441" max="32767" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="scrlDashboard" min="-2" pref="441" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -344,7 +344,6 @@
                               <EmptySpace max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               <Component id="btnBackEmployee" min="-2" pref="101" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="377" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -363,16 +362,18 @@
                                   </Group>
                               </Group>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="txtDateResigned" max="32767" attributes="0"/>
-                                      <Component id="txtStatusEmp" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="txtDateStarted" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="txtBirthdate" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="txtAddress" alignment="1" min="-2" pref="316" max="-2" attributes="0"/>
+                                  <Component id="jComboBox3" alignment="1" min="-2" pref="316" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="txtDateResigned" max="32767" attributes="0"/>
+                                          <Component id="txtDateStarted" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="txtBirthdate" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="txtAddress" alignment="1" min="-2" pref="316" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="btnConfirmEmployee" alignment="1" min="-2" pref="101" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="btnConfirmEmployee" alignment="1" min="-2" pref="101" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -421,8 +422,8 @@
                                       </Group>
                                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="txtStatusEmp" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                                           <Component id="jLabel31" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jComboBox3" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
@@ -474,8 +475,6 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Status"/>
               </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="txtStatusEmp">
             </Component>
             <Component class="javax.swing.JTextField" name="txtBirthdate">
             </Component>
@@ -577,6 +576,305 @@
             </Component>
             <Component class="javax.swing.JTextField" name="txtCpNo">
             </Component>
+            <Component class="javax.swing.JComboBox" name="jComboBox3">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="0"/>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JPanel" name="pnlAddSubj">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="pnlSubjSched" noResource="true"/>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+              <CardConstraints cardName="pnlAddSubj"/>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabel42" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="cmbCollegeCode1" min="-2" pref="307" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel43" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel44" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="cmbSubjectCode1" pref="307" max="32767" attributes="0"/>
+                                  <Component id="cmbDay1" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="jLabel54" pref="72" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="cmbEmployeeName1" min="-2" pref="307" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel41" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel40" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="cmbSYear1" pref="307" max="32767" attributes="0"/>
+                                  <Component id="txtTime3" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="113" pref="113" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="jLabel58" min="-2" pref="97" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="txtTime1" min="-2" pref="307" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="jLabel64" min="-2" pref="97" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="319" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="-2" pref="85" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
+                      <Component id="btnAddCancel1" min="-2" pref="101" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="btnConfirmSched1" min="-2" pref="101" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace pref="654" max="32767" attributes="0"/>
+                          <Component id="txtTime4" min="-2" pref="307" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLabel41" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" alignment="3" groupAlignment="3" attributes="0">
+                                      <Component id="jLabel64" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtTime3" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLabel42" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cmbCollegeCode1" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLabel44" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cmbSubjectCode1" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLabel43" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cmbDay1" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jLabel58" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtTime1" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="147" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="cmbEmployeeName1" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                                          <Component id="jLabel54" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="cmbSYear1" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                                      <Component id="jLabel40" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace pref="39" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="btnConfirmSched1" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                          <Component id="btnAddCancel1" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
+                          <Component id="txtTime4" min="-2" pref="31" max="-2" attributes="0"/>
+                          <EmptySpace pref="328" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="jLabel40">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Subject Code"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel41">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Description"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel42">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Units"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel43">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Status"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel44">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="College Code"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel54">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Curriculum"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel58">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Date Opened"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="cmbDay1">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="0"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbDay1ActionPerformed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="cmbEmployeeName1">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="0"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbEmployeeName1ActionPerformed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="cmbSYear1">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="0"/>
+                </Property>
+                <Property name="toolTipText" type="java.lang.String" value=""/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbSYear1ActionPerformed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="cmbCollegeCode1">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="0"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbCollegeCode1ActionPerformed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnConfirmSched1">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="cf" green="99" red="5a" type="rgb"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Confirm"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnConfirmSched1MouseClicked"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnAddCancel1">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="cf" green="99" red="5a" type="rgb"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Back"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnAddCancel1MouseClicked"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtTime1">
+            </Component>
+            <Component class="javax.swing.JComboBox" name="cmbSubjectCode1">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="0"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbSubjectCode1ActionPerformed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtTime3">
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel64">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Date Closed"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtTime4">
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="pnlAddSubjSched">
@@ -641,7 +939,7 @@
                                       <Component id="cmbEmployeeName" min="-2" pref="307" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="77" max="32767" attributes="0"/>
+                              <EmptySpace pref="76" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -938,6 +1236,658 @@
             </Component>
           </SubComponents>
         </Container>
+        <Container class="javax.swing.JPanel" name="pnlAddGrade">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="pnlSubjSched" noResource="true"/>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+              <CardConstraints cardName="pnlAddGrade"/>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel59" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel60" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
+                          <Component id="jLabel61" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="jLabel56" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel55" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel53" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="cmbCollegeCode2" alignment="0" min="-2" pref="307" max="-2" attributes="0"/>
+                              <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="cmbSYear2" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jTextField2" alignment="0" min="-2" pref="307" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="cmbEmployeeName2" alignment="1" min="-2" pref="307" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="cmbSubjectCode2" pref="307" max="32767" attributes="0"/>
+                              <Component id="jTextField3" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
+                      <Component id="jLabel63" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                      <Component id="txtTime2" min="-2" pref="307" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="85" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
+                      <Component id="btnAddCancel2" min="-2" pref="101" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="btnConfirmSched2" min="-2" pref="101" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
+                                      <Component id="jLabel55" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                                      <Component id="jLabel56" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
+                                      <Component id="jTextField2" min="-2" pref="31" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                                      <Component id="cmbCollegeCode2" min="-2" pref="31" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="178" pref="178" max="-2" attributes="0"/>
+                                      <Component id="cmbEmployeeName2" min="-2" pref="32" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="cmbSYear2" alignment="0" min="-2" pref="31" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLabel60" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cmbSubjectCode2" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLabel59" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jTextField3" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLabel63" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtTime2" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="155" max="-2" attributes="0"/>
+                              <Component id="jLabel61" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="jLabel53" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="38" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="btnConfirmSched2" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                          <Component id="btnAddCancel2" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="jLabel53">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="School Year"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel55">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Semester"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel56">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Student No."/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel59">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Subject Description"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel60">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Subject Code"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel61">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Student Name"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel63">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Grade"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="cmbEmployeeName2">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="0"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbEmployeeName2ActionPerformed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="cmbSYear2">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="0"/>
+                </Property>
+                <Property name="toolTipText" type="java.lang.String" value=""/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbSYear2ActionPerformed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="cmbCollegeCode2">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="0"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbCollegeCode2ActionPerformed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnConfirmSched2">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="cf" green="99" red="5a" type="rgb"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Confirm"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnConfirmSched2MouseClicked"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnAddCancel2">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="cf" green="99" red="5a" type="rgb"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Back"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnAddCancel2MouseClicked"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtTime2">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtTime2ActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="cmbSubjectCode2">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="0"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbSubjectCode2ActionPerformed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextField2">
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextField3">
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JPanel" name="pnlAddSemester">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+              <CardConstraints cardName="pnlAddSemester"/>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabel52" min="-2" pref="72" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="txtEmpID3" min="-2" pref="317" max="-2" attributes="0"/>
+                              <EmptySpace pref="554" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="btnBackEmployee3" min="-2" pref="101" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="btnConfirmEmployee3" min="-2" pref="101" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel52" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtEmpID3" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="340" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="btnConfirmEmployee3" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                          <Component id="btnBackEmployee3" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="jLabel52">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Semester"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnBackEmployee3">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="cf" green="99" red="5a" type="rgb"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Back"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnBackEmployee3MouseClicked"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnConfirmEmployee3">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="cf" green="99" red="5a" type="rgb"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Confirm"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnConfirmEmployee3MouseClicked"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnConfirmEmployee3ActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtEmpID3">
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JPanel" name="pnlAddSYear">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+              <CardConstraints cardName="pnlAddSYear"/>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="btnBackEmployee2" min="-2" pref="101" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="btnConfirmEmployee2" min="-2" pref="101" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabel51" min="-2" pref="72" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jComboBox5" min="-2" pref="317" max="-2" attributes="0"/>
+                              <EmptySpace pref="554" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel51" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jComboBox5" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="338" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="btnConfirmEmployee2" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                          <Component id="btnBackEmployee2" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="jLabel51">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="School Year"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnBackEmployee2">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="cf" green="99" red="5a" type="rgb"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Back"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnBackEmployee2MouseClicked"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnConfirmEmployee2">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="cf" green="99" red="5a" type="rgb"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Confirm"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnConfirmEmployee2MouseClicked"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnConfirmEmployee2ActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="jComboBox5">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="0"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBox5ActionPerformed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JPanel" name="pnlAddCourse">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+              <CardConstraints cardName="pnlAddCourse"/>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="btnBackEmployee1" min="-2" pref="101" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="btnConfirmEmployee1" min="-2" pref="101" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jLabel50" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel49" min="-2" pref="69" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jComboBox2" max="32767" attributes="0"/>
+                                          <Component id="txtCpNo1" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" attributes="0">
+                                                  <Component id="jLabel46" max="32767" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Component id="jLabel45" max="32767" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="txtLastName1" min="-2" pref="317" max="-2" attributes="0"/>
+                                              <Component id="jComboBox4" min="-2" pref="316" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Group type="103" groupAlignment="1" attributes="0">
+                                              <Group type="102" attributes="0">
+                                                  <Component id="jLabel48" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="jLabel47" min="-2" pref="98" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="txtEmail1" min="-2" pref="316" max="-2" attributes="0"/>
+                                              <Component id="jComboBox1" min="-2" pref="316" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="-2" pref="517" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLabel46" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtLastName1" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLabel47" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jComboBox1" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLabel49" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtCpNo1" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLabel50" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jComboBox2" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="171" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jLabel48" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtEmail1" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                                      <Component id="jLabel45" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jComboBox4" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace pref="34" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="btnConfirmEmployee1" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                          <Component id="btnBackEmployee1" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="jLabel45">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Course Code"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel46">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Description"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel47">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="College Code"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel48">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Date Opened"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel49">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Date Closed"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel50">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Status"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnBackEmployee1">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="cf" green="99" red="5a" type="rgb"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Back"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnBackEmployee1MouseClicked"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnConfirmEmployee1">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="cf" green="99" red="5a" type="rgb"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Confirm"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnConfirmEmployee1MouseClicked"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnConfirmEmployee1ActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtLastName1">
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtEmail1">
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtCpNo1">
+            </Component>
+            <Component class="javax.swing.JComboBox" name="jComboBox1">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="0"/>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="jComboBox2">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="0"/>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="jComboBox4">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="0"/>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+          </SubComponents>
+        </Container>
         <Container class="javax.swing.JPanel" name="pnlAddCollege">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
@@ -948,18 +1898,32 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace pref="83" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace pref="729" max="-2" attributes="0"/>
+                              <Component id="btnConfirmCollege" min="-2" pref="101" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="btnBackCollege" min="-2" pref="101" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="729" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
+                  </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="103" alignment="1" groupAlignment="0" attributes="0">
                               <Group type="103" alignment="1" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="1" attributes="0">
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Group type="102" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
                                               <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                           </Group>
-                                          <Component id="jLabel17" pref="77" max="32767" attributes="0"/>
+                                          <Component id="jLabel17" min="-2" pref="77" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                   </Group>
@@ -979,36 +1943,22 @@
                           </Group>
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="txtDesc" pref="307" max="32767" attributes="0"/>
+                          <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="txtDesc" max="32767" attributes="0"/>
                               <Component id="txtDateOp" max="32767" attributes="0"/>
                               <Component id="txtDateCl" max="32767" attributes="0"/>
-                              <Component id="txtStatus" max="32767" attributes="0"/>
+                              <Component id="jComboBox6" alignment="0" min="-2" pref="307" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="txtCollegeCode1" min="-2" pref="307" max="-2" attributes="0"/>
+                          <Component id="jComboBox7" min="-2" pref="307" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="556" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="83" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace pref="729" max="-2" attributes="0"/>
-                              <Component id="btnConfirmCollege" min="-2" pref="101" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="btnBackCollege" min="-2" pref="101" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="729" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
@@ -1024,7 +1974,7 @@
                               <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel21" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtStatus" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                                  <Component id="jComboBox6" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -1036,10 +1986,10 @@
                           </Group>
                           <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                               <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtCollegeCode1" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                              <Component id="jComboBox7" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="80" max="32767" attributes="0"/>
+                      <EmptySpace pref="82" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="btnConfirmCollege" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                           <Component id="btnBackCollege" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
@@ -1109,120 +2059,25 @@
             </Component>
             <Component class="javax.swing.JTextField" name="txtDateCl">
             </Component>
-            <Component class="javax.swing.JTextField" name="txtStatus">
-            </Component>
-            <Component class="javax.swing.JTextField" name="txtCollegeCode1">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCollegeCode1ActionPerformed"/>
-              </Events>
-            </Component>
-          </SubComponents>
-        </Container>
-        <Container class="javax.swing.JPanel" name="pnlManagement">
-          <Properties>
-            <Property name="name" type="java.lang.String" value="pnlManagement" noResource="true"/>
-          </Properties>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-              <CardConstraints cardName="pnlManagement"/>
-            </Constraint>
-          </Constraints>
-
-          <Layout>
-            <DimensionLayout dim="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      <Component id="btnAdd" min="-2" pref="102" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btnEdit" min="-2" pref="102" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="btnDelete" min="-2" pref="102" max="-2" attributes="0"/>
-                  </Group>
-                  <Component id="jScrollPane2" alignment="1" pref="977" max="32767" attributes="0"/>
-              </Group>
-            </DimensionLayout>
-            <DimensionLayout dim="1">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="jScrollPane2" min="-2" pref="341" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                              <Component id="btnEdit" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-                              <Component id="btnAdd" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="btnDelete" min="-2" pref="32" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace pref="68" max="32767" attributes="0"/>
-                  </Group>
-              </Group>
-            </DimensionLayout>
-          </Layout>
-          <SubComponents>
-            <Container class="javax.swing.JScrollPane" name="jScrollPane2">
+            <Component class="javax.swing.JComboBox" name="jComboBox6">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="0"/>
+                </Property>
+              </Properties>
               <AuxValues>
-                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
-
-              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-              <SubComponents>
-                <Component class="javax.swing.JTable" name="tblManagement">
-                  <Properties>
-                    <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="4" rowCount="4">
-                        <Column editable="true" title="Title 1" type="java.lang.Object"/>
-                        <Column editable="true" title="Title 2" type="java.lang.Object"/>
-                        <Column editable="true" title="Title 3" type="java.lang.Object"/>
-                        <Column editable="true" title="Title 4" type="java.lang.Object"/>
-                      </Table>
-                    </Property>
-                  </Properties>
-                </Component>
-              </SubComponents>
-            </Container>
-            <Component class="javax.swing.JButton" name="btnDelete">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="4f" green="53" red="d9" type="rgb"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Delete"/>
-              </Properties>
-              <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnDeleteMouseClicked"/>
-              </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnEdit">
+            <Component class="javax.swing.JComboBox" name="jComboBox7">
               <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="4f" green="94" red="d9" type="rgb"/>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="0"/>
                 </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Edit"/>
               </Properties>
-              <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnEditMouseClicked"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="btnAdd">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="cf" green="99" red="5a" type="rgb"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Add"/>
-              </Properties>
-              <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnAddMouseClicked"/>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddActionPerformed"/>
-              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>
@@ -1240,102 +2095,82 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel15" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel16" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
-                                      <Component id="cmbCourseCode" min="-2" pref="307" max="-2" attributes="0"/>
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="cmbGenderStudent" min="-2" pref="307" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                              <Component id="cmbCourseCode" min="-2" pref="307" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                      <Component id="btnCancelStudent" min="-2" pref="101" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="263" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="cmbGenderStudent" min="-2" pref="307" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <Component id="btnCancelStudent" min="-2" pref="101" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="263" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jLabel14" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel13" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel14" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel13" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="txtFirstNameStudent" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="txtLastNameStudent" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="txtStudentNo" alignment="0" min="-2" pref="307" max="-2" attributes="0"/>
-                                      </Group>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="txtFirstNameStudent" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtLastNameStudent" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtStudentNo" alignment="0" min="-2" pref="307" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="jLabel23" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="txtPhoneNo" min="-2" pref="307" max="-2" attributes="0"/>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="jLabel23" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="txtPhoneNo" min="-2" pref="307" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="btnConfirmStudent" min="-2" pref="101" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="168" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
                                       <Component id="jLabel28" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace pref="42" max="32767" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="txtDateGraduatedStudent" min="-2" pref="307" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="jLabel25" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="jLabel27" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="jLabel26" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" alignment="1" attributes="0">
-                                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                                  <Component id="jLabel24" min="-2" max="-2" attributes="0"/>
-                                              </Group>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jLabel25" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel27" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel26" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel24" alignment="0" min="-2" max="-2" attributes="0"/>
                                           </Group>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="1" attributes="0">
-                                              <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="txtEmailStudent" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="txtBirthdayStudent" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="txtAddressStudent" alignment="0" min="-2" pref="307" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Component id="cmbStatusStudent" min="-2" pref="307" max="-2" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="txtBirthdayStudent" alignment="1" min="-2" pref="307" max="-2" attributes="0"/>
+                                              <Component id="cmbStatusStudent" alignment="1" min="-2" pref="307" max="-2" attributes="0"/>
+                                              <Component id="txtEmailStudent" alignment="1" min="-2" pref="307" max="-2" attributes="0"/>
+                                              <Component id="txtAddressStudent" alignment="1" min="-2" pref="307" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <Group type="102" alignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
                                           <Component id="jLabel22" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace pref="42" max="32767" attributes="0"/>
+                                          <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                                           <Component id="txtDateStartedStudent" min="-2" pref="307" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace min="-2" pref="180" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="btnConfirmStudent" min="-2" pref="101" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="168" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="204" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -1346,23 +2181,6 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="txtBirthdayStudent" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                                  <Component id="jLabel26" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel25" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="cmbStatusStudent" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="txtEmailStudent" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                                  <Component id="jLabel24" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
@@ -1379,11 +2197,6 @@
                                       <Component id="txtFirstNameStudent" min="-2" pref="31" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="txtStudentNo" alignment="0" min="-2" pref="31" max="-2" attributes="0"/>
-                                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                      <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel27" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtAddressStudent" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                                  </Group>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -1391,18 +2204,39 @@
                                   <Component id="jLabel23" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="txtBirthdayStudent" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                                          <Component id="jLabel26" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                                      <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel27" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtAddressStudent" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLabel25" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cmbStatusStudent" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLabel24" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtEmailStudent" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="txtDateStartedStudent" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                                   <Component id="jLabel22" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="txtDateGraduatedStudent" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                                  <Component id="jLabel28" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtDateStartedStudent" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -1411,14 +2245,16 @@
                                   <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="cmbGenderStudent" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="cmbCourseCode" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                                   <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel28" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtDateGraduatedStudent" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="83" max="32767" attributes="0"/>
+                      <EmptySpace pref="80" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="btnConfirmStudent" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                           <Component id="btnCancelStudent" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
@@ -1579,6 +2415,114 @@
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JPanel" name="pnlManagement">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="pnlManagement" noResource="true"/>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+              <CardConstraints cardName="pnlManagement"/>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="btnAdd" min="-2" pref="102" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="btnEdit" min="-2" pref="102" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="btnDelete" min="-2" pref="102" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="jScrollPane2" alignment="1" pref="977" max="32767" attributes="0"/>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="jScrollPane2" min="-2" pref="341" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                              <Component id="btnEdit" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                              <Component id="btnAdd" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="btnDelete" min="-2" pref="32" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="68" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Container class="javax.swing.JScrollPane" name="jScrollPane2">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTable" name="tblManagement">
+                  <Properties>
+                    <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                      <Table columnCount="4" rowCount="4">
+                        <Column editable="true" title="Title 1" type="java.lang.Object"/>
+                        <Column editable="true" title="Title 2" type="java.lang.Object"/>
+                        <Column editable="true" title="Title 3" type="java.lang.Object"/>
+                        <Column editable="true" title="Title 4" type="java.lang.Object"/>
+                      </Table>
+                    </Property>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Component class="javax.swing.JButton" name="btnDelete">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="4f" green="53" red="d9" type="rgb"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Delete"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnDeleteMouseClicked"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnEdit">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="4f" green="94" red="d9" type="rgb"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Edit"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnEditMouseClicked"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnAdd">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="cf" green="99" red="5a" type="rgb"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Add"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnAddMouseClicked"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
