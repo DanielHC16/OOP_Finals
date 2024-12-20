@@ -274,10 +274,6 @@ INSERT INTO finalsoop.subject_schedule ( syear, semester, college_code, block_no
 ('2024-2025', '1', 'CISTM', '1', 'CSC 0211', 'M', '8:00-9:30', 'GCA307', 'Lecture', 1, 'E004');
 
 
-
-
-
-
 -- 2. GRADES TABLE
 CREATE TABLE finalsoop.grades (
     syear VARCHAR(10) NOT NULL,
@@ -299,7 +295,7 @@ INSERT INTO finalsoop.grades (syear, semester, student_no, subject_code, block_n
 ('2023-2024', '1', '12346', 'CSC 0212', 'CS21', 2.75);
 
 -- VIEWS
--- 1. SUBJECT SCHEDULE VIEW
+-- 1. UPDATED SUBJECT SCHEDULE VIEW (RUN IT AGAIN)
 CREATE OR REPLACE VIEW finalsoop.subject_schedule_view AS
 SELECT
     ss.syear AS school_year,
@@ -311,6 +307,7 @@ SELECT
     ss.day,
     ss.time,
     ss.room,
+    b.building_name,
     ss.type,
     ss.sequence_no,
     ss.employee_id,
@@ -320,7 +317,12 @@ FROM
 JOIN
     finalsoop.subject s ON ss.subject_code = s.subject_code
 JOIN
-    finalsoop.employee e ON ss.employee_id = e.employee_id;
+    finalsoop.employee e ON ss.employee_id = e.employee_id
+JOIN
+    finalsoop.building b ON ss.room = b.room;
+
+    
+
     
 -- 2. GRADES TABLE VIEW
 CREATE OR REPLACE VIEW finalsoop.student_grades_view AS

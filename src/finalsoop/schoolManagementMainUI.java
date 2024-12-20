@@ -813,7 +813,13 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
             } else {
                 JOptionPane.showMessageDialog(null,"No record selected");
             }
-        }
+        } 
+
+        
+        
+        
+       
+        
     }//GEN-LAST:event_btnDeleteMouseClicked
     
     /**
