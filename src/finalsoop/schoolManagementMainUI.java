@@ -362,6 +362,70 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
 
         mainPanel.add(pnlManagement, "pnlManagement");
 
+        txtSem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSemActionPerformed(evt);
+            }
+        });
+
+        jLabel7.setText("Semester");
+
+        btnAddSemBack.setBackground(new java.awt.Color(90, 153, 207));
+        btnAddSemBack.setForeground(new java.awt.Color(255, 255, 255));
+        btnAddSemBack.setText("Back");
+        btnAddSemBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddSemBackActionPerformed(evt);
+            }
+        });
+
+        btnAddSemConfirm.setBackground(new java.awt.Color(90, 153, 207));
+        btnAddSemConfirm.setForeground(new java.awt.Color(255, 255, 255));
+        btnAddSemConfirm.setText("Confirm");
+        btnAddSemConfirm.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAddSemConfirmMouseClicked(evt);
+            }
+        });
+        btnAddSemConfirm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddSemConfirmActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnlAddSemLayout = new javax.swing.GroupLayout(pnlAddSem);
+        pnlAddSem.setLayout(pnlAddSemLayout);
+        pnlAddSemLayout.setHorizontalGroup(
+            pnlAddSemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlAddSemLayout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(jLabel7)
+                .addGap(18, 18, 18)
+                .addComponent(txtSem, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(677, Short.MAX_VALUE))
+            .addGroup(pnlAddSemLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(btnAddSemBack, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnAddSemConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14))
+        );
+        pnlAddSemLayout.setVerticalGroup(
+            pnlAddSemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlAddSemLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(pnlAddSemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtSem, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 304, Short.MAX_VALUE)
+                .addGroup(pnlAddSemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAddSemBack, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAddSemConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28))
+        );
+
+        mainPanel.add(pnlAddSem, "pnlAddSem");
+
         pnlAddSubjSched.setName("pnlSubjSched"); // NOI18N
 
         jLabel1.setText("School Year");
@@ -604,6 +668,11 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
                 btnAddSYCancelActionPerformed(evt);
             }
         });
+        btnEdit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditActionPerformed(evt);
+            }
+        });
 
         btnConfirmSY.setBackground(new java.awt.Color(90, 153, 207));
         btnConfirmSY.setForeground(new java.awt.Color(255, 255, 255));
@@ -680,7 +749,9 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
                 .addComponent(btnDashboard, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnManagement, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnManagement, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(panelNav, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -872,6 +943,10 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
             switchToCard("pnlAddSchoolYears");
         }
 
+        
+        if (currentData.equals("Semester")){
+            switchToCard("pnlAddSem");
+        }
     }//GEN-LAST:event_btnAddMouseClicked
 
     private void cmbSubjectCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbSubjectCodeActionPerformed
@@ -959,7 +1034,44 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
             }
         }
 
+        
+        if(currentData.equals("Semester")){
+            if(row != -1){
+                String strSemester = tblManagement.getModel().getValueAt(row,0).toString();
+                db.deleteSemester(strSemester);  
+                db.populateTable(db.fetchSemesters(), populatedTable);
+            } else {
+                JOptionPane.showMessageDialog(null,"No record selected");
+            }
+        }
     }//GEN-LAST:event_btnDeleteMouseClicked
+
+    private void txtSemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSemActionPerformed
+
+    private void btnAddSemConfirmMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddSemConfirmMouseClicked
+        // TODO add your handling code here:
+        if(boolAdd){
+            db.addSemester(
+                txtSem.getText().trim()
+            );
+            
+        switchToCard("pnlManagement");
+        db.populateTable(db.fetchSemesters(), populatedTable);}
+    }//GEN-LAST:event_btnAddSemConfirmMouseClicked
+
+    private void btnAddSemConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddSemConfirmActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAddSemConfirmActionPerformed
+
+    private void btnAddSemBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddSemBackActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAddSemBackActionPerformed
+
+    private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEditActionPerformed
 
     private void btnConfirmSYMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConfirmSYMouseClicked
         // TODO add your handling code here:
@@ -1093,6 +1205,8 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnAddCancel;
+    private javax.swing.JButton btnAddSemBack;
+    private javax.swing.JButton btnAddSemConfirm;
     private javax.swing.JButton btnAddSYCancel;
     private javax.swing.JButton btnCollege;
     private javax.swing.JButton btnConfirmSY;
@@ -1132,6 +1246,7 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
     private javax.swing.JPanel mainPanel;
     private javax.swing.JPanel panelNav;
     private javax.swing.JPanel pnlAddSchoolYear;
+    private javax.swing.JPanel pnlAddSem;
     private javax.swing.JPanel pnlAddSubjSched;
     private javax.swing.JPanel pnlDashboard;
     private javax.swing.JPanel pnlManagement;
@@ -1141,6 +1256,7 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
     private javax.swing.JTextField txtBlockNo;
     private javax.swing.JTextField txtRoom;
     private javax.swing.JTextField txtSchoolYear;
+    private javax.swing.JTextField txtSem;
     private javax.swing.JTextField txtSequence;
     private javax.swing.JTextField txtTime;
     private javax.swing.JTextField txtType;
