@@ -222,6 +222,25 @@ INSERT INTO finalsoop.subject (subject_code, description, units, curriculum, col
 -- ('EIT Elective 2', 'Professional Elective 2', '3', '2011', 'CISTM', 'A', '2024-08-01', '9999-12-31') -- DATA TOO LONG
 -- ('PED', 'PE Elective (12, 13, or 14)', '2', '2011', 'CPT', 'A', '2024-08-01', '9999-12-31');
 
+
+-- 8. BUILDING TABLE
+CREATE TABLE finalsoop.building (
+    room VARCHAR(10) NOT NULL,
+    building_name VARCHAR(50) NOT NULL,
+    PRIMARY KEY (room)
+);
+
+INSERT INTO finalsoop.building (room, building_name)
+VALUES 
+    ('GCA301', 'GCA'),
+    ('GCA302', 'GCA'),
+    ('GCA303', 'GCA'),
+    ('GCA304', 'GCA'),
+    ('GCA305', 'GCA'),
+    ('GCA306', 'GCA'),
+    ('GCA307', 'GCA');
+
+
 -- FACT TABLES **
 
 -- 1. SUBJECT SCHEDULE TABLE
@@ -246,6 +265,18 @@ CREATE TABLE finalsoop.subject_schedule (
 );
 INSERT INTO finalsoop.subject_schedule (syear, semester, college_code, block_no, subject_code, day, time, room, type, sequence_no, employee_id) VALUES 
 ('2023-2024', '1', 'CISTM', 'CS21', 'OOP', 'S', '8:00-10:00', 'GCA301', 'F2F', 1, 'E001');
+
+-- BUILDING TABLE UPDATE
+ALTER TABLE finalsoop.subject_schedule
+ADD CONSTRAINT room_fk FOREIGN KEY (room) REFERENCES finalsoop.building(room);
+
+INSERT INTO finalsoop.subject_schedule ( syear, semester, college_code, block_no, subject_code, day, time, room, type, sequence_no, employee_id) VALUES 
+('2024-2025', '1', 'CISTM', '1', 'CSC 0211', 'M', '8:00-9:30', 'GCA307', 'Lecture', 1, 'E004');
+
+
+
+
+
 
 -- 2. GRADES TABLE
 CREATE TABLE finalsoop.grades (
@@ -290,6 +321,7 @@ JOIN
     finalsoop.subject s ON ss.subject_code = s.subject_code
 JOIN
     finalsoop.employee e ON ss.employee_id = e.employee_id;
+    
 -- 2. GRADES TABLE VIEW
 CREATE OR REPLACE VIEW finalsoop.student_grades_view AS
 SELECT
