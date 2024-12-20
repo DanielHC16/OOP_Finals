@@ -149,8 +149,8 @@ public class dbManager {
 							+ strLastName + "', '"
 							+ strFirstName + "', '"
 							+ strEmail + "', '"
-							+ strGender + "', '"
-							+ strCourseCode + "', '"
+							+ strGender + "', "
+							+ strCourseCode + ", '"
 							+ strCpNum + "', '"
 							+ strAddress + "', '"
 							+ strBday + "', '"
@@ -656,17 +656,17 @@ public class dbManager {
 	 * @param strDateStarted   New start date
 	 * @param strDateGraduated New graduation date
 	 */
-	public void updateStudent(String strStudentNo, String strLastName, String strFirstName, String strEmail,
+	public void updateStudent(String oldStudentNo, String strStudentNo, String strLastName, String strFirstName, String strEmail,
 			String strGender, String strCourseCode, String strCpNum, String strAddress, String strBday,
 			String strStatus, String strDateStarted, String strDateGraduated) {
 		try (Statement ps = conn.createStatement()) {
 			ps.execute("UPDATE finalsoop.student SET lastname = '" + strLastName + "', firstname = '" + strFirstName
 					+ "', email = '" + strEmail
-					+ "', gender = '" + strGender + "', course_code = '" + strCourseCode + "', cp_num = '" + strCpNum
+					+ "', gender = '" + strGender + "', course_code = " + strCourseCode + ", cp_num = '" + strCpNum
 					+ "', address = '" + strAddress
 					+ "', bday = '" + strBday + "', status = '" + strStatus + "', date_started = '" + strDateStarted
 					+ "', date_graduated = '" + strDateGraduated
-					+ "' WHERE student_no = '" + strStudentNo + "'");
+					+ "' WHERE student_no = '" + oldStudentNo + "'");
 		} catch (SQLException e) {
 			System.out.println(e);
 		}
