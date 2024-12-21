@@ -239,6 +239,23 @@ VALUES
     ('GCA305', 'GCA'),
     ('GCA306', 'GCA'),
     ('GCA307', 'GCA');
+    
+INSERT INTO finalsoop.building (room, building_name)
+VALUES
+	('GCA101', 'GCA'),
+    ('GCA102', 'GCA'),
+    ('GCA103', 'GCA'),
+    ('GCA104', 'GCA'),
+    ('GCA105', 'GCA'),
+    ('GCA106', 'GCA'),
+    ('GCA107', 'GCA'),
+	('GCA201', 'GCA'),
+    ('GCA202', 'GCA'),
+    ('GCA203', 'GCA'),
+    ('GCA204', 'GCA'),
+    ('GCA205', 'GCA'),
+    ('GCA206', 'GCA'),
+    ('GCA207', 'GCA');
 
 
 -- FACT TABLES **
