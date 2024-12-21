@@ -65,7 +65,7 @@ public class StudentController {
              JTextField Birthday, 
              JComboBox Status, 
              JTextField DateStarted, 
-             JTextField DateGraduated) throws Exception{
+             JTextField DateGraduated) throws Exception {
          transformComboBoxes(Gender, Status);
          db.addStudent(StudentNo.getText().trim(), 
                  LastName.getText().trim(), 

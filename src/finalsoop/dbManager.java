@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.ResultSet;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -159,6 +160,7 @@ public class dbManager {
 							+ strDateGraduated + "')");
 		} catch (SQLException e) {
 			System.out.println(e);
+                        JOptionPane.showMessageDialog(null, "Adding of student failed");
 		}
 	}
 
@@ -282,12 +284,13 @@ public class dbManager {
 			ps.execute(
 					"INSERT INTO finalsoop.grades(syear, semester, student_no, subject_code, block_no, grade) VALUES ('"
 							+ strSyear + "', '"
-							+ strSemester + "', '"
-							+ strStudentNo + "', '"
-							+ strSubjectCode + "', '"
+							+ strSemester + "', "
+							+ strStudentNo + ", "
+							+ strSubjectCode + ", '"
 							+ strBlockNo + "', "
 							+ dblGrade + ")");
 		} catch (SQLException e) {
+                        JOptionPane.showMessageDialog(null, "Adding grade failed");    
 			System.out.println(e);
 		}
 	}
@@ -669,6 +672,7 @@ public class dbManager {
 					+ "' WHERE student_no = '" + oldStudentNo + "'");
 		} catch (SQLException e) {
 			System.out.println(e);
+                        JOptionPane.showMessageDialog(null, "Adding of student failed");
 		}
 	}
 

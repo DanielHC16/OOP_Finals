@@ -6,6 +6,7 @@ package finalsoop;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.PreparedStatement;
 import java.awt.CardLayout;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -29,6 +30,43 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
     private String oldDateClosed;
     private String oldStatus;
     private StudentController studentController = new StudentController();
+    
+     private String oldEmployeeID;
+    private String oldLastName;
+    private String oldFirstName;
+    private String oldEmail;
+    private String oldGender;
+    private String oldCpNum;
+    private String oldAddress;
+    private String oldBirthdate;
+    private String oldDateStarted;
+    private String oldDateResigned;
+    
+    private String newEmployeeID;
+    private String newLastName;
+    private String newFirstName;
+    private String newEmail;
+    private String newGender;
+    private String newCpNum;
+    private String newAddress;
+    private String newBirthdate;
+    private String newStatus;
+    private String newDateStarted;
+    private String newDateResigned;
+    
+    private String oldSchoolYear;
+    private String oldSemester;
+    private String oldStudentNo;
+    private String oldSubjectCode;
+    private String oldAddGradeBlockNo;
+    private double oldGrade;
+    
+    private String newSchoolYear;
+    private String newSemester;
+    private String newStudentNo;
+    private String newSubjectCode;
+    private String newAddGradeBlockNo;
+    private double newGrade;
 
     /**
      * Creates new form schoolManagementMainUI
@@ -87,7 +125,7 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
         txtEmail = new javax.swing.JTextField();
         txtFirstName = new javax.swing.JTextField();
         txtCpNo = new javax.swing.JTextField();
-        jComboBox3 = new javax.swing.JComboBox<>();
+        cmbEmployeeStat = new javax.swing.JComboBox<>();
         pnlAddSubj = new javax.swing.JPanel();
         jLabel40 = new javax.swing.JLabel();
         jLabel41 = new javax.swing.JLabel();
@@ -135,20 +173,18 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
         pnlAddGrade = new javax.swing.JPanel();
         jLabel53 = new javax.swing.JLabel();
         jLabel55 = new javax.swing.JLabel();
-        jLabel56 = new javax.swing.JLabel();
-        jLabel59 = new javax.swing.JLabel();
         jLabel60 = new javax.swing.JLabel();
         jLabel61 = new javax.swing.JLabel();
         jLabel63 = new javax.swing.JLabel();
-        cmbEmployeeName2 = new javax.swing.JComboBox<>();
+        cmbStudentName = new javax.swing.JComboBox<>();
         cmbSYear2 = new javax.swing.JComboBox<>();
-        cmbCollegeCode2 = new javax.swing.JComboBox<>();
-        btnConfirmSched2 = new javax.swing.JButton();
+        btnConfirmGrade = new javax.swing.JButton();
         btnAddCancel2 = new javax.swing.JButton();
-        txtTime2 = new javax.swing.JTextField();
-        cmbSubjectCode2 = new javax.swing.JComboBox<>();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        cmbSubjectDesc2 = new javax.swing.JComboBox<>();
+        cmbGrade = new javax.swing.JComboBox<>();
+        cmbSemester2 = new javax.swing.JComboBox<>();
+        txtBlockNo2 = new javax.swing.JTextField();
+        jLabel65 = new javax.swing.JLabel();
         pnlAddSemester = new javax.swing.JPanel();
         jLabel52 = new javax.swing.JLabel();
         btnBackEmployee3 = new javax.swing.JButton();
@@ -185,8 +221,8 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
         txtDesc = new javax.swing.JTextField();
         txtDateOp = new javax.swing.JTextField();
         txtDateCl = new javax.swing.JTextField();
-        jComboBox6 = new javax.swing.JComboBox<>();
-        jComboBox7 = new javax.swing.JComboBox<>();
+        txtStatus = new javax.swing.JComboBox<>();
+        txtCollegeCode1 = new javax.swing.JTextField();
         pnlStudent = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -488,6 +524,8 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
             }
         });
 
+        cmbEmployeeStat.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A", "I" }));
+
         javax.swing.GroupLayout pnlAddEmployeeLayout = new javax.swing.GroupLayout(pnlAddEmployee);
         pnlAddEmployee.setLayout(pnlAddEmployeeLayout);
         pnlAddEmployeeLayout.setHorizontalGroup(
@@ -541,7 +579,7 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
                                     .addComponent(jLabel29))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGroup(pnlAddEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBox3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cmbEmployeeStat, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(pnlAddEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAddEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(txtDateResigned)
@@ -587,7 +625,7 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
                                 .addGap(30, 30, 30)
                                 .addGroup(pnlAddEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel31)
-                                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(cmbEmployeeStat, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(22, 22, 22)
                                 .addGroup(pnlAddEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(pnlAddEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -736,11 +774,11 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
                 .addGroup(pnlAddSubjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlAddSubjLayout.createSequentialGroup()
                         .addGap(84, 84, 84)
-                        .addGroup(pnlAddSubjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel41)
+                        .addGroup(pnlAddSubjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(pnlAddSubjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jLabel64)
-                                .addComponent(txtTime3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(txtTime3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel41))
                         .addGap(30, 30, 30)
                         .addGroup(pnlAddSubjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel42)
@@ -997,19 +1035,15 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
 
         jLabel55.setText("Semester");
 
-        jLabel56.setText("Student No.");
-
-        jLabel59.setText("Subject Description");
-
-        jLabel60.setText("Subject Code");
+        jLabel60.setText("Subject");
 
         jLabel61.setText("Student Name");
 
         jLabel63.setText("Grade");
 
-        cmbEmployeeName2.addActionListener(new java.awt.event.ActionListener() {
+        cmbStudentName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbEmployeeName2ActionPerformed(evt);
+                cmbStudentNameActionPerformed(evt);
             }
         });
 
@@ -1020,18 +1054,12 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
             }
         });
 
-        cmbCollegeCode2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbCollegeCode2ActionPerformed(evt);
-            }
-        });
-
-        btnConfirmSched2.setBackground(new java.awt.Color(90, 153, 207));
-        btnConfirmSched2.setForeground(new java.awt.Color(255, 255, 255));
-        btnConfirmSched2.setText("Confirm");
-        btnConfirmSched2.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnConfirmGrade.setBackground(new java.awt.Color(90, 153, 207));
+        btnConfirmGrade.setForeground(new java.awt.Color(255, 255, 255));
+        btnConfirmGrade.setText("Confirm");
+        btnConfirmGrade.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnConfirmSched2MouseClicked(evt);
+                btnConfirmGradeMouseClicked(evt);
             }
         });
 
@@ -1044,99 +1072,101 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
             }
         });
 
-        txtTime2.addActionListener(new java.awt.event.ActionListener() {
+        cmbSubjectDesc2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTime2ActionPerformed(evt);
+                cmbSubjectDesc2ActionPerformed(evt);
             }
         });
 
-        cmbSubjectCode2.addActionListener(new java.awt.event.ActionListener() {
+        cmbGrade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1.00", "1.25", "1.5", "1.75", "2.00", "2.25", "2.5", "2.75", "3.00", "5.00" }));
+        cmbGrade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbSubjectCode2ActionPerformed(evt);
+                cmbGradeActionPerformed(evt);
             }
         });
+
+        cmbSemester2.setToolTipText("");
+        cmbSemester2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbSemester2ActionPerformed(evt);
+            }
+        });
+
+        jLabel65.setText("Block:");
 
         javax.swing.GroupLayout pnlAddGradeLayout = new javax.swing.GroupLayout(pnlAddGrade);
         pnlAddGrade.setLayout(pnlAddGradeLayout);
         pnlAddGradeLayout.setHorizontalGroup(
             pnlAddGradeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAddGradeLayout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addGroup(pnlAddGradeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlAddGradeLayout.createSequentialGroup()
-                        .addGroup(pnlAddGradeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel59)
-                            .addComponent(jLabel60))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jLabel61, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(pnlAddGradeLayout.createSequentialGroup()
-                        .addGroup(pnlAddGradeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel56, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel55, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel53, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pnlAddGradeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlAddGradeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(cmbCollegeCode2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(pnlAddGradeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(cmbSYear2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(cmbEmployeeName2, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pnlAddGradeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(cmbSubjectCode2, 0, 307, Short.MAX_VALUE)
-                        .addComponent(jTextField3)))
-                .addGap(104, 104, 104)
-                .addComponent(jLabel63)
-                .addGap(33, 33, 33)
-                .addComponent(txtTime2, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(85, 85, 85))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAddGradeLayout.createSequentialGroup()
                 .addGap(82, 82, 82)
                 .addComponent(btnAddCancel2, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnConfirmSched2, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnConfirmGrade, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(95, 95, 95))
+            .addGroup(pnlAddGradeLayout.createSequentialGroup()
+                .addGroup(pnlAddGradeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(pnlAddGradeLayout.createSequentialGroup()
+                        .addContainerGap(36, Short.MAX_VALUE)
+                        .addGroup(pnlAddGradeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel61, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel60))
+                        .addGap(18, 18, 18)
+                        .addGroup(pnlAddGradeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cmbStudentName, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cmbSubjectDesc2, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(pnlAddGradeLayout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addGroup(pnlAddGradeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel55)
+                            .addComponent(jLabel53))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(pnlAddGradeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(cmbSYear2, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cmbSemester2, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(104, 104, 104)
+                .addGroup(pnlAddGradeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel63)
+                    .addComponent(jLabel65))
+                .addGap(34, 34, 34)
+                .addGroup(pnlAddGradeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtBlockNo2)
+                    .addComponent(cmbGrade, 0, 271, Short.MAX_VALUE))
+                .addGap(84, 84, 84))
         );
         pnlAddGradeLayout.setVerticalGroup(
             pnlAddGradeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlAddGradeLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
+                .addGap(19, 19, 19)
                 .addGroup(pnlAddGradeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlAddGradeLayout.createSequentialGroup()
                         .addGroup(pnlAddGradeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(pnlAddGradeLayout.createSequentialGroup()
-                                .addGap(65, 65, 65)
-                                .addComponent(jLabel55)
-                                .addGap(45, 45, 45)
-                                .addComponent(jLabel56))
-                            .addGroup(pnlAddGradeLayout.createSequentialGroup()
                                 .addGap(58, 58, 58)
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(30, 30, 30)
-                                .addComponent(cmbCollegeCode2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(pnlAddGradeLayout.createSequentialGroup()
-                                .addGap(178, 178, 178)
-                                .addComponent(cmbEmployeeName2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(cmbSYear2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(pnlAddGradeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel55)
+                                    .addComponent(cmbSemester2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(cmbSYear2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel53))
+                        .addGap(27, 27, 27)
+                        .addGroup(pnlAddGradeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cmbStudentName, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel61))
                         .addGap(31, 31, 31)
                         .addGroup(pnlAddGradeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel60)
-                            .addComponent(cmbSubjectCode2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(34, 34, 34)
-                        .addGroup(pnlAddGradeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel59)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(cmbSubjectDesc2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(pnlAddGradeLayout.createSequentialGroup()
                         .addGroup(pnlAddGradeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel63)
-                            .addComponent(txtTime2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(155, 155, 155)
-                        .addComponent(jLabel61))
-                    .addComponent(jLabel53))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                            .addComponent(cmbGrade, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(38, 38, 38)
+                        .addGroup(pnlAddGradeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtBlockNo2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel65))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 172, Short.MAX_VALUE)
                 .addGroup(pnlAddGradeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnConfirmSched2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnConfirmGrade, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAddCancel2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(14, 14, 14))
         );
@@ -1417,6 +1447,8 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
 
         jLabel21.setText("Status");
 
+        txtStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A", "I" }));
+
         javax.swing.GroupLayout pnlAddCollegeLayout = new javax.swing.GroupLayout(pnlAddCollege);
         pnlAddCollege.setLayout(pnlAddCollegeLayout);
         pnlAddCollegeLayout.setHorizontalGroup(
@@ -1434,37 +1466,24 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
             .addGroup(pnlAddCollegeLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addGroup(pnlAddCollegeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAddCollegeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAddCollegeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAddCollegeLayout.createSequentialGroup()
-                                .addGroup(pnlAddCollegeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(pnlAddCollegeLayout.createSequentialGroup()
-                                        .addComponent(jLabel18)
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18))
-                            .addGroup(pnlAddCollegeLayout.createSequentialGroup()
-                                .addComponent(jLabel19)
-                                .addGap(24, 24, 24)))
-                        .addGroup(pnlAddCollegeLayout.createSequentialGroup()
-                            .addComponent(jLabel20)
-                            .addGap(30, 30, 30)))
-                    .addGroup(pnlAddCollegeLayout.createSequentialGroup()
-                        .addComponent(jLabel21)
-                        .addGap(63, 63, 63)))
-                .addGroup(pnlAddCollegeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlAddCollegeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(txtDesc)
-                        .addComponent(txtDateOp)
-                        .addComponent(txtDateCl)
-                        .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jComboBox7, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel18)
+                    .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel19)
+                    .addComponent(jLabel20)
+                    .addComponent(jLabel21))
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addGroup(pnlAddCollegeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtDesc)
+                    .addComponent(txtDateOp)
+                    .addComponent(txtDateCl)
+                    .addComponent(txtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCollegeCode1))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlAddCollegeLayout.setVerticalGroup(
             pnlAddCollegeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlAddCollegeLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
+                .addGap(12, 12, 12)
                 .addGroup(pnlAddCollegeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlAddCollegeLayout.createSequentialGroup()
                         .addGap(58, 58, 58)
@@ -1478,7 +1497,7 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
                         .addGap(91, 91, 91)
                         .addGroup(pnlAddCollegeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel21)
-                            .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(pnlAddCollegeLayout.createSequentialGroup()
                         .addGap(179, 179, 179)
                         .addGroup(pnlAddCollegeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1486,8 +1505,8 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
                             .addComponent(txtDateCl, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(pnlAddCollegeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel17)
-                        .addComponent(jComboBox7, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
+                        .addComponent(txtCollegeCode1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
                 .addGroup(pnlAddCollegeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnConfirmCollege, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBackCollege, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -2000,8 +2019,11 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
         if (currentData.equals("Employee")) {
             switchToCard("pnlAddEmployee");
         }
-
-
+        
+        if (currentData.equals("StudentGrades")) {
+            switchToCard("pnlAddGrade");
+            populateGradeOptions();
+        }
     }//GEN-LAST:event_btnAddMouseClicked
 
     private void cmbSubjectCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbSubjectCodeActionPerformed
@@ -2012,6 +2034,7 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         boolAdd = false;
+        System.out.println(currentData);
         if(currentData.equals("Students")){
             switchToCard("pnlStudent");
             studentController.populateCourseOptions(cmbCourseCode);
@@ -2043,7 +2066,7 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
                 txtDesc.setText(oldDescription);
                 txtDateOp.setText(oldDateOpened);
                 txtDateCl.setText(oldDateClosed);
-                txtStatus.setText(oldStatus);
+                txtStatus.setSelectedItem(oldStatus);
                 switchToCard("pnlAddCollege");
             } else {
                 JOptionPane.showMessageDialog(null, "No record selected");
@@ -2089,11 +2112,80 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "No record selected");
             }
         }
+        System.out.println(currentData.equals("Employee"));
+            
+            if (currentData.equals("Employee")) {
+                int row = tblManagement.getSelectedRow();
+                System.out.println(row);
+                
+                if (row != -1) {
+                    oldEmployeeID = tblManagement.getValueAt(row, 0).toString();
+                    oldLastName = tblManagement.getValueAt(row, 1).toString();
+                    oldFirstName = tblManagement.getValueAt(row, 2).toString();
+                    oldEmail = tblManagement.getValueAt(row, 3).toString();
+                    oldGender = tblManagement.getValueAt(row, 4).toString();
+                    oldCpNum = tblManagement.getValueAt(row, 5).toString();
+                    oldAddress = tblManagement.getValueAt(row, 6).toString();
+                    oldBirthdate = tblManagement.getValueAt(row, 7).toString();
+                    oldStatus = tblManagement.getValueAt(row, 8).toString();
+                    oldDateStarted = tblManagement.getValueAt(row, 9).toString();
+                    oldDateResigned = tblManagement.getValueAt(row, 10).toString();
+                    
+                    switchToCard("pnlAddEmployee");
+                    txtEmpID.setText(oldEmployeeID);
+                    txtLastName.setText(oldLastName);
+                    txtFirstName.setText(oldFirstName);
+                    txtEmail.setText(oldEmail);
+                    cmbGender.setSelectedItem(oldGender);
+                    txtCpNo.setText(oldCpNum);
+                    txtAddress.setText(oldAddress);
+                    txtBirthdate.setText(oldBirthdate);
+                    cmbEmployeeStat.setSelectedItem(oldStatus);
+                    txtDateStarted.setText(oldDateStarted);
+                    txtDateResigned.setText(oldDateResigned);
+                } else {
+                    JOptionPane.showMessageDialog(null, "No record selected");
+                }
+            }
+            
+        if (currentData.equals("StudentGrades")) {
+            int row = tblManagement.getSelectedRow();
+
+            if (row != -1) {
+                
+                oldSchoolYear = tblManagement.getModel().getValueAt(row, 0).toString();
+                oldSemester = tblManagement.getModel().getValueAt(row, 1).toString();
+                oldStudentNo = findConcatenatedItemInResultSet(db.fetchStudents(), tblManagement.getModel().getValueAt(row, 2).toString(), "lastname", "firstname", "student_no");
+                oldSubjectCode = findItemInResultSet(db.fetchSubjects(), tblManagement.getModel().getValueAt(row, 3).toString(), "description", "subject_code");
+                oldAddGradeBlockNo = tblManagement.getModel().getValueAt(row, 4).toString();
+                oldGrade = Double.parseDouble(tblManagement.getModel().getValueAt(row, 5).toString());
+
+
+                cmbSYear2.setSelectedItem(oldSchoolYear);
+                cmbSemester2.setSelectedItem(oldSemester);
+                cmbStudentName.setSelectedItem(oldStudentNo);
+                cmbSubjectDesc2.setSelectedItem(oldSubjectCode);
+                txtBlockNo.setText(oldAddGradeBlockNo);
+                cmbGrade.setSelectedItem(oldGrade);
+                switchToCard("pnlAddGrade");
+            } else {
+                JOptionPane.showMessageDialog(null, "No record selected");
+            }
+        }
     }//GEN-LAST:event_btnEditMouseClicked
 
     private void btnDeleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDeleteMouseClicked
         // TODO add your handling code here:
         int row = tblManagement.getSelectedRow();
+        if (currentData.equals("Employee")) {
+            if (row != -1) {
+                String strEmployeeId = tblManagement.getModel().getValueAt(row, 0).toString();
+                db.deleteEmployee(strEmployeeId);
+                db.populateTable(db.fetchEmployees(), populatedTable);
+            } else {
+                JOptionPane.showMessageDialog(null, "No record selected");
+            }
+        }
         if(currentData.equals("Students")){
             try {
                 studentController.btnDeleteStudent(tblManagement);
@@ -2138,7 +2230,7 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
                 || txtDesc.getText().trim().isEmpty()
                 || txtDateOp.getText().trim().isEmpty()
                 || txtDateCl.getText().trim().isEmpty()
-                || txtStatus.getText().trim().isEmpty()) {
+                || txtStatus.getSelectedItem() == null) {
 
             JOptionPane.showMessageDialog(null, "All fields must be filled in.", "Input Error", JOptionPane.ERROR_MESSAGE);
             return;
@@ -2150,14 +2242,14 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
                     txtDesc.getText().trim(),
                     txtDateOp.getText(),
                     txtDateCl.getText(),
-                    txtStatus.getText()
+                    txtStatus.getSelectedItem().toString().trim()
             );
 
             txtCollegeCode1.setText("");
             txtDesc.setText("");
             txtDateOp.setText("");
             txtDateCl.setText("");
-            txtStatus.setText("");
+            
 
             db.populateTable(db.fetchColleges(), populatedTable);
             switchToCard("pnlManagement");
@@ -2169,7 +2261,7 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
                 String newDescription = txtDesc.getText().trim();
                 String newDateOpened = txtDateOp.getText();
                 String newDateClosed = txtDateCl.getText();
-                String newStatus = txtStatus.getText();
+                String newStatus = txtStatus.getSelectedItem().toString().trim();
 
                 db.updateCollege(newCollegeCode, newDescription, newDateOpened, newDateClosed, newStatus);
                 db.populateTable(db.fetchColleges(), populatedTable);
@@ -2178,7 +2270,7 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
                 txtDesc.setText("");
                 txtDateOp.setText("");
                 txtDateCl.setText("");
-                txtStatus.setText("");
+                
 
                 switchToCard("pnlManagement");
             } else {
@@ -2201,82 +2293,45 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         if (currentData.equals("Employee")) {
-            int row = tblManagement.getSelectedRow();
-            if (row != -1) {
-                String genderCode = switch (tblManagement.getModel().getValueAt(row, 4).toString()) {
-                    case "M" ->
-                        "Male";
-                    case "F" ->
-                        "Female";
-                    default ->
-                        "";
-                };
+                
+            String genderCode = switch(cmbGender.getSelectedItem().toString().trim()){
+                case "Male" -> 
+                    "M";
+                case "Female"->
+                    "F";
+                default ->
+                    "";
+            };
+            if (txtEmpID.getText().trim().isEmpty()
+                    || txtLastName.getText().trim().isEmpty()
+                    || txtFirstName.getText().trim().isEmpty()
+                    || txtEmail.getText().trim().isEmpty()
+                    || cmbGender.getSelectedItem() == null
+                    || txtCpNo.getText().trim().isEmpty()
+                    || txtAddress.getText().trim().isEmpty()
+                    || txtBirthdate.getText().trim().isEmpty()
+                    || txtStatus.getSelectedItem() == null
+                    || txtDateStarted.getText().trim().isEmpty()
+                    || txtDateResigned.getText().trim().isEmpty()) {
 
-        if (txtEmpID.getText().trim().isEmpty()
-                || txtLastName.getText().trim().isEmpty()
-                || txtFirstName.getText().trim().isEmpty()
-                || txtEmail.getText().trim().isEmpty()
-                || cmbGender.getSelectedItem() == null
-                || txtCpNo.getText().trim().isEmpty()
-                || txtAddress.getText().trim().isEmpty()
-                || txtBirthdate.getText().trim().isEmpty()
-                || txtStatus.getText().trim().isEmpty()
-                || txtDateStarted.getText().trim().isEmpty()
-                || txtDateResigned.getText().trim().isEmpty()) {
-
-            JOptionPane.showMessageDialog(null, "All fields must be filled in.", "Input Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-        if (boolAdd) {
-            // Adding of new employee record
-            db.addEmployee(
-                    txtEmpID.getText().trim(),
-                    txtLastName.getText().trim(),
-                    txtFirstName.getText().trim(),
-                    txtEmail.getText().trim(),
-                    cmbGender.getSelectedItem().toString().trim(),
-                    txtCpNo.getText().trim(),
-                    txtAddress.getText().trim(),
-                    txtBirthdate.getText().trim(),
-                    txtStatus.getText().trim(),
-                    txtDateStarted.getText().trim(),
-                    txtDateResigned.getText().trim()
-            );
-            
-            txtEmpID.setText("");
-            txtLastName.setText("");
-            txtFirstName.setText("");
-            txtEmail.setText("");
-            cmbGender.setSelectedItem(null);
-            txtCpNo.setText("");
-            txtAddress.setText("");
-            txtBirthdate.setText("");
-            txtStatus.setText("");
-            txtDateStarted.setText("");
-            txtDateResigned.setText("");
-
-            
-            db.populateTable(db.fetchEmployees(), populatedTable);
-            switchToCard("pnlManagement");
-
-        } else {
-            row = tblManagement.getSelectedRow();
-            if (row != -1) {
-                // Update existing employee record
-                String employeeId = txtEmpID.getText().trim();
-                String lastName = txtLastName.getText().trim();
-                String firstName = txtFirstName.getText().trim();
-                String email = txtEmail.getText().trim();
-                String gender = cmbGender.getSelectedItem().toString().trim();
-                String cpNo = txtCpNo.getText().trim();
-                String address = txtAddress.getText().trim();
-                String birthdate = txtBirthdate.getText().trim(); 
-                String status = txtStatus.getText().trim();
-                String dateStarted = txtDateStarted.getText().trim();
-                String dateResigned = txtDateResigned.getText().trim();
-
-                db.updateEmployee(employeeId, lastName, firstName, email, gender, cpNo, address, birthdate, status, dateStarted, dateResigned);
-                db.populateTable(db.fetchEmployees(), populatedTable);
+                JOptionPane.showMessageDialog(null, "All fields must be filled in.", "Input Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            if (boolAdd) {
+                // Adding of new employee record
+                db.addEmployee(
+                        txtEmpID.getText().trim(),
+                        txtLastName.getText().trim(),
+                        txtFirstName.getText().trim(),
+                        txtEmail.getText().trim(),
+                        genderCode,
+                        txtCpNo.getText().trim(),
+                        txtAddress.getText().trim(),
+                        txtBirthdate.getText().trim(),
+                        cmbEmployeeStat.getSelectedItem().toString().trim(),
+                        txtDateStarted.getText().trim(),
+                        txtDateResigned.getText().trim()
+                );
 
                 txtEmpID.setText("");
                 txtLastName.setText("");
@@ -2286,15 +2341,55 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
                 txtCpNo.setText("");
                 txtAddress.setText("");
                 txtBirthdate.setText("");
-                txtStatus.setText("");
+
                 txtDateStarted.setText("");
                 txtDateResigned.setText("");
 
+
+                db.populateTable(db.fetchEmployees(), populatedTable);
                 switchToCard("pnlManagement");
+
             } else {
-                JOptionPane.showMessageDialog(null, "No record selected to update");
-            }
-        }
+                int row = tblManagement.getSelectedRow();
+                if (row != -1) {
+                    // Update existing employee record
+                    String employeeId = txtEmpID.getText().trim();
+                    String lastName = txtLastName.getText().trim();
+                    String firstName = txtFirstName.getText().trim();
+                    String email = txtEmail.getText().trim();
+                    genderCode = switch(cmbGender.getSelectedItem().toString().trim()){
+                        case "Male" -> 
+                            "M";
+                        case "Female"->
+                            "F";
+                        default ->
+                            "";
+                    };
+                    String cpNo = txtCpNo.getText().trim();
+                    String address = txtAddress.getText().trim();
+                    String birthdate = txtBirthdate.getText().trim(); 
+                    String status = txtStatus.getSelectedItem().toString().trim();
+                    String dateStarted = txtDateStarted.getText().trim();
+                    String dateResigned = txtDateResigned.getText().trim();
+
+                    db.updateEmployee(employeeId, lastName, firstName, email, genderCode, cpNo, address, birthdate, status, dateStarted, dateResigned);
+                    db.populateTable(db.fetchEmployees(), populatedTable);
+
+                    txtEmpID.setText("");
+                    txtLastName.setText("");
+                    txtFirstName.setText("");
+                    txtEmail.setText("");
+                    cmbGender.setSelectedItem(null);
+                    txtCpNo.setText("");
+                    txtAddress.setText("");
+                    txtBirthdate.setText("");
+                    txtDateStarted.setText("");
+                    txtDateResigned.setText("");
+
+                    switchToCard("pnlManagement");
+                } else {
+                    JOptionPane.showMessageDialog(null, "No record selected to update");
+                }
             }
         }
     }//GEN-LAST:event_btnConfirmEmployeeMouseClicked
@@ -2383,6 +2478,7 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
 
     private void btnCancelStudentMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelStudentMouseClicked
         // TODO add your handling code here:
+        switchToCard("pnlManagement");
     }//GEN-LAST:event_btnCancelStudentMouseClicked
 
     private void cmbGenderStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbGenderStudentActionPerformed
@@ -2457,37 +2553,51 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbSubjectCode1ActionPerformed
 
-    private void cmbEmployeeName2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbEmployeeName2ActionPerformed
+    private void cmbStudentNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbStudentNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cmbEmployeeName2ActionPerformed
+    }//GEN-LAST:event_cmbStudentNameActionPerformed
 
     private void cmbSYear2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbSYear2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbSYear2ActionPerformed
 
-    private void cmbCollegeCode2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbCollegeCode2ActionPerformed
+    private void btnConfirmGradeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConfirmGradeMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_cmbCollegeCode2ActionPerformed
 
-    private void btnConfirmSched2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConfirmSched2MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnConfirmSched2MouseClicked
+        if (boolAdd) {
+            db.addGrade(
+                    cmbSYear2.getSelectedItem().toString().trim(),
+                    cmbSemester2.getSelectedItem().toString().trim(),
+                    "(SELECT student_no FROM finalsoop.student WHERE CONCAT(lastname, ', ', firstname) = '" + cmbStudentName.getSelectedItem().toString().trim() + "')",
+                    "(SELECT subject_code FROM finalsoop.subject WHERE description = '" + cmbSubjectDesc2.getSelectedItem().toString().trim() + "')",
+                    txtBlockNo2.getText().trim(),
+                    Double.parseDouble(cmbGrade.getSelectedItem().toString().trim())
+            );
+            switchToCard("pnlManagement");
+        }else{
+            //update here
+        }
+    }//GEN-LAST:event_btnConfirmGradeMouseClicked
 
     private void btnAddCancel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddCancel2MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAddCancel2MouseClicked
 
-    private void cmbSubjectCode2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbSubjectCode2ActionPerformed
+    private void cmbSubjectDesc2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbSubjectDesc2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cmbSubjectCode2ActionPerformed
-
-    private void txtTime2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTime2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtTime2ActionPerformed
+    }//GEN-LAST:event_cmbSubjectDesc2ActionPerformed
 
     private void jComboBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox5ActionPerformed
+
+    private void cmbGradeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbGradeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbGradeActionPerformed
+
+    private void cmbSemester2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbSemester2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbSemester2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2545,6 +2655,30 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
             System.out.println(e);
         }
     }
+    
+    public void populateGradeOptions(){
+        try{
+            ResultSet rs = db.fetchSchoolYears();
+            while(rs.next()){
+                cmbSYear2.addItem(rs.getString("syear"));
+            }
+            rs = db.fetchSemesters();
+            while(rs.next()){
+                cmbSemester2.addItem(rs.getString("semester"));
+            }
+            PreparedStatement ps = conn.prepareStatement("SELECT CONCAT(lastname, ', ', firstname) AS full_name FROM finalsoop.student;");
+            rs = ps.executeQuery();
+            while(rs.next()){
+                cmbStudentName.addItem(rs.getString("full_name"));
+            }
+            rs = db.fetchSubjects();
+            while(rs.next()){
+                cmbSubjectDesc2.addItem(rs.getString("description"));
+            }
+        }catch(Exception e){
+            System.out.println(e);
+        }
+    }
 
     public String findItemInResultSet(ResultSet rs, String targetValue, String columnName, String targetColumn) {
         try {
@@ -2560,6 +2694,24 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
         }
         return null;
     }
+    public String findConcatenatedItemInResultSet(ResultSet rs, String targetValue, String column1, String column2, String targetColumn) {
+    try {
+        while (rs.next()) {
+            // Concatenate the two columns
+            String concatenatedValue = rs.getString(column1) + " " + rs.getString(column2);
+            
+            // Check if the concatenated value matches the target value
+            if (concatenatedValue.equals(targetValue)) {
+                // Retrieve the value from the target column
+                return rs.getString(targetColumn);
+            }
+        }
+    } catch (Exception e) {
+        System.out.println(e);
+    }
+    return null;
+}
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
@@ -2578,9 +2730,9 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
     private javax.swing.JButton btnConfirmEmployee1;
     private javax.swing.JButton btnConfirmEmployee2;
     private javax.swing.JButton btnConfirmEmployee3;
+    private javax.swing.JButton btnConfirmGrade;
     private javax.swing.JButton btnConfirmSched;
     private javax.swing.JButton btnConfirmSched1;
-    private javax.swing.JButton btnConfirmSched2;
     private javax.swing.JButton btnConfirmStudent;
     private javax.swing.JButton btnCourse;
     private javax.swing.JButton btnDashboard;
@@ -2596,30 +2748,29 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
     private javax.swing.JButton btnSubject;
     private javax.swing.JComboBox<String> cmbCollegeCode;
     private javax.swing.JComboBox<String> cmbCollegeCode1;
-    private javax.swing.JComboBox<String> cmbCollegeCode2;
     private javax.swing.JComboBox<String> cmbCourseCode;
     private javax.swing.JComboBox<String> cmbDay;
     private javax.swing.JComboBox<String> cmbDay1;
     private javax.swing.JComboBox<String> cmbEmployeeName;
     private javax.swing.JComboBox<String> cmbEmployeeName1;
-    private javax.swing.JComboBox<String> cmbEmployeeName2;
+    private javax.swing.JComboBox<String> cmbEmployeeStat;
     private javax.swing.JComboBox<String> cmbGender;
     private javax.swing.JComboBox<String> cmbGenderStudent;
+    private javax.swing.JComboBox<String> cmbGrade;
     private javax.swing.JComboBox<String> cmbSYear;
     private javax.swing.JComboBox<String> cmbSYear1;
     private javax.swing.JComboBox<String> cmbSYear2;
     private javax.swing.JComboBox<String> cmbSemester;
+    private javax.swing.JComboBox<String> cmbSemester2;
     private javax.swing.JComboBox<String> cmbStatusStudent;
+    private javax.swing.JComboBox<String> cmbStudentName;
     private javax.swing.JComboBox<String> cmbSubjectCode;
     private javax.swing.JComboBox<String> cmbSubjectCode1;
-    private javax.swing.JComboBox<String> cmbSubjectCode2;
+    private javax.swing.JComboBox<String> cmbSubjectDesc2;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JComboBox<String> jComboBox5;
-    private javax.swing.JComboBox<String> jComboBox6;
-    private javax.swing.JComboBox<String> jComboBox7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -2671,21 +2822,18 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel53;
     private javax.swing.JLabel jLabel54;
     private javax.swing.JLabel jLabel55;
-    private javax.swing.JLabel jLabel56;
     private javax.swing.JLabel jLabel58;
-    private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel60;
     private javax.swing.JLabel jLabel61;
     private javax.swing.JLabel jLabel63;
     private javax.swing.JLabel jLabel64;
+    private javax.swing.JLabel jLabel65;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JPanel panelNav;
     private javax.swing.JPanel pnlAddCollege;
@@ -2707,6 +2855,8 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
     private javax.swing.JTextField txtBirthdate;
     private javax.swing.JTextField txtBirthdayStudent;
     private javax.swing.JTextField txtBlockNo;
+    private javax.swing.JTextField txtBlockNo2;
+    private javax.swing.JTextField txtCollegeCode1;
     private javax.swing.JTextField txtCpNo;
     private javax.swing.JTextField txtCpNo1;
     private javax.swing.JTextField txtDateCl;
@@ -2729,10 +2879,10 @@ public class schoolManagementMainUI extends javax.swing.JFrame {
     private javax.swing.JTextField txtPhoneNo;
     private javax.swing.JTextField txtRoom;
     private javax.swing.JTextField txtSequence;
+    private javax.swing.JComboBox<String> txtStatus;
     private javax.swing.JTextField txtStudentNo;
     private javax.swing.JTextField txtTime;
     private javax.swing.JTextField txtTime1;
-    private javax.swing.JTextField txtTime2;
     private javax.swing.JTextField txtTime3;
     private javax.swing.JTextField txtTime4;
     private javax.swing.JTextField txtType;
