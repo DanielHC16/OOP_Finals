@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.ResultSet;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -476,7 +477,8 @@ public class dbManager {
 		try (Statement ps = conn.createStatement()) {
 			ps.execute("DELETE FROM finalsoop.semester WHERE semester = '" + strSemester + "'");
 		} catch (SQLException e) {
-			System.out.println(e);
+			JOptionPane.showMessageDialog(null, "An error occurred: " + e.getMessage());
+                        e.printStackTrace();
 		}
 	}
 
